@@ -1,0 +1,33 @@
+---
+import { getCollection, render} from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import Container from '../../components/Container.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map(project => ({
+    params: { id: project.slug },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props
+const { data, slug } = project
+const { title, description, technologies, date,demoUrl,githubUrl,image} = data
+const { Content } = await render(project)
+---
+
+<Layout>
+  <Container>
+    <div class="mt-[120px]">
+      <h1 class="text-5xl font-light text-center pb-8 text-text-primary">{title}</h1>
+      <section class="flex  items-center gap-4">
+        <aside>
+          <img transition:name={`project-${slug}`} src={image} alt="imag" class="w-[500px]"/>
+        </aside>
+        <p class="prose">{description}</p>
+      </section>
+      <Content>
+    </div>
+  </Container>
+</Layout>
