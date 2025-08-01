@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import CardProject from "../components/CardProject.astro";
 import Container from "../components/Container.astro";
 import Layout from "../layouts/Layout.astro";
+import TitleSection from "../components/ui/TitleSection.astro";
 
 const projects = await getCollection('projects')
 ---
@@ -11,11 +12,9 @@ const projects = await getCollection('projects')
 
 <Layout>
   <Container>
-    <section class="mt-[120px]">
+    <section class="pt-[120px]">
       <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-6xl font-light text-gray-900 dark:text-primary tracking-tight mb-6">
-          Mis Proyectos
-        </h1>
+        <TitleSection title="Mis Proyectos" />
         <p class="text-lg text-gray-600 dark:text-text-secondary max-w-2xl mx-auto mb-8">
           Una colección de proyectos que muestran mis habilidades en el desarrollo full-stack, desde el concepto hasta la implementación.
         </p>

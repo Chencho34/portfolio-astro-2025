@@ -1,13 +1,15 @@
 ---
 import Container from '../components/Container.astro';
-import Nav from '../components/Nav.astro';
+import GithubIcon from '../components/icons/GithubIcon.astro';
 import Layout from '../layouts/Layout.astro';
-
+import LinkedinIcon from '../components/icons/LinkedinIcon.astro'
+import SocialPill from '../components/ui/SocialPill.astro';
+import CVIcon from '../components/icons/CVIcon.astro'
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
+<Layout title="Inicio">
 	<main class="pt-[40px] h-full w-full grid place-content-center">
 		<Container>
 			<section>
@@ -26,14 +28,24 @@ import Layout from '../layouts/Layout.astro';
 					</p>
 				</article>
 				<article class="pt-12 flex flex-row sm:flex-row items-center justify-center gap-4">
-					<a href="/projects" class="px-8 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors rounded-2xl font-medium">
+					<SocialPill 
+						href="https://github.com/Chencho34"
+					>
+						<GithubIcon class:list={'fill-black size-6 flex gap-2 '}/>
+						<span>Github</span>
+					</SocialPill>
+					<SocialPill
+						href="https://www.linkedin.com/in/armando-cr/"
+					>
+						<LinkedinIcon class:list={' size-6 flex gap-2 '}/>
+						LinkedIn
+					</SocialPill>
+					<SocialPill>
+						<CVIcon class:list={' size-6 flex gap-2 '}/>
 						CV
-					</a>
-					<a href="/about" class="px-8 py-1.5 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors rounded-2xl font-medium">
-						Learn More
-					</a>
+					</SocialPill>
 				</article>
-		</section>
+			</section>
 		</Container>
 	</main>
 </Layout>

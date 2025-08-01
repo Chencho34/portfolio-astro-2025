@@ -1,68 +1,79 @@
 ---
+import TitleSection from "../components/ui/TitleSection.astro";
 import Layout from "../layouts/Layout.astro";
-
-
 ---
 
-<Layout>
+<Layout title="Acerca de Mi">
   <main class="pt-24 pb-16 px-6">
-        <div class="max-w-4xl mx-auto">
-          {/* Header */}
-          <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-6xl font-light text-gray-900 dark:text-white tracking-tight mb-6">
-              About Me
-            </h1>
-            <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto"></div>
+    <div class="max-w-4xl mx-auto">
+
+      <div class="text-center mb-16">
+        <TitleSection title="Acerca de Mi" />
+        <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto" />
+      </div>
+
+      <section class="mb-20">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="prose">
+            <h2 class="text-2xl font-light text-gray-900 dark:text-text-primary mb-6">
+              Hello, I'm Jose
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-text-secondary leading-relaxed">
+              I'm a passionate fullstack developer with over 5 years of
+              experience creating digital solutions that make a difference. My
+              journey began with a curiosity for how things work on the web,
+              which evolved into a deep love for crafting seamless user
+              experiences backed by robust, scalable architecture.
+            </p>
+            <p class="text-lg text-gray-600 dark:text-text-secondary leading-relaxed">
+              I believe in writing clean, maintainable code and staying current
+              with emerging technologies. When I'm not coding, you'll find me
+              exploring new frameworks, contributing to open source, or
+              mentoring aspiring developers.
+            </p>
           </div>
-
-          {/* Introduction */}
-          <section class="mb-20">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-              <div class="space-y-6">
-                <h2 class="text-2xl font-light text-gray-900 dark:text-white mb-6">Hello, I'm Jose</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  I'm a passionate fullstack developer with over 5 years of experience creating digital solutions that
-                  make a difference. My journey began with a curiosity for how things work on the web, which evolved
-                  into a deep love for crafting seamless user experiences backed by robust, scalable architecture.
-                </p>
-                <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  I believe in writing clean, maintainable code and staying current with emerging technologies. When I'm
-                  not coding, you'll find me exploring new frameworks, contributing to open source, or mentoring
-                  aspiring developers.
-                </p>
-              </div>
-              <div class="flex justify-center">
-                <div class="w-80 h-80 bg-gray-100 dark:bg-surface/60 rounded-2xl flex items-center justify-center">
-                  <img
-                    src="https://avatars.githubusercontent.com/u/90371472?v=4&size=300"
-                    alt="Jose Armando Crescencio"
-                    class="w-72 h-72 object-cover rounded-xl"
-                  />
-                </div>
-              </div>
+          <div class="flex justify-center">
+            <div
+              class="w-80 h-80 bg-gray-100 dark:bg-surface/60 rounded-2xl flex items-center justify-center"
+            >
+              <img
+                src="https://avatars.githubusercontent.com/u/90371472?v=4&size=300"
+                alt="Jose Armando Crescencio"
+                class="w-72 h-72 object-cover rounded-xl"
+              />
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          {/* Skills */}
-          <section class="mb-20">
-            <h2 class="text-3xl font-light text-gray-900 dark:text-white text-center mb-12">Technical Skills</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-              <div class="text-center">
-                <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-6">Frontend</h3>
-                <div class="space-y-3">
-                  <!-- {skills.frontend.map((skill, index) => (
+      {/* Skills */}
+      <section class="mb-20">
+        <h2
+          class="text-3xl font-light text-gray-900 dark:text-text-primary text-center mb-12"
+        >
+          Technical Skills
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <h3 class="text-xl font-medium text-gray-900 dark:text-text-secondary mb-6">
+              Frontend
+            </h3>
+            <div class="space-y-3">
+              <!-- {skills.frontend.map((skill, index) => (
                     <div
                       class="px-4 py-2 bg-gray-50 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 text-sm"
                     >
                       {skill}
                     </div>
                   ))} -->
-                </div>
-              </div>
-              <div class="text-center">
-                <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-6">Backend</h3>
-                <div class="space-y-3">
-                  <!-- {skills.backend.map((skill, index) => (
+            </div>
+          </div>
+          <div class="text-center">
+            <h3 class="text-xl font-medium text-gray-900 dark:text-text-secondary mb-6">
+              Backend
+            </h3>
+            <div class="space-y-3">
+              <!-- {skills.backend.map((skill, index) => (
                     <div
                       key={index}
                       class="px-4 py-2 bg-gray-50 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 text-sm"
@@ -70,12 +81,14 @@ import Layout from "../layouts/Layout.astro";
                       {skill}
                     </div>
                   ))} -->
-                </div>
-              </div>
-              <div class="text-center">
-                <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-6">Tools & Others</h3>
-                <div class="space-y-3">
-                  <!-- {skills.tools.map((skill, index) => (
+            </div>
+          </div>
+          <div class="text-center">
+            <h3 class="text-xl font-medium text-gray-900 dark:text-text-secondary mb-6">
+              Tools & Others
+            </h3>
+            <div class="space-y-3">
+              <!-- {skills.tools.map((skill, index) => (
                     <div
                       key={index}
                       class="px-4 py-2 bg-gray-50 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 text-sm"
@@ -83,16 +96,20 @@ import Layout from "../layouts/Layout.astro";
                       {skill}
                     </div>
                   ))} -->
-                </div>
-              </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          {/* Experience */}
-          <section class="mb-20">
-            <h2 class="text-3xl font-light text-gray-900 dark:text-white text-center mb-12">Experience</h2>
-            <div class="space-y-8">
-              <!-- {experience.map((job, index) => (
+      {/* Experience */}
+      <section class="mb-20">
+        <h2
+          class="text-3xl font-light text-gray-900 dark:text-white text-center mb-12"
+        >
+          Experience
+        </h2>
+        <div class="space-y-8">
+          <!-- {experience.map((job, index) => (
                 <div key={index} class="border-l-2 border-gray-200 dark:border-gray-700 pl-8 relative">
                   <div class="absolute w-4 h-4 bg-gray-400 dark:bg-gray-600 rounded-full -left-2 top-0"></div>
                   <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
@@ -103,208 +120,288 @@ import Layout from "../layouts/Layout.astro";
                   <p class="text-gray-600 dark:text-gray-400 leading-relaxed">{job.description}</p>
                 </div>
               ))} -->
-            </div>
-          </section>
-
-          {/* Values */}
-          <section class="mb-20">
-            <h2 class="text-3xl font-light text-gray-900 dark:text-white text-center mb-12">My Approach</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-              <div class="text-center">
-                <div class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    class="w-8 h-8 text-gray-600 dark:text-gray-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                    />
-                  </svg>
-                </div>
-                <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Innovation</h3>
-                <p class="text-gray-600 dark:text-gray-400">
-                  Always exploring new technologies and methodologies to deliver cutting-edge solutions.
-                </p>
-              </div>
-              <div class="text-center">
-                <div class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    class="w-8 h-8 text-gray-600 dark:text-gray-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                    />
-                  </svg>
-                </div>
-                <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Quality</h3>
-                <p class="text-gray-600 dark:text-gray-400">
-                  Committed to writing clean, maintainable code with comprehensive testing and documentation.
-                </p>
-              </div>
-              <div class="text-center">
-                <div class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    class="w-8 h-8 text-gray-600 dark:text-gray-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Collaboration</h3>
-                <p class="text-gray-600 dark:text-gray-400">
-                  Believing in the power of teamwork and open communication to achieve exceptional results.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* CTA */}
-          <section class="text-center">
-            <h2 class="text-2xl font-light text-gray-900 dark:text-white mb-6">Let's Work Together</h2>
-            <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-              I'm always interested in new opportunities and exciting projects. Whether you have a question or just want
-              to say hi, feel free to reach out.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="/projects"
-                class="px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors rounded-full font-medium"
-              >
-                View My Projects
-              </a>
-              <a
-                href="mailto:jose@example.com"
-                class="px-8 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors rounded-full font-medium"
-              >
-                Get In Touch
-              </a>
-            </div>
-          </section>
         </div>
-      </main>
-  <section class="bg-surface text-text-primary border border-border rounded-2xl shadow-xl p-8 max-w-4xl mx-auto mt-10 space-y-8">
+      </section>
+
+      {/* Values */}
+      <section class="mb-20">
+        <h2
+          class="text-3xl font-light text-gray-900 dark:text-white text-center mb-12"
+        >
+          My Approach
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-gray-600 dark:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
+              Innovation
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400">
+              Always exploring new technologies and methodologies to deliver
+              cutting-edge solutions.
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-gray-600 dark:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
+              Quality
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400">
+              Committed to writing clean, maintainable code with comprehensive
+              testing and documentation.
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-gray-600 dark:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
+              Collaboration
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400">
+              Believing in the power of teamwork and open communication to
+              achieve exceptional results.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section class="text-center">
+        <h2 class="text-2xl font-light text-gray-900 dark:text-white mb-6">
+          Let's Work Together
+        </h2>
+        <p
+          class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
+        >
+          I'm always interested in new opportunities and exciting projects.
+          Whether you have a question or just want to say hi, feel free to reach
+          out.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <a
+            href="/projects"
+            class="px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors rounded-full font-medium"
+          >
+            View My Projects
+          </a>
+          <a
+            href="mailto:jose@example.com"
+            class="px-8 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors rounded-full font-medium"
+          >
+            Get In Touch
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <section
+    class="bg-surface text-text-primary border border-border rounded-2xl shadow-xl p-8 max-w-4xl mx-auto mt-10 space-y-8"
+  >
     <!-- Título Principal -->
     <div>
       <h1 class="text-3xl font-bold">Texto Principal (text-text-primary)</h1>
-      <p class="text-text-secondary">Texto Secundario (text-text-secondary) con menor énfasis.</p>
-      <p class="text-muted">Texto Muted (text-muted) para información irrelevante o deshabilitada.</p>
+      <p class="text-text-secondary">
+        Texto Secundario (text-text-secondary) con menor énfasis.
+      </p>
+      <p class="text-muted">
+        Texto Muted (text-muted) para información irrelevante o deshabilitada.
+      </p>
     </div>
-  
+
     <!-- Botones -->
     <div class="space-x-4">
-      <button class="bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+      <button
+        class="bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+      >
         Botón Primario
       </button>
-      <button class="bg-surface-alt border border-border text-text-secondary hover:text-text-primary py-2 px-6 rounded-lg transition-colors">
+      <button
+        class="bg-surface-alt border border-border text-text-secondary hover:text-text-primary py-2 px-6 rounded-lg transition-colors"
+      >
         Botón Secundario
       </button>
       <button class="bg-muted text-white py-2 px-6 rounded-lg" disabled>
         Botón Deshabilitado
       </button>
     </div>
-  
+
     <!-- Alertas -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div class="bg-success/10 text-success border border-success/30 rounded-lg p-4">
+      <div
+        class="bg-success/10 text-success border border-success/30 rounded-lg p-4"
+      >
         ✅ Mensaje de éxito (success)
       </div>
       <div class="bg-error/10 text-error border border-error/30 rounded-lg p-4">
         ❌ Mensaje de error (error)
       </div>
-      <div class="bg-warning/10 text-warning border border-warning/30 rounded-lg p-4">
+      <div
+        class="bg-warning/10 text-warning border border-warning/30 rounded-lg p-4"
+      >
         ⚠️ Mensaje de advertencia (warning)
       </div>
       <div class="bg-info/10 text-info border border-info/30 rounded-lg p-4">
         ℹ️ Mensaje informativo (info)
       </div>
     </div>
-  
+
     <!-- Enlaces y acentos -->
     <div>
       <p class="text-text-primary">
-        Este texto incluye un <a href="#" class="text-accent underline hover:opacity-80">enlace acentuado</a>.
+        Este texto incluye un <a
+          href="#"
+          class="text-accent underline hover:opacity-80">enlace acentuado</a
+        >.
       </p>
     </div>
   </section>
-  <section class="bg-surface text-text-primary border border-border rounded-2xl shadow-xl p-8 max-w-6xl mx-auto mt-10 space-y-12">
+  <section
+    class="bg-surface text-text-primary border border-border rounded-2xl shadow-xl p-8 max-w-6xl mx-auto mt-10 space-y-12"
+  >
     <!-- Encabezado -->
     <header class="text-center space-y-2">
       <h1 class="text-4xl font-bold">🎨 Esquema de Colores - Modo Oscuro</h1>
       <p class="text-text-secondary max-w-2xl mx-auto">
-        Este componente muestra todos los tokens de color aplicados a una UI moderna y minimalista. Ideal para validar contraste, jerarquía y uso práctico.
+        Este componente muestra todos los tokens de color aplicados a una UI
+        moderna y minimalista. Ideal para validar contraste, jerarquía y uso
+        práctico.
       </p>
     </header>
-  
+
     <!-- Tipografía -->
     <section>
-      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">📝 Tipografía</h2>
+      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">
+        📝 Tipografía
+      </h2>
       <div class="space-y-2">
-        <p class="text-text-primary text-lg font-medium">Texto principal (`text-text-primary`)</p>
-        <p class="text-text-secondary text-base">Texto secundario (`text-text-secondary`)</p>
-        <p class="text-muted text-sm italic">Texto muted (`text-muted`) para descripciones sutiles o estados deshabilitados.</p>
+        <p class="text-text-primary text-lg font-medium">
+          Texto principal (`text-text-primary`)
+        </p>
+        <p class="text-text-secondary text-base">
+          Texto secundario (`text-text-secondary`)
+        </p>
+        <p class="text-muted text-sm italic">
+          Texto muted (`text-muted`) para descripciones sutiles o estados
+          deshabilitados.
+        </p>
       </div>
     </section>
-  
+
     <!-- Botones -->
     <section>
-      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">🔘 Botones</h2>
+      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">
+        🔘 Botones
+      </h2>
       <div class="flex flex-wrap gap-4">
-        <button class="bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+        <button
+          class="bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+        >
           Botón Primario
         </button>
-        <button class="bg-surface-alt border border-border text-text-secondary hover:text-text-primary py-2 px-6 rounded-lg transition-colors">
+        <button
+          class="bg-surface-alt border border-border text-text-secondary hover:text-text-primary py-2 px-6 rounded-lg transition-colors"
+        >
           Botón Secundario
         </button>
-        <button class="bg-muted text-white py-2 px-6 rounded-lg cursor-not-allowed opacity-60" disabled>
+        <button
+          class="bg-muted text-white py-2 px-6 rounded-lg cursor-not-allowed opacity-60"
+          disabled
+        >
           Botón Deshabilitado
         </button>
       </div>
     </section>
-  
+
     <!-- Tarjetas / Superficies -->
     <section>
-      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">📦 Tarjetas y Superficies</h2>
+      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">
+        📦 Tarjetas y Superficies
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-surface-alt p-6 rounded-xl border border-border">
           <h3 class="text-xl font-semibold mb-2">Surface Alt</h3>
-          <p class="text-text-secondary">Elemento con un fondo alterno a `surface`, ideal para diferenciar secciones.</p>
+          <p class="text-text-secondary">
+            Elemento con un fondo alterno a `surface`, ideal para diferenciar
+            secciones.
+          </p>
         </div>
         <div class="bg-surface p-6 rounded-xl border border-border shadow">
           <h3 class="text-xl font-semibold mb-2">Surface</h3>
-          <p class="text-text-secondary">Fondo principal de componentes elevados como tarjetas o modales.</p>
+          <p class="text-text-secondary">
+            Fondo principal de componentes elevados como tarjetas o modales.
+          </p>
         </div>
       </div>
     </section>
-  
+
     <!-- Alertas -->
     <section>
-      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">🚨 Estados de Feedback</h2>
+      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">
+        🚨 Estados de Feedback
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="bg-success/10 text-success border border-success/30 rounded-lg p-4">
+        <div
+          class="bg-success/10 text-success border border-success/30 rounded-lg p-4"
+        >
           ✅ Éxito: El formulario fue enviado correctamente.
         </div>
-        <div class="bg-error/10 text-error border border-error/30 rounded-lg p-4">
+        <div
+          class="bg-error/10 text-error border border-error/30 rounded-lg p-4"
+        >
           ❌ Error: Ocurrió un problema inesperado.
         </div>
-        <div class="bg-warning/10 text-warning border border-warning/30 rounded-lg p-4">
+        <div
+          class="bg-warning/10 text-warning border border-warning/30 rounded-lg p-4"
+        >
           ⚠️ Advertencia: Asegúrate de completar todos los campos.
         </div>
         <div class="bg-info/10 text-info border border-info/30 rounded-lg p-4">
@@ -312,217 +409,326 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </div>
     </section>
-  
+
     <!-- Enlaces -->
     <section>
-      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">🔗 Enlaces y acentos</h2>
+      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">
+        🔗 Enlaces y acentos
+      </h2>
       <p class="text-text-primary">
-        Este texto contiene un <a href="#" class="text-accent underline hover:opacity-80">enlace acentuado</a> que usa el token `accent`.
+        Este texto contiene un <a
+          href="#"
+          class="text-accent underline hover:opacity-80">enlace acentuado</a
+        > que usa el token `accent`.
       </p>
     </section>
-  
+
     <!-- Overlay de ejemplo -->
     <section>
-      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">🕶️ Overlay Simulado</h2>
+      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">
+        🕶️ Overlay Simulado
+      </h2>
       <div class="relative h-32 bg-surface-alt rounded-xl overflow-hidden">
-        <div class="absolute inset-0 bg-overlay backdrop-blur-sm flex items-center justify-center">
-          <p class="text-text-primary font-semibold">Esto es un overlay con `bg-overlay`</p>
+        <div
+          class="absolute inset-0 bg-overlay backdrop-blur-sm flex items-center justify-center"
+        >
+          <p class="text-text-primary font-semibold">
+            Esto es un overlay con `bg-overlay`
+          </p>
         </div>
       </div>
     </section>
   </section>
-  
-  
-  <section class="bg-surface border border-border rounded-2xl shadow-xl p-8 max-w-xl mx-auto text-center">
+
+  <section
+    class="bg-surface border border-border rounded-2xl shadow-xl p-8 max-w-xl mx-auto text-center"
+  >
     <h1 class="text-3xl font-bold text-text-primary mb-2">Hola, soy armando</h1>
     <h2 class="text-xl text-accent font-semibold mb-4">FULLSTACK</h2>
-    <p class="text-text-secondary mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita accusamus alias, dicta ullam mollitia quas officiis temporibus consequuntur harum iste.</p>
-    <a href="#contacto" class="inline-block bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200">
+    <p class="text-text-secondary mb-6">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
+      accusamus alias, dicta ullam mollitia quas officiis temporibus
+      consequuntur harum iste.
+    </p>
+    <a
+      href="#contacto"
+      class="inline-block bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200"
+    >
       Contáctame
     </a>
   </section>
   <div class="relative">
-  <!-- Fondo o contenido base -->
-  <img src="https://i.blogs.es/732959/casa-kame-de-dragon-ball_3840x2160_xtrafondos.com/500_333.jpeg" alt="contenido" class="w-full h-64 object-cover rounded-lg" />
+    <!-- Fondo o contenido base -->
+    <img
+      src="https://i.blogs.es/732959/casa-kame-de-dragon-ball_3840x2160_xtrafondos.com/500_333.jpeg"
+      alt="contenido"
+      class="w-full h-64 object-cover rounded-lg"
+    />
 
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-overlay backdrop-blur-sm flex items-center justify-center">
-    <p class="text-white font-bold">Overlay activo</p>
-  </div>
-</div>
-
-
-
-
-  
-<section class="bg-surface text-text-primary border border-border rounded-2xl shadow-lg p-8 max-w-6xl mx-auto mt-10 space-y-12">
-  <!-- Encabezado -->
-  <header class="text-center space-y-2">
-    <h1 class="text-4xl font-bold">☀️ Esquema de Colores - Modo Claro</h1>
-    <p class="text-text-secondary max-w-2xl mx-auto">
-      Esta vitrina muestra todos los tokens del modo claro en acción: tipografía, botones, alertas, tarjetas, overlays y más.
-    </p>
-  </header>
-
-  <!-- Tipografía -->
-  <section>
-    <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">📝 Tipografía</h2>
-    <div class="space-y-2">
-      <p class="text-text-primary text-lg font-medium">Texto principal (`text-text-primary`)</p>
-      <p class="text-text-secondary text-base">Texto secundario (`text-text-secondary`)</p>
-      <p class="text-muted text-sm italic">Texto muted (`text-muted`) para descripciones sutiles o estados deshabilitados.</p>
+    <!-- Overlay -->
+    <div
+      class="absolute inset-0 bg-overlay backdrop-blur-sm flex items-center justify-center"
+    >
+      <p class="text-white font-bold">Overlay activo</p>
     </div>
-  </section>
-
-  <!-- Botones -->
-  <section>
-    <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">🔘 Botones</h2>
-    <div class="flex flex-wrap gap-4">
-      <button class="bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-6 rounded-lg transition-colors">
-        Botón Primario
-      </button>
-      <button class="bg-surface-alt border border-border text-text-secondary hover:text-text-primary py-2 px-6 rounded-lg transition-colors">
-        Botón Secundario
-      </button>
-      <button class="bg-muted text-white py-2 px-6 rounded-lg cursor-not-allowed opacity-60" disabled>
-        Botón Deshabilitado
-      </button>
-    </div>
-  </section>
-
-  <!-- Tarjetas / Superficies -->
-  <section>
-    <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">📦 Tarjetas y Superficies</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-surface-alt p-6 rounded-xl border border-border">
-        <h3 class="text-xl font-semibold mb-2">Surface Alt</h3>
-        <p class="text-text-secondary">Superficie secundaria ideal para secciones diferenciadas.</p>
-      </div>
-      <div class="bg-surface p-6 rounded-xl border border-border shadow">
-        <h3 class="text-xl font-semibold mb-2">Surface</h3>
-        <p class="text-text-secondary">Superficie principal para tarjetas y bloques de contenido.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Alertas -->
-  <section>
-    <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">🚨 Estados de Feedback</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="bg-success/10 text-success border border-success/30 rounded-lg p-4">
-        ✅ Éxito: El formulario fue enviado correctamente.
-      </div>
-      <div class="bg-error/10 text-error border border-error/30 rounded-lg p-4">
-        ❌ Error: Algo salió mal.
-      </div>
-      <div class="bg-warning/10 text-warning border border-warning/30 rounded-lg p-4">
-        ⚠️ Advertencia: Faltan campos obligatorios.
-      </div>
-      <div class="bg-info/10 text-info border border-info/30 rounded-lg p-4">
-        ℹ️ Información: Revisa tu correo electrónico.
-      </div>
-    </div>
-  </section>
-
-  <!-- Enlaces y Acentos -->
-  <section>
-    <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">🔗 Enlaces y Acentos</h2>
-    <p class="text-text-primary">
-      Aquí tienes un <a href="#" class="text-accent underline hover:opacity-80">enlace acentuado</a> con `text-accent`.
-    </p>
-  </section>
-
-  <!-- Overlay -->
-  <section>
-    <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">🕶️ Overlay Simulado</h2>
-    <div class="relative h-32 bg-surface-alt rounded-xl overflow-hidden">
-      <div class="absolute inset-0 bg-overlay backdrop-blur-sm flex items-center justify-center">
-        <p class="text-text-primary font-semibold">Overlay visible sobre fondo claro</p>
-      </div>
-    </div>
-  </section>
-</section>
-
-
-
-
-
-<section class="bg-background text-text-primary min-h-screen px-6 py-12 space-y-16">
-  <!-- Header -->
-  <div class="text-center space-y-3">
-    <h1 class="text-4xl font-bold">🎨 Modo Claro - Esquema de Colores</h1>
-    <p class="text-text-secondary max-w-xl mx-auto">
-      Vitrina de componentes visuales aplicando todos los tokens de color definidos.
-    </p>
   </div>
 
-  <!-- Tipografía -->
-  <section class="space-y-2 max-w-3xl mx-auto">
-    <h2 class="text-2xl font-semibold border-b border-border pb-1">📝 Tipografía</h2>
-    <p class="text-text-primary text-lg">Texto principal (`text-text-primary`)</p>
-    <p class="text-text-secondary">Texto secundario (`text-text-secondary`)</p>
-    <p class="text-muted italic text-sm">Texto muted (`text-muted`)</p>
-  </section>
+  <section
+    class="bg-surface text-text-primary border border-border rounded-2xl shadow-lg p-8 max-w-6xl mx-auto mt-10 space-y-12"
+  >
+    <!-- Encabezado -->
+    <header class="text-center space-y-2">
+      <h1 class="text-4xl font-bold">☀️ Esquema de Colores - Modo Claro</h1>
+      <p class="text-text-secondary max-w-2xl mx-auto">
+        Esta vitrina muestra todos los tokens del modo claro en acción:
+        tipografía, botones, alertas, tarjetas, overlays y más.
+      </p>
+    </header>
 
-  <!-- Botones -->
-  <section class="space-y-4 max-w-3xl mx-auto">
-    <h2 class="text-2xl font-semibold border-b border-border pb-1">🔘 Botones</h2>
-    <div class="flex flex-wrap gap-4">
-      <button class="bg-primary hover:bg-primary-hover text-white font-medium py-2 px-5 rounded-lg transition">
-        Botón Primario
-      </button>
-      <button class="bg-surface-alt border border-border text-text-secondary hover:text-text-primary py-2 px-5 rounded-lg">
-        Botón Secundario
-      </button>
-      <button class="bg-muted text-white py-2 px-5 rounded-lg cursor-not-allowed opacity-60" disabled>
-        Botón Deshabilitado
-      </button>
-    </div>
-  </section>
-
-  <!-- Tarjetas -->
-  <section class="space-y-6 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold border-b border-border pb-1">📦 Tarjetas</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <div class="bg-surface p-5 border border-border rounded-xl shadow-sm">
-        <h3 class="text-xl font-semibold mb-2">Tarjeta Normal</h3>
-        <p class="text-text-secondary">Superficie principal para contenido.</p>
+    <!-- Tipografía -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">
+        📝 Tipografía
+      </h2>
+      <div class="space-y-2">
+        <p class="text-text-primary text-lg font-medium">
+          Texto principal (`text-text-primary`)
+        </p>
+        <p class="text-text-secondary text-base">
+          Texto secundario (`text-text-secondary`)
+        </p>
+        <p class="text-muted text-sm italic">
+          Texto muted (`text-muted`) para descripciones sutiles o estados
+          deshabilitados.
+        </p>
       </div>
-      <div class="bg-surface-alt p-5 border border-border rounded-xl">
-        <h3 class="text-xl font-semibold mb-2">Tarjeta Alterna</h3>
-        <p class="text-text-secondary">Variante con `bg-surface-alt`.</p>
+    </section>
+
+    <!-- Botones -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">
+        🔘 Botones
+      </h2>
+      <div class="flex flex-wrap gap-4">
+        <button
+          class="bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+        >
+          Botón Primario
+        </button>
+        <button
+          class="bg-surface-alt border border-border text-text-secondary hover:text-text-primary py-2 px-6 rounded-lg transition-colors"
+        >
+          Botón Secundario
+        </button>
+        <button
+          class="bg-muted text-white py-2 px-6 rounded-lg cursor-not-allowed opacity-60"
+          disabled
+        >
+          Botón Deshabilitado
+        </button>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Alertas -->
-  <section class="space-y-4 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold border-b border-border pb-1">🚨 Alertas</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="bg-success/10 text-success border border-success/30 p-4 rounded-lg">✅ Éxito</div>
-      <div class="bg-error/10 text-error border border-error/30 p-4 rounded-lg">❌ Error</div>
-      <div class="bg-warning/10 text-warning border border-warning/30 p-4 rounded-lg">⚠️ Advertencia</div>
-      <div class="bg-info/10 text-info border border-info/30 p-4 rounded-lg">ℹ️ Información</div>
-    </div>
-  </section>
-
-  <!-- Overlay simulado -->
-  <section class="space-y-4 max-w-3xl mx-auto">
-    <h2 class="text-2xl font-semibold border-b border-border pb-1">🕶️ Overlay</h2>
-    <div class="relative h-32 rounded-lg overflow-hidden">
-      <div class="absolute inset-0 bg-surface-alt"></div>
-      <div class="absolute inset-0 bg-overlay backdrop-blur-sm flex items-center justify-center">
-        <p class="text-text-primary font-medium">Overlay activo</p>
+    <!-- Tarjetas / Superficies -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">
+        📦 Tarjetas y Superficies
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-surface-alt p-6 rounded-xl border border-border">
+          <h3 class="text-xl font-semibold mb-2">Surface Alt</h3>
+          <p class="text-text-secondary">
+            Superficie secundaria ideal para secciones diferenciadas.
+          </p>
+        </div>
+        <div class="bg-surface p-6 rounded-xl border border-border shadow">
+          <h3 class="text-xl font-semibold mb-2">Surface</h3>
+          <p class="text-text-secondary">
+            Superficie principal para tarjetas y bloques de contenido.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Alertas -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">
+        🚨 Estados de Feedback
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div
+          class="bg-success/10 text-success border border-success/30 rounded-lg p-4"
+        >
+          ✅ Éxito: El formulario fue enviado correctamente.
+        </div>
+        <div
+          class="bg-error/10 text-error border border-error/30 rounded-lg p-4"
+        >
+          ❌ Error: Algo salió mal.
+        </div>
+        <div
+          class="bg-warning/10 text-warning border border-warning/30 rounded-lg p-4"
+        >
+          ⚠️ Advertencia: Faltan campos obligatorios.
+        </div>
+        <div class="bg-info/10 text-info border border-info/30 rounded-lg p-4">
+          ℹ️ Información: Revisa tu correo electrónico.
+        </div>
+      </div>
+    </section>
+
+    <!-- Enlaces y Acentos -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">
+        🔗 Enlaces y Acentos
+      </h2>
+      <p class="text-text-primary">
+        Aquí tienes un <a
+          href="#"
+          class="text-accent underline hover:opacity-80">enlace acentuado</a
+        > con `text-accent`.
+      </p>
+    </section>
+
+    <!-- Overlay -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4 border-b border-border pb-2">
+        🕶️ Overlay Simulado
+      </h2>
+      <div class="relative h-32 bg-surface-alt rounded-xl overflow-hidden">
+        <div
+          class="absolute inset-0 bg-overlay backdrop-blur-sm flex items-center justify-center"
+        >
+          <p class="text-text-primary font-semibold">
+            Overlay visible sobre fondo claro
+          </p>
+        </div>
+      </div>
+    </section>
   </section>
 
-  <!-- Enlaces -->
-  <section class="max-w-3xl mx-auto space-y-2">
-    <h2 class="text-2xl font-semibold border-b border-border pb-1">🔗 Enlaces</h2>
-    <p class="text-text-primary">
-      Esto es un <a href="#" class="text-accent underline hover:opacity-80">enlace acentuado</a>.
-    </p>
+  <section
+    class="bg-background text-text-primary min-h-screen px-6 py-12 space-y-16"
+  >
+    <!-- Header -->
+    <div class="text-center space-y-3">
+      <h1 class="text-4xl font-bold">🎨 Modo Claro - Esquema de Colores</h1>
+      <p class="text-text-secondary max-w-xl mx-auto">
+        Vitrina de componentes visuales aplicando todos los tokens de color
+        definidos.
+      </p>
+    </div>
+
+    <!-- Tipografía -->
+    <section class="space-y-2 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-semibold border-b border-border pb-1">
+        📝 Tipografía
+      </h2>
+      <p class="text-text-primary text-lg">
+        Texto principal (`text-text-primary`)
+      </p>
+      <p class="text-text-secondary">
+        Texto secundario (`text-text-secondary`)
+      </p>
+      <p class="text-muted italic text-sm">Texto muted (`text-muted`)</p>
+    </section>
+
+    <!-- Botones -->
+    <section class="space-y-4 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-semibold border-b border-border pb-1">
+        🔘 Botones
+      </h2>
+      <div class="flex flex-wrap gap-4">
+        <button
+          class="bg-primary hover:bg-primary-hover text-white font-medium py-2 px-5 rounded-lg transition"
+        >
+          Botón Primario
+        </button>
+        <button
+          class="bg-surface-alt border border-border text-text-secondary hover:text-text-primary py-2 px-5 rounded-lg"
+        >
+          Botón Secundario
+        </button>
+        <button
+          class="bg-muted text-white py-2 px-5 rounded-lg cursor-not-allowed opacity-60"
+          disabled
+        >
+          Botón Deshabilitado
+        </button>
+      </div>
+    </section>
+
+    <!-- Tarjetas -->
+    <section class="space-y-6 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-semibold border-b border-border pb-1">
+        📦 Tarjetas
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="bg-surface p-5 border border-border rounded-xl shadow-sm">
+          <h3 class="text-xl font-semibold mb-2">Tarjeta Normal</h3>
+          <p class="text-text-secondary">
+            Superficie principal para contenido.
+          </p>
+        </div>
+        <div class="bg-surface-alt p-5 border border-border rounded-xl">
+          <h3 class="text-xl font-semibold mb-2">Tarjeta Alterna</h3>
+          <p class="text-text-secondary">Variante con `bg-surface-alt`.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alertas -->
+    <section class="space-y-4 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-semibold border-b border-border pb-1">
+        🚨 Alertas
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div
+          class="bg-success/10 text-success border border-success/30 p-4 rounded-lg"
+        >
+          ✅ Éxito
+        </div>
+        <div
+          class="bg-error/10 text-error border border-error/30 p-4 rounded-lg"
+        >
+          ❌ Error
+        </div>
+        <div
+          class="bg-warning/10 text-warning border border-warning/30 p-4 rounded-lg"
+        >
+          ⚠️ Advertencia
+        </div>
+        <div class="bg-info/10 text-info border border-info/30 p-4 rounded-lg">
+          ℹ️ Información
+        </div>
+      </div>
+    </section>
+
+    <!-- Overlay simulado -->
+    <section class="space-y-4 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-semibold border-b border-border pb-1">
+        🕶️ Overlay
+      </h2>
+      <div class="relative h-32 rounded-lg overflow-hidden">
+        <div class="absolute inset-0 bg-surface-alt"></div>
+        <div
+          class="absolute inset-0 bg-overlay backdrop-blur-sm flex items-center justify-center"
+        >
+          <p class="text-text-primary font-medium">Overlay activo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enlaces -->
+    <section class="max-w-3xl mx-auto space-y-2">
+      <h2 class="text-2xl font-semibold border-b border-border pb-1">
+        🔗 Enlaces
+      </h2>
+      <p class="text-text-primary">
+        Esto es un <a href="#" class="text-accent underline hover:opacity-80"
+          >enlace acentuado</a
+        >.
+      </p>
+    </section>
   </section>
-</section>
 </Layout>
