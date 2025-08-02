@@ -1,0 +1,39 @@
+import Astro from './AstroIcon.astro'
+import Bootstrap from './BootstrapIcon.astro'
+import Docker from './DockerIcon.astro'
+import Express from './ExpressIcon.astro'
+import Git from './GitIcon.astro'
+import Github from './GithubIcon.astro'
+import JavaScript from './JavaScriptIcon.astro'
+import Next from './NextIcon.astro'
+import Node from './NodeIcon.astro'
+import Npm from './NpmIcon.astro'
+import Postgres from './PostgresIcon.astro'
+import Postman from './PostmanIcon.astro'
+import React from './ReactIcon.astro'
+import Sequelize from './SequelizeIcon.astro'
+import Tailwind from './TailwindIcon.astro'
+import TypeScript from './TypeScriptIcon.astro'
+import VsCode from './VsCodeIcon.astro'
+import Yarn from './YarnIcon.astro'
+
+export {
+  Astro,
+  Bootstrap,
+  Docker,
+  Express,
+  Git,
+  Github,
+  JavaScript,
+  Next,
+  Node,
+  Npm,
+  Postgres,
+  Postman,
+  React,
+  Sequelize,
+  Tailwind,
+  TypeScript,
+  VsCode,
+  Yarn
+}

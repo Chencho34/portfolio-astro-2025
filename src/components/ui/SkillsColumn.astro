@@ -1,0 +1,25 @@
+---
+interface Props {
+  skills: Skill[]
+  titleSection: string
+  className?: string
+}
+
+const { skills, titleSection, className } = Astro.props
+---
+
+<section class="text-center">
+  <h3 class="text-xl font-medium text-gray-900 dark:text-text-secondary mb-6">
+    { titleSection }
+  </h3>
+  <article class="space-y-3">
+    {skills.map((skill: Skill) => (
+      <div
+        class={`flex flex-row items-center justify-center gap-2.5 px-4 py-2 text-sm rounded-full ${className}`}
+      >
+        <skill.icon class:list={'size-7'}/>
+        { skill.name }
+      </div>
+    ))}
+  </article>
+</section>
