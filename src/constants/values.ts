@@ -1,4 +1,5 @@
 import { InnovationIcon, CollaborationIcon, QualityIcon } from "../components/icons/AboutValues"
+import type { Values } from "../types/values"
 
 export const values: Values[] = [
   {
