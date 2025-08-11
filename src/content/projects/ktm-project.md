@@ -1,8 +1,8 @@
 ---
-title: "E-commerce Fullstack"
+title: "Landig Page KTM"
 description: "Tienda en línea con pasarela de pagos, autenticación y panel de administración."
-image: "https://chencho34.github.io/MyPortfolio/images/shopping.png"
-technologies: ["React", "Tailwind", "Node.js", "PostgreSQL"]
+image: "/images/ktm-project.png"
+technologies: ["Html", "Css", "JavaScript"]
 githubUrl: "https://github.com/armando/ecommerce"
 demoUrl: "https://ecommerce-armando.netlify.app"
 featured: true

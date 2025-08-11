@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-
 import CardProject from "../components/CardProject.astro";
 import Container from "../components/Container.astro";
 import Layout from "../layouts/Layout.astro";
@@ -10,7 +9,7 @@ const projects = await getCollection('projects')
 ---
 
 
-<Layout>
+<Layout title="Projects">
   <Container>
     <section class="pt-[120px]">
       <div class="text-center mb-16">
@@ -21,7 +20,7 @@ const projects = await getCollection('projects')
         <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto"></div>
       </div>
     </section>
-    <section class="flex flex-wrap gap-6">
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 items-center gap-4 justify-center pb-32">
       {
         projects.map(project => {
           const { data, slug } = project

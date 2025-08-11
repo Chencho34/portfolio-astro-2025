@@ -16,11 +16,15 @@ import Tailwind from './TailwindIcon.astro'
 import TypeScript from './TypeScriptIcon.astro'
 import VsCode from './VsCodeIcon.astro'
 import Yarn from './YarnIcon.astro'
+import Html from './HtmlIcon.astro'
+import Css from './CssIcon.astro'
+import Redux from './ReduxIcon.astro'
+import Jwt from './JwtIcon.astro'
 
 export {
   Astro,
   Bootstrap,
-  Docker,
+  Docker,     
   Express,
   Git,
   Github,
@@ -35,5 +39,9 @@ export {
   Tailwind,
   TypeScript,
   VsCode,
-  Yarn
+  Yarn,
+  Html,
+  Css,
+  Redux,
+  Jwt,
 }

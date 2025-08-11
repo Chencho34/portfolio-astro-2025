@@ -3,11 +3,11 @@ interface Props {
   className?: string
 }
 
-const { className='' } = Astro.props
+const { className } = Astro.props
 
 ---
 
-<section class=`container mx-auto px-4`>
+<section class=`max-w-7xl mx-auto px-6 pt-24 pb-16 ${className}`>
   <slot />
 </section>
 

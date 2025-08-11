@@ -9,7 +9,7 @@ const projectsCollection = defineCollection({
     technologies: z.array(z.string()),
     githubUrl: z.string().optional(),
     demoUrl: z.string().optional(),
-    date: z.date().optional()
+    date: z.date().optional(),
   })
 })
 
