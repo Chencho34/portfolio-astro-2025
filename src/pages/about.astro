@@ -1,142 +1,156 @@
 ---
-
 import Layout from "../layouts/Layout.astro";
 import { skills } from "../constants/skills";
 import SkillsColumn from "../components/ui/SkillsColumn.astro";
-import InnovationIcon from "../components/icons/InnovationIcon.astro"
-import QualityIcon from "../components/icons/QualityIcon.astro"
-import CollaborationIcon from "../components/icons/CollaborationIcon.astro"
 import CtaButton from "../components/ui/CtaButton.astro";
-import { TitleSection, SubtitleSection, Section, ExperienceTimeline } from "../components/ui";
-import Container from "../components/Container.astro";
+import {
+  TitleSection,
+  SubtitleSection,
+  Section,
+  ExperienceTimeline,
+  Container
+} from "../components/ui";
+import { InnovationIcon, CollaborationIcon, QualityIcon } from "../components/icons/AboutValues";
 ---
 
-<Layout 
-  title="Acerca de Mi"
->
-  <!-- <main class="pt-24 pb-16 px-6"> -->
-    <!-- <div class="max-w-4xl mx-auto"> -->
-
-      <Container>
-        <Section>
-          <TitleSection title="Acerca de Mi"/>
-          <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto"/>
-        </Section>
-        <Section>
-          <article class="grid md:grid-cols-2 gap-12 items-center justify-center">
-            <section class="prose">
-              <h2 class="text-2xl font-light text-gray-900 dark:text-text-primary mb-6">
-                Hola, Soy Armando 👋
-              </h2>
-              <p class="text-lg text-gray-600 dark:text-text-secondary leading-relaxed">
-                Desarrollador web con 4 años experiencia en la creación de interfaces de usuario eficientes y escalables, especializado en el uso de React y tecnologías web modernas como Node.js, TypeScript y TailwindCSS.
-              <p class="text-lg text-gray-600 dark:text-text-secondary leading-relaxed">
-                Me encanta trabajar en equipo en proyectos desafiantes que me permitan seguir desarrollando mis habilidades. Apasionado por explorar continuamente nuevas tecnologías y contribuir al éxito de los proyectos.
-              </p>
-              </p>
-            </section>
-            <section class="flex justify-center">
-              <figure
-                class="w-80 h-80 bg-gray-100 dark:bg-surface/60 rounded-2xl flex items-center justify-center"
-              >
-                <img
-                  src="https://avatars.githubusercontent.com/u/90371472?v=4&size=300"
-                  alt="Jose Armando Crescencio"
-                  class="w-72 h-72 object-cover rounded-xl"
-                />
-              </figure>
-            </section>
-          </article>
-        </Section>
-        {/* Skills */}
-        <Section>
-          <SubtitleSection
-            title="Tecnologias & Herramientas"
-          />
-          <article class="grid md:grid-cols-3 gap-8">
-            <SkillsColumn
-              skills={skills.frontend}
-              titleSection="Frontend"
-              className="bg-info/10 text-info border border-info/30"
-            />
-            <SkillsColumn
-              skills={skills.backend}
-              titleSection="Backend"
-              className="bg-success/10 text-success border border-success/30"
-            />
-            <SkillsColumn
-              skills={skills.tools}
-              titleSection="Tools"
-              className="bg-gray-600/10 text-gray-300 border border-gray-300/30"
-            />
-          </article>
-        </Section>
-        {/* Experience */}
-        <Section>
-          <SubtitleSection
-            title="Experiencia Profesional"
-          />
-          <ExperienceTimeline />
-        </Section>
-        {/* Values */}
-        <Section>
-          <SubtitleSection
-            title="Mi Enfoque"
-          />
-          <section class="grid md:grid-cols-3 gap-8">
-            <article class="text-center">
-              <span class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <InnovationIcon />
-              </span>
-              <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
-                Inovacion
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400">
-                Explorando constantemente nuevas tecnologías y metodologías para ofrecer soluciones de vanguardia.
-              </p>
-            </article>
-            <article class="text-center">
-              <div class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <QualityIcon />
-              </div>
-              <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
-                Calidad
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400">
-                Comprometidos con la escritura de código limpio y fácil de mantener, con pruebas y documentación exhaustivas
-              </p>
-            </article>
-            <article class="text-center">
-              <div class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CollaborationIcon />
-              </div>
-              <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
-                Colaboracion
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400">
-                Me encanta el trabajo en equipo y la comunicación abierta para lograr resultados excepcionales.
-              </p>
-            </article>
-          </section>
-        </Section>
-        {/* CTA */}
-        <Section>
-          <SubtitleSection
-            title="Trabajemos Juntos"
-          />
-          <p class="text-lg text-center prose text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-            Siempre me interesan nuevas oportunidades y proyectos emocionantes. No dudes en contactarme.
+<Layout title="Acerca de Mi">
+  <Container>
+    <Section>
+      <TitleSection title="Acerca de Mi" />
+      <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto"></div>
+    </Section>
+    <Section>
+      <article class="grid md:grid-cols-2 gap-12 items-center justify-center">
+        <section class="prose">
+          <h2
+            class="text-2xl font-light text-gray-900 dark:text-text-primary mb-6"
+          >
+            Hola, Soy Armando 👋
+          </h2>
+          <p
+            class="text-lg text-gray-600 dark:text-text-secondary leading-relaxed"
+          >
+            Desarrollador web con 4 años experiencia en la creación de
+            interfaces de usuario eficientes y escalables, especializado en el
+            uso de React y tecnologías web modernas como Node.js, TypeScript y
+            TailwindCSS.
+            <p
+              class="text-lg text-gray-600 dark:text-text-secondary leading-relaxed"
+            >
+              Me encanta trabajar en equipo en proyectos desafiantes que me
+              permitan seguir desarrollando mis habilidades. Apasionado por
+              explorar continuamente nuevas tecnologías y contribuir al éxito de
+              los proyectos.
+            </p>
           </p>
-          <article class="flex flex-row items-center justify-center gap-4">
-            <CtaButton variant="primary" href="/projects">
-              Mis proyectos
-            </CtaButton>
-            <CtaButton variant="secondary" href="mailto:armandocrescencio343@gmail.com">
-              Contactame
-            </CtaButton>
-          </article>
-        </Section>
-      </Container>
-    <!-- </div> -->
-  <!-- </main> -->
+        </section>
+        <section class="flex justify-center">
+          <figure
+            class="w-80 h-80 bg-gray-100 dark:bg-surface/60 rounded-2xl flex items-center justify-center"
+          >
+            <img
+              src="https://avatars.githubusercontent.com/u/90371472?v=4&size=300"
+              alt="Jose Armando Crescencio"
+              class="w-72 h-72 object-cover rounded-xl"
+            />
+          </figure>
+        </section>
+      </article>
+    </Section>
+    {/* Skills */}
+    <Section>
+      <SubtitleSection title="Tecnologias & Herramientas" />
+      <article class="grid md:grid-cols-3 gap-8">
+        <SkillsColumn
+          skills={skills.frontend}
+          titleSection="Frontend"
+          className="bg-info/10 text-info border border-info/30"
+        />
+        <SkillsColumn
+          skills={skills.backend}
+          titleSection="Backend"
+          className="bg-success/10 text-success border border-success/30"
+        />
+        <SkillsColumn
+          skills={skills.tools}
+          titleSection="Tools"
+          className="bg-gray-600/10 text-gray-300 border border-gray-300/30"
+        />
+      </article>
+    </Section>
+    {/* Experience */}
+    <Section>
+      <SubtitleSection title="Experiencia Profesional" />
+      <ExperienceTimeline />
+    </Section>
+    {/* Values */}
+    <Section>
+      <SubtitleSection title="Mi Enfoque" />
+      <section class="grid md:grid-cols-3 gap-8">
+        <article class="text-center">
+          <span
+            class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <InnovationIcon />
+          </span>
+          <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
+            Inovacion
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Explorando constantemente nuevas tecnologías y metodologías para
+            ofrecer soluciones de vanguardia.
+          </p>
+        </article>
+        <article class="text-center">
+          <div
+            class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <QualityIcon />
+          </div>
+          <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
+            Calidad
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Comprometidos con la escritura de código limpio y fácil de mantener,
+            con pruebas y documentación exhaustivas
+          </p>
+        </article>
+        <article class="text-center">
+          <div
+            class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <CollaborationIcon />
+          </div>
+          <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
+            Colaboracion
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Me encanta el trabajo en equipo y la comunicación abierta para
+            lograr resultados excepcionales.
+          </p>
+        </article>
+      </section>
+    </Section>
+    {/* CTA */}
+    <Section>
+      <SubtitleSection title="Trabajemos Juntos" />
+      <p
+        class="text-lg text-center prose text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
+      >
+        Siempre me interesan nuevas oportunidades y proyectos emocionantes. No
+        dudes en contactarme.
+      </p>
+      <article class="flex flex-row items-center justify-center gap-4">
+        <CtaButton variant="primary" href="/projects">
+          Mis proyectos
+        </CtaButton>
+        <CtaButton
+          variant="secondary"
+          href="mailto:armandocrescencio343@gmail.com"
+        >
+          Contactame
+        </CtaButton>
+      </article>
+    </Section>
+  </Container>
 </Layout>
