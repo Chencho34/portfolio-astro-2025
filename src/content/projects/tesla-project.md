@@ -3,7 +3,7 @@ layout: "../layouts/BlogLayout.astro"
 title: "Ice cream - pet friendly"
 description: "Tienda en línea con pasarela de pagos, autenticación y panel de administración."
 image: "/images/tesla-project.png"
-technologies: ["React", "Tailwind", "Node.js", "PostgreSQL"]
+technologies: ["React", "Tailwind", "Node", "Postgres"]
 githubUrl: "https://github.com/armando/ecommerce"
 demoUrl: "https://ecommerce-armando.netlify.app"
 featured: true

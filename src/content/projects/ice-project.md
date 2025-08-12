@@ -10,13 +10,7 @@ featured: true
 date: 2025-06-10
 ---
 
-## Características Principales
-
-- **Autenticación Robusta**
-  - Sistema de registro y login de usuarios
-  - Persistencia de sesión
-  - Recuperación de contraseña
-  - Protección de rutas privadas
+# Características Principales
 
 - **Gestión de Carrito**
   - Añadir/eliminar productos
@@ -60,11 +54,6 @@ date: 2025-06-10
 - Variables CSS personalizadas
 - Animaciones optimizadas
 
-### Testing
-- Unit testing de componentes críticos
-- Integration testing de flujos principales
-- E2E testing de user journeys importantes
-
 ## Aprendizajes y Desafíos
 
 - Implementación de patrones de diseño escalables
@@ -72,11 +61,3 @@ date: 2025-06-10
 - Gestión eficiente de estado global
 - Manejo de side effects y async operations
 - Implementación de clean code y best practices
-
-## Próximas Mejoras
-
-- Implementación de PWA
-- Integración con pasarelas de pago
-- Sistema de reviews de productos
-- Wishlist personalizada
-- Notificaciones push

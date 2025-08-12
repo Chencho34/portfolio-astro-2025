@@ -15,8 +15,12 @@ This **e-commerce** platform represents a complete solution for online retail bu
 
 A comprehensive e-commerce platform built with modern web technologies, featuring secure payment processing, inventory management, and a powerful admin dashboard.
 
+```js
+console.log()
+```
 
-# Key Features
+
+## Key Features
 * User authentication and authorization
 * Product catalog with search and filtering
 * Shopping cart and checkout process
@@ -27,17 +31,17 @@ A comprehensive e-commerce platform built with modern web technologies, featurin
 * Responsive design for all devices
 
 
-# Challenges & Solutions
+## Challenges & Solutions
 Payment Security
 Implementing secure payment processing while maintaining a smooth user experience required careful integration with Stripe's API and proper handling of sensitive data.
 
-## Solution:
+### Solution:
 Used Stripe's secure tokenization system and implemented proper server-side validation to ensure payment security without compromising user experience.
 
-# Performance Optimization
+## Performance Optimization
 With a large product catalog, ensuring fast load times and smooth navigation was crucial for user retention.
 
-## Solution:
+### Solution:
 Implemented lazy loading, image optimization with Cloudinary, and efficient database queries with proper indexing to achieve optimal performance.
 
 
