@@ -1,7 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import Container from "../../components/Container.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -72,7 +71,7 @@ const { Content } = await render(project);
             transition:name={`project-${slug}`}
             src={image}
             alt={title}
-            class="w-full mx-auto h-full object-cover"
+            class="max-w-5xl mx-auto h-full object-cover"
           />
         </div>
       </section>

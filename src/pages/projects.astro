@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import CardProject from "../components/CardProject.astro";
-import Container from "../components/Container.astro";
 import Layout from "../layouts/Layout.astro";
 import TitleSection from "../components/ui/TitleSection.astro";
+import { Container, CtaButton, Section, SubtitleSection } from "../components/ui";
 
 const projects = await getCollection('projects')
 ---
@@ -11,16 +11,16 @@ const projects = await getCollection('projects')
 
 <Layout title="Projects">
   <Container>
-    <section class="pt-[120px]">
-      <div class="text-center mb-16">
-        <TitleSection title="Mis Proyectos" />
-        <p class="text-lg text-gray-600 dark:text-text-secondary max-w-2xl mx-auto mb-8">
-          Una colección de proyectos que muestran mis habilidades en el desarrollo full-stack, desde el concepto hasta la implementación.
-        </p>
-        <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto"></div>
-      </div>
-    </section>
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 items-center gap-4 justify-center pb-32">
+    <Section>
+      <TitleSection 
+        title="Mis Proyectos" 
+      />
+      <p class="text-lg text-gray-600 dark:text-text-secondary max-w-2xl mx-auto mb-8 text-center">
+        Una colección de proyectos que muestran mis habilidades en el desarrollo full-stack, desde el concepto hasta la implementación.
+      </p>
+      <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto"></div>
+    </Section>
+    <Section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 items-center gap-4 justify-center">
       {
         projects.map(project => {
           const { data, slug } = project
@@ -38,6 +38,27 @@ const projects = await getCollection('projects')
           )
         })
       }
-    </section>
+    </Section>
+    {/* CTA */}
+    <Section>
+      <SubtitleSection title="Trabajemos Juntos" />
+      <p
+        class="text-lg text-center prose text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
+      >
+        Siempre me interesan nuevas oportunidades y proyectos emocionantes. No
+        dudes en contactarme.
+      </p>
+      <article class="flex flex-row items-center justify-center gap-4">
+        <CtaButton variant="primary" href="/projects">
+          Mis proyectos
+        </CtaButton>
+        <CtaButton
+          variant="secondary"
+          href="mailto:armandocrescencio343@gmail.com"
+        >
+          Contactame
+        </CtaButton>
+      </article>
+    </Section>
   </Container>
 </Layout>

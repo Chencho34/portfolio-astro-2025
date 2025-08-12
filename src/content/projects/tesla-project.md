@@ -1,4 +1,5 @@
 ---
+layout: "../layouts/BlogLayout.astro"
 title: "Ice cream - pet friendly"
 description: "Tienda en línea con pasarela de pagos, autenticación y panel de administración."
 image: "/images/tesla-project.png"

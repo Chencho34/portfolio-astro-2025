@@ -6,41 +6,43 @@ import { GithubIcon, LinkedinIcon } from '../components/icons/contact'
 ---
 
 <Layout title="Desarrollador y Programador FullStack Web Developer">
-  <Container>
-    <section class="grid place-content-center h-full w-full pt-[40px]">
-      <article class="text-center space-y-4">
-        <p class="text-5xl md:text-7xl font-light text-sky-400 tracking-tight">
-          <span class="text-primary">Jose Armando</span>
-          <apan
-            class="block bg-gradient-to-r from-gray-50 to-gray-500 text-transparent bg-clip-text"
-            >Crescencio Rico</apan
-          >
-        </p>
-        <p
-          class="block bg-gradient-to-r from-gray-50 to-gray-500 text-transparent bg-clip-text font-medium tracking-wide uppercase underline decoration-gray-400 pb-2 text-xl md:text-2xl underline-offset-8"
-        >
-          Fullstack - Developer
-        </p>
-      </article>
-      <article class="max-w-2xl mx-auto pt-8">
-        <p
-          class="text-center text-pretty text-sm prose md:text-lg text-text-secondary leading-relaxed"
-        >
-          ¡Hola! Soy Armando, un desarrollo web autodidacta. Mi fascinación por
-          la creación de sitios web comenzó como un hobby. Dispuesto a explorar
-          continuamente nuevas tecnologías para mejorar mis habilidades.
-        </p>
-      </article>
-      <article class="pt-12 flex flex-row sm:flex-row items-center justify-center gap-4">
-        <SocialPill href="https://github.com/Chencho34">
-          <GithubIcon class:list={"fill-black size-4 flex gap-2 "} />
-          <span>Github</span>
-        </SocialPill>
-        <SocialPill href="https://www.linkedin.com/in/armando-cr/">
-          <LinkedinIcon class:list={" size-4 flex gap-2 "} />
-          <span>LinkedIn</span>
-        </SocialPill>
-      </article>
-    </section>
-  </Container>
+  <!-- <Container className="grid place-content-center"> -->
+    <article class="pt-40 px-4">
+			<section class="grid place-content-center h-full w-full">
+				<article class="text-center space-y-4">
+					<h1 class="text-5xl md:text-7xl text-center font-bold bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-6 drop-shadow-lg ">
+						<span class="text-primary">Jose Armando</span>
+						<apan
+							class="block bg-gradient-to-r from-gray-50 to-gray-500 text-transparent bg-clip-text"
+							>Crescencio Rico</apan
+						>
+					</h1>
+					<h2
+						class="block bg-gradient-to-r from-gray-50 to-gray-500 text-transparent bg-clip-text font-bold tracking-wide uppercase underline decoration-gray-400 pb-2 text-2xl md:text-3xl underline-offset-8"
+					>
+						Fullstack - Developer
+					</h2>
+				</article>
+				<article class="max-w-2xl mx-auto pt-8">
+					<p
+						class="text-center text-pretty text-sm prose md:text-lg text-text-secondary leading-relaxed"
+					>
+						¡Hola! Soy Armando, un desarrollo web autodidacta. Mi fascinación por
+						la creación de sitios web comenzó como un hobby. Dispuesto a explorar
+						continuamente nuevas tecnologías para mejorar mis habilidades.
+					</p>
+				</article>
+				<article class="pt-12 flex flex-row sm:flex-row items-center justify-center gap-4">
+					<SocialPill href="https://github.com/Chencho34">
+						<GithubIcon class:list={"fill-black size-4 flex gap-2 "} />
+						<span>Github</span>
+					</SocialPill>
+					<SocialPill href="https://www.linkedin.com/in/armando-cr/">
+						<LinkedinIcon class:list={" size-4 flex gap-2 "} />
+						<span>LinkedIn</span>
+					</SocialPill>
+				</article>
+			</section>
+		</article>
+  <!-- </Container> -->
 </Layout>

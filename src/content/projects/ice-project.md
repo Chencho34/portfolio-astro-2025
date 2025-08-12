@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 title: "Nueva pagina de prueba"
 description: "Tienda en línea con pasarela de pagos, autenticación y panel de administración. Tienda en línea con pasarela de pagos, autenticación y panel de administración. Tienda en línea con pasarela de pagos, autenticación y panel de administración."
 image: "/images/ktm-project.png"
