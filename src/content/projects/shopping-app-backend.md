@@ -1,5 +1,5 @@
 ---
-layout: "../layouts/BlogLayout.astro"
+# layout: "../layouts/BlogLayout.astro"
 title: "Shopping App E-Comerce"
 description: "Tienda en línea con pasarela de pagos, autenticación y panel de administración."
 image: "/images/e-comerce-project.png"
