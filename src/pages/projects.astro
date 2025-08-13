@@ -22,7 +22,7 @@ const projects = await getCollection('projects')
       </p>
       <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto"></div>
     </Section>
-    <Section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 items-center gap-4 justify-center">
+    <Section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center gap-4 justify-center">
       {
         projects.map(project => {
           const { data, slug } = project
@@ -42,7 +42,7 @@ const projects = await getCollection('projects')
       }
     </Section>
     {/* CTA */}
-    <Section>
+    <Section className="mb-0">
       <SubtitleSection title="Trabajemos Juntos" />
       <p
         class="text-lg text-center prose text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"

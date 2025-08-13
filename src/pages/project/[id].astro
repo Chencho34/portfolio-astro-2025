@@ -53,20 +53,26 @@ const { Content } = await render(project);
         </div>
         <div class="flex gap-4">
           {githubUrl && (
-            <CtaButton variant="secondary" href={githubUrl} className="!px-6" target="_blank">
-      
+            <CtaButton 
+              href={githubUrl} 
+              className="px-6" 
+              target="_blank"
+            >
               <span class="size-5">
-              <GithubIcon />
-
+                <GithubIcon />
               </span>
               Código
             </CtaButton>
           )}
           {demoUrl && (
-            <CtaButton variant="primary" href={demoUrl} className="!px-6" target="_blank">
+            <CtaButton 
+              variant="secondary" 
+              href={demoUrl} 
+              className="px-6" 
+              target="_blank"
+            >
               <span class="size-5">
-               <CodeIcon>
-
+                <CodeIcon>
               </span>
               Demo
             </CtaButton>
@@ -79,7 +85,6 @@ const { Content } = await render(project);
     </Section>
 
     <Section className="prose prose-sky dark:prose-invert max-w-4xl mx-auto prose-headings:text-text-primary prose-p:text-gray-200 prose-li:text-gray-200 prose-strong:text-sky-300 prose-a:text-sky-400 prose-a:underline hover:prose-a:text-sky-200 prose:img:rounded-xl prose-img:rounded-lg">
-      {/* <p class="">{description}</p> */}
       <Content />
     </Section>
   </Container>

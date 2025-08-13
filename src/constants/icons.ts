@@ -19,6 +19,7 @@ export const techComponents: Record<string, any> = {
   Firebase,
   ReactRouter,
   StyleComponents,
-  MaterialUI
+  MaterialUI,
+  TypeScript
   // ... añade más
 };
