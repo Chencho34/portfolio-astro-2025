@@ -20,6 +20,12 @@ import Html from './HtmlIcon.astro'
 import Css from './CssIcon.astro'
 import Redux from './ReduxIcon.astro'
 import Jwt from './JwtIcon.astro'
+import Firebase from './FirebaseIcon.astro'
+import ReactRouter from './ReactRouterIcon.astro'
+import StyleComponents from './StyleComponents.astro'
+import MaterialUI from './MaterialUIIcon.astro'
+import Net from './NetIcon.astro'
+import SQLServer from './SQLServerIcon.astro'
 
 export {
   Astro,
@@ -44,4 +50,10 @@ export {
   Css,
   Redux,
   Jwt,
+  Firebase,
+  ReactRouter,
+  StyleComponents,
+  MaterialUI,
+  Net,
+  SQLServer
 }

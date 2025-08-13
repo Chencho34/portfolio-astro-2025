@@ -1,4 +1,6 @@
 ---
+import { twMerge } from 'tailwind-merge'
+
 interface Props {
   className?: string
 }
@@ -6,6 +8,10 @@ interface Props {
 const { className } = Astro.props
 ---
 
-<section class=`mb-20 ${className}`>
+<!-- <section class=`mb-20 ${className}`>
+  <slot>
+</section> -->
+
+<section class={twMerge('mb-20', className)}>
   <slot>
 </section>
