@@ -24,6 +24,8 @@ import Firebase from './FirebaseIcon.astro'
 import ReactRouter from './ReactRouterIcon.astro'
 import StyleComponents from './StyleComponents.astro'
 import MaterialUI from './MaterialUIIcon.astro'
+import Net from './NetIcon.astro'
+import SQLServer from './SQLServerIcon.astro'
 
 export {
   Astro,
@@ -51,5 +53,7 @@ export {
   Firebase,
   ReactRouter,
   StyleComponents,
-  MaterialUI
+  MaterialUI,
+  Net,
+  SQLServer
 }

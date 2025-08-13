@@ -1,30 +1,29 @@
 ---
-# layout: "../layouts/BlogLayout.astro"
 title: "Landig Page KTM"
-description: "This project is based on the design concept inspired by the official KTM website, using HTML5 and CSS3 as main technologies. It presents a minimalist and modern interface. The page consists of a hero where a presentation is shown to the user and a gallery of minimalist cards that display the different motorcycles. Additionally, it includes a footer with relevant information and contact details."
+description: "Este proyecto se basa en el concepto de diseño inspirado en la web oficial de KTM, utilizando HTML5 y CSS3 como tecnologías principales. Presenta una interfaz minimalista y moderna. La página consta de una imagen principal donde se muestra al usuario una presentación y una galería de tarjetas minimalistas que muestran las diferentes motocicletas."
 image: "/images/ktm-project.png"
 technologies: ["Html", "Css", "JavaScript"]
-githubUrl: "https://github.com/armando/ecommerce"
+githubUrl: "https://github.com/Chencho34/ktm-web-page"
 demoUrl: "https://ecommerce-armando.netlify.app"
 featured: true
 date: 2022-07-06
 ---
 
-# KTM Web Page
+# Descripción General del Proyecto
 
-This project is based on the design concept inspired by the official KTM website, using HTML5 and CSS3 as main technologies. It presents a minimalist and modern interface. The page consists of a hero where a presentation is shown to the user and a gallery of minimalist cards that display the different motorcycles. Additionally, it includes a footer with relevant information and contact details.
+Este proyecto se basa en el concepto de diseño inspirado en la web oficial de KTM, utilizando HTML5 y CSS3 como tecnologías principales. Presenta una interfaz minimalista y moderna. La página consta de una imagen principal donde se muestra al usuario una presentación y una galería de tarjetas minimalistas que muestran las diferentes motocicletas. Además, incluye un pie de página con información relevante y datos de contacto.
 
-## Project Create With HTML5 (Semantic) & CSS3 (BEM)
+## Proyecto Creado Con HTML5 (Semantic) & CSS3 (BEM)
 
-In this project, I make use of HTML5 technologies by applying solid semantics to provide a robust structure to the web page. In addition, I use CSS3 with the BEM (Block, Element, Modifier) methodology for stylization through classes, ensuring a visual design consistent and maintainable.
+En este proyecto, utilizo tecnologías HTML5 aplicando una semántica sólida para proporcionar una estructura robusta a la página web. Además, utilizo CSS3 con la metodología BEM (Bloque, Elemento, Modificador) para la estilización mediante clases, garantizando un diseño visual consistente y fácil de mantener.
 
-## Characteristics
+## Caracteristicas
 
-* Minimalist and modern design inspired by the official KTM website.
-* Use of HTML5 and CSS3 for the structure and style of the website.
-* Hero section for an initial presentation.
-* Card gallery showing different motorcycle models.
-* Footer with relevant information and contact details.
+* Diseño minimalista y moderno inspirado en la web oficial de KTM.
+* Uso de HTML5 y CSS3 para la estructura y el estilo de la web.
+* Sección principal para una presentación inicial.
+* Galería de tarjetas con diferentes modelos de motos.
+* Pie de página con información relevante y datos de contacto.
 
 ## Screenshots
 

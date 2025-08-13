@@ -1,25 +1,31 @@
 ---
-# layout: "../layouts/BlogLayout.astro"
-title: "Tesla Clone"
-description: "This project is a clone of Tesla's home page, created to replicate its user interface. It is styled using Styled Components, a library that allows writing styles directly into React components, making design development and maintenance easier. Additionally, React Reveal has been implemented for animations that enhance the presentation of the components, providing an attractive visual experience. Redux, Redux Toolkit have also been used, adding global state management, efficient tools for Redux and pre-established interface components respectively. The design highlights with a drop-down menu for a better user experience."
+title: "Web Tesla"
+description: "Este proyecto es un clon de la página principal de Tesla, creado para replicar su interfaz de usuario. Su estilo se basa en Styled Components, una biblioteca que permite escribir estilos directamente en los componentes de React, lo que facilita el desarrollo y el mantenimiento del diseño. Además, se ha implementado React Reveal para animaciones que mejoran la presentación de los componentes, proporcionando una experiencia visual atractiva."
 image: "/images/tesla-project.png"
 technologies: ["React", "MaterialUI", "Redux", "StyleComponents"]
-githubUrl: "https://github.com/armando/ecommerce"
-demoUrl: "https://ecommerce-armando.netlify.app"
+githubUrl: "https://github.com/Chencho34/tesla-clon"
 featured: true
 date: 2025-06-10
 ---
 
-# Tesla Clone
+# Descripción General del Proyecto
 
-This project is a clone of Tesla's home page, created to replicate its user interface. It is styled using Styled Components, a library that allows writing styles directly into React components, making design development and maintenance easier. Additionally, React Reveal has been implemented for animations that enhance the presentation of the components, providing an attractive visual experience. Redux, Redux Toolkit have also been used, adding global state management, efficient tools for Redux and pre-established interface components respectively. The design highlights with a drop-down menu for a better user experience.
+Este proyecto es un clon de la página principal de Tesla, creado para replicar su interfaz de usuario. Su estilo se basa en Styled Components, una biblioteca que permite escribir estilos directamente en los componentes de React, lo que facilita el desarrollo y el mantenimiento del diseño. Además, se ha implementado React Reveal para animaciones que mejoran la presentación de los componentes, proporcionando una experiencia visual atractiva.
 
-## Characteristics
+## Caracteristicas
 
-* Replica of the Tesla home page for a familiar interface.
-* Styling with Styled Components for easier management of styles in React components.
-* React Reveal implementation for animations that enhance the presentation.
-* Use of Redux, Redux Toolkit to manage global state and interface components.
+* Réplica de la página de inicio de Tesla para una interfaz familiar.
+* Estilos con componentes con estilo para una gestión más sencilla de los estilos en los componentes de React.
+* Implementación de React Reveal para animaciones que mejoran la presentación.
+* Uso de Redux (Redux Toolkit) para gestionar el estado global y los componentes de la interfaz.
+
+## Librerias Implementadas:
+
+* [React reveal](https://www.npmjs.com/package/react-reveal)
+* [Styled components](https://styled-components.com/)
+* [Material UI](https://mui.com/material-ui/getting-started/installation/)
+* [Redux](https://redux.js.org/)
+* [Redux Toolkit](https://redux-toolkit.js.org/)
 
 ## Screenshots
 
@@ -31,14 +37,4 @@ This project is a clone of Tesla's home page, created to replicate its user inte
 ![tesla-clone](https://raw.githubusercontent.com/Chencho34/tesla-clon/main/public/screenshots/tesla-cap-06.png)
 ![tesla-clone](https://raw.githubusercontent.com/Chencho34/tesla-clon/main/public/screenshots/tesla-cap-07.png)
 
-## Author
 
-Developer: Chencho34
-
-## Librerias Implementadas:
-
-* [React reveal](https://www.react-reveal.com/)
-* [Styled components](https://styled-components.com/).
-* [Material UI](https://mui.com/material-ui/getting-started/installation/).
-* [Redux](https://redux.js.org/).
-* [Redux Toolkit](https://redux-toolkit.js.org/).

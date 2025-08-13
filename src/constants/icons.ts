@@ -1,4 +1,4 @@
-import { Express, Postgres, Astro, Bootstrap, Css, Docker, Git, Github, Jwt, Html, JavaScript, Next, Node, Npm, Postman, React, Sequelize, Tailwind, TypeScript, VsCode, Yarn, Redux, Firebase, ReactRouter, StyleComponents, MaterialUI } from "../components/icons/tecnologies";
+import { Express, Net, SQLServer, Postgres, Astro, Bootstrap, Css, Docker, Git, Github, Jwt, Html, JavaScript, Next, Node, Npm, Postman, React, Sequelize, Tailwind, TypeScript, VsCode, Yarn, Redux, Firebase, ReactRouter, StyleComponents, MaterialUI } from "../components/icons/tecnologies";
 
 export const techComponents: Record<string, any> = {
   React,
@@ -20,6 +20,8 @@ export const techComponents: Record<string, any> = {
   ReactRouter,
   StyleComponents,
   MaterialUI,
-  TypeScript
+  TypeScript,
+  Net,
+  SQLServer
   // ... añade más
 };

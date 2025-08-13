@@ -1,18 +1,17 @@
 ---
-# layout: "../layouts/BlogLayout.astro"
 title: "Control de Estudiantes CRUD"
 description: "Aplicación web desarrollada con Blazor (.NET 8) para la gestión de estudiantes. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre un registro de estudiantes, utilizando Entity Framework Core y una base de datos SQL Server."
-image: "https://raw.githubusercontent.com/Chencho34/PruebaCRUD/main/images/inicio.png"
-technologies: [".NET 8", "Entity Framework", "SQLServer", "Blazor"]
+image: "/images/preview-students-crud.png"
+technologies: ["Net", "SQLServer", "Entity Framework", "Blazor"]
 githubUrl: "https://github.com/armando/ecommerce"
 demoUrl: "https://ecommerce-armando.netlify.app"
 featured: true
 date: 2022-07-06
 ---
 
-# Control de Estudiantes CRUD 
+# Descripción General del Proyecto
 
-Aplicación web desarrollada con **Blazor** (.NET 8) para la gestión de estudiantes. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre un registro de estudiantes, utilizando Entity Framework Core y una base de datos SQL Server.
+Aplicación web desarrollada con Blazor (.NET 8) para la gestión de estudiantes. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre un registro de estudiantes, utilizando Entity Framework Core y una base de datos SQL Server.
 
 ## Características
 
@@ -26,16 +25,10 @@ Aplicación web desarrollada con **Blazor** (.NET 8) para la gestión de estudia
 ## Tecnologías utilizadas
 
 - [Blazor Server](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)
-- .NET 8
-- Entity Framework Core
-- SQL Server
-- Syncfusion Blazor Components
-
-## Requisitos previos
-
-- [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-- SQL Server
-- Visual Studio 2022
+- [.NET8](https://dotnet.microsoft.com/es-es/download/dotnet/8.0)
+- [Entity Framework Core](https://learn.microsoft.com/es-es/ef/core/)
+- [SQL Server](https://www.microsoft.com/es-mx/sql-server/sql-server-downloads)
+- [Syncfusion Blazor Components](https://www.syncfusion.com/blazor-components)
 
 ## Estructura del proyecto
 - **Pages/Home.razor**: Listado principal de estudiantes.
