@@ -7,8 +7,7 @@ import {
   ExperienceTimeline,
   Container,
   CtaButton,
-  SkillsColumn,
-  MyValues
+  SkillsColumn
 } from "../components/ui";
 import { skills } from "../constants/skills";
 ---
@@ -18,29 +17,29 @@ import { skills } from "../constants/skills";
   description="Portfolio de Armando Crescencio, desarrollador web fullstack."
 >
   <Container>
-    <Section>
+    <Section className="mb-14">
       <TitleSection 
         title="Acerca de Mi" 
       />
-      <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto"></div>
+      <div class="w-24 h-px bg-gray-700 mx-auto"></div>
     </Section>
     <Section>
       <article class="grid md:grid-cols-2 gap-12 items-center justify-center">
         <section class="prose">
           <h2
-            class="text-2xl font-light text-gray-900 dark:text-text-primary mb-6"
+            class="text-2xl font-light text-text-primary mb-6"
           >
             Hola, Soy Armando 👋
           </h2>
           <p
-            class="text-lg text-gray-600 dark:text-text-secondary leading-relaxed"
+            class="text-lg text-text-secondary leading-relaxed"
           >
             Desarrollador web con 4 años experiencia en la creación de
             interfaces de usuario eficientes y escalables, especializado en el
             uso de React y tecnologías web modernas como Node.js, TypeScript y
             TailwindCSS.
             <p
-              class="text-lg text-gray-600 dark:text-text-secondary leading-relaxed"
+              class="text-lg text-text-secondary leading-relaxed"
             >
               Me encanta trabajar en equipo en proyectos desafiantes que me
               permitan seguir desarrollando mis habilidades. Apasionado por
@@ -51,7 +50,7 @@ import { skills } from "../constants/skills";
         </section>
         <section class="flex justify-center">
           <figure
-            class="w-80 h-80 bg-gray-100 dark:bg-surface/60 rounded-2xl flex items-center justify-center"
+            class="w-80 h-80 bg-surface/60 rounded-2xl flex items-center justify-center"
           >
             <img
               src="https://avatars.githubusercontent.com/u/90371472?v=4&size=300"
@@ -88,18 +87,11 @@ import { skills } from "../constants/skills";
       <SubtitleSection title="Experiencia Profesional" />
       <ExperienceTimeline />
     </Section>
-    {/* Values */}
-    <Section>
-      <SubtitleSection title="Mi Enfoque" />
-      <section class="grid md:grid-cols-3 gap-8">
-        <MyValues/>
-      </section>
-    </Section>
     {/* CTA */}
     <Section className="mb-0">
       <SubtitleSection title="Trabajemos Juntos" />
       <p
-        class="text-lg text-center prose text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
+        class="text-lg text-center prose text-text-secondary mb-8 max-w-2xl mx-auto"
       >
         Siempre me interesan nuevas oportunidades y proyectos emocionantes. No
         dudes en contactarme.

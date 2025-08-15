@@ -4,7 +4,6 @@ description: "Este proyecto se basa en el concepto de diseño inspirado en la we
 image: "/images/ktm-project.png"
 technologies: ["Html", "Css", "JavaScript"]
 githubUrl: "https://github.com/Chencho34/ktm-web-page "
-demoUrl: "https://ecommerce-armando.netlify.app"
 featured: true
 date: 2022-07-06
 ---
