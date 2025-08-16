@@ -1,5 +1,8 @@
 ---
+import { LinkedinIcon } from "../icons/contact";
+import GithubIcon from "../icons/tecnologies/GithubIcon.astro";
 import { SubtitleSection, Section, CtaButton } from "../ui";
+import SocialPill from "../ui/SocialPill.astro";
 ---
 <Section>
   <SubtitleSection title="Trabajemos Juntos" />
@@ -10,17 +13,19 @@ import { SubtitleSection, Section, CtaButton } from "../ui";
     dudes en contactarme.
   </p>
   <article class="flex flex-row items-center justify-center gap-4">
-    <!-- <CtaButton 
-      variant="primary" 
-      href="/projects"
-    >
-      Mis proyectos
-    </CtaButton> -->
-    <CtaButton
-      variant="primary"
-      href="mailto:armandocrescencio343@gmail.com"
-    >
-      Contactame
-    </CtaButton>
+    <SocialPill
+        target="_blank"
+        className="py-2 px-2 rounded-full "
+        href="https://github.com/Chencho34"
+      >
+        <GithubIcon class:list='size-5' />
+      </SocialPill>
+      <SocialPill
+        target="_blank"
+        className="py-2 px-2 rounded-full "
+        href="https://www.linkedin.com/in/armando-cr/"
+      >
+        <LinkedinIcon class:list='size-5' />
+      </SocialPill>
   </article>
 </Section>
