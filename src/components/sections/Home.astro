@@ -3,7 +3,7 @@ import SocialPill from "../../components/ui/SocialPill.astro";
 import { GithubIcon, LinkedinIcon } from '../../components/icons/contact'
 ---
 
-<article id="home" class="min-h-dvh grid place-content-center">
+<article id="home" class="min-h-dvh grid place-content-center px-4">
   <article class="text-center space-y-4">
     <h1 class="text-5xl md:text-7xl text-center font-bold bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-6 drop-shadow-lg ">
       <span class="text-primary">Jose Armando</span>
@@ -28,14 +28,13 @@ import { GithubIcon, LinkedinIcon } from '../../components/icons/contact'
     </p>
   </article>
   <article class="pt-12 flex flex-row sm:flex-row items-center justify-center gap-4">
-    <SocialPill href="https://github.com/Chencho34">
+    <SocialPill href="https://github.com/Chencho34" target="_blank">
       <GithubIcon class:list={"fill-black size-4 flex gap-2 "} />
       <span>Github</span>
     </SocialPill>
-    <SocialPill href="https://www.linkedin.com/in/armando-cr/">
+    <SocialPill href="https://www.linkedin.com/in/armando-cr/" target="_blank">
       <LinkedinIcon class:list={" size-4 flex gap-2 "} />
       <span>LinkedIn</span>
     </SocialPill>
   </article>
 </article>
-
