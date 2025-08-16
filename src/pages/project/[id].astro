@@ -22,13 +22,13 @@ const { Content } = await render(project);
   title={title}
   description="Portfolio de Armando Crescencio, desarrollador web fullstack."
 >
-  <Container>
-    <Section>
+  <Container className="mt-16">
+    <Section className="mb-12">
       <TitleSection title={title} />
       <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto mb-8"></div>
     </Section>
 
-    <Section className="flex flex-col md:flex-row gap-10 items-center justify-between mb-10">
+    <Section className="flex flex-col md:flex-row gap-10 items-center justify-between mb-14">
       <figure class="overflow-hidden shadow-2xl rounded-2xl max-w-xl">
         <img
           transition:name={`project-${slug}`}
@@ -72,7 +72,7 @@ const { Content } = await render(project);
               target="_blank"
             >
               <span class="size-5">
-                <CodeIcon>
+                <CodeIcon />
               </span>
               Demo
             </CtaButton>
@@ -84,7 +84,7 @@ const { Content } = await render(project);
       </div>
     </Section>
 
-    <Section className="prose prose-sky dark:prose-invert max-w-4xl mx-auto prose-headings:text-text-primary prose-p:text-gray-200 prose-li:text-gray-200 prose-strong:text-sky-300 prose-a:text-sky-400 prose-a:underline hover:prose-a:text-sky-200 prose:img:rounded-xl prose-img:rounded-lg">
+    <Section className="prose max-w-4xl mx-auto prose-headings:text-text-primary prose-p:text-text-secondary prose-li:text-text-secondary prose-strong:text-sky-300 prose-a:text-sky-400 prose-a:underline hover:prose-a:text-sky-200 prose:img:rounded-xl prose-img:rounded-lg prose-table:text-text-secondary">
       <Content />
     </Section>
   </Container>

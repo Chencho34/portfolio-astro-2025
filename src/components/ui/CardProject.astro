@@ -1,0 +1,47 @@
+---
+import { techComponents } from '../../constants/icons';
+import TechPill from './TechPill.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  githubUrl?: string;
+  demoUrl?: string;
+  technologies: string[];
+  slug: string;
+}
+
+const { title, description, image, githubUrl, demoUrl, technologies, slug } = Astro.props;
+---
+
+<a href={`/project/${slug}`} class="h-full">
+  <section class="border group bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-sky-500/10 rounded-xl overflow-hidden">
+    <article>
+      <figure class="overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          transition:name={`project-${slug}`}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+      </figure>
+    </article>
+    <article class="p-4">
+      <section>
+        <h3 class="text-lg font-medium text-text-primary mb-2 group-hover:text-sky-300 transition-colors line-clamp-1">{title}</h3>
+        <p class="text-text-secondary text-sm mb-4 leading-relaxed line-clamp-3">{description}</p>
+      </section>
+      <section class="flex flex-wrap items-center gap-2">
+        {technologies.map(tech => {
+          const Icon = techComponents[tech];
+          return Icon ? (
+            <TechPill >
+              <Icon class="size-4" />
+            </TechPill>
+          ) : null;
+        })}
+      </section>
+    </article>
+  </section>
+</a>

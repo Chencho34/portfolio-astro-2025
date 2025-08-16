@@ -3,10 +3,9 @@ title: "Control de Estudiantes CRUD"
 description: "Aplicación web desarrollada con Blazor (.NET 8) para la gestión de estudiantes. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre un registro de estudiantes, utilizando Entity Framework Core y una base de datos SQL Server."
 image: "/images/preview-students-crud.png"
 technologies: ["Net", "SQLServer", "Entity Framework", "Blazor"]
-githubUrl: "https://github.com/armando/ecommerce"
-demoUrl: "https://ecommerce-armando.netlify.app"
+githubUrl: "https://github.com/Chencho34/PruebaCRUD"
 featured: true
-date: 2022-07-06
+date: 2025-06-20
 ---
 
 # Descripción General del Proyecto

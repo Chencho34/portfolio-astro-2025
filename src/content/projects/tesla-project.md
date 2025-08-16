@@ -5,7 +5,7 @@ image: "/images/tesla-project.png"
 technologies: ["React", "MaterialUI", "Redux", "StyleComponents"]
 githubUrl: "https://github.com/Chencho34/tesla-clon"
 featured: true
-date: 2025-06-10
+date: 2024-01-04
 ---
 
 # Descripción General del Proyecto

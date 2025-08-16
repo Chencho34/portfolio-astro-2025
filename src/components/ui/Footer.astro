@@ -1,0 +1,39 @@
+---
+import { LinkedinIcon } from "../icons/contact";
+import GithubIcon from "../icons/tecnologies/GithubIcon.astro";
+import SocialPill from "./SocialPill.astro";
+
+
+---
+
+<footer class="border-t border-gray-800 bg-[#101010]/80 transition-colors">
+  <div class="max-w-6xl mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+      <p class="text-gray-400 text-center md:text-left">
+        © 2025 Hecho con <span class="font-semibold text-sky-400">Astro</span>
+      </p>
+      <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+        <a
+          class="text-gray-300 hover:text-sky-400 transition-colors"
+          aria-label="Enviar correo"
+        >
+          armandocrescencio343@gmail.com
+        </a>
+        <SocialPill
+          target="_blank"
+          className="py-2 px-2 rounded-full "
+          href="https://github.com/Chencho34"
+        >
+          <GithubIcon class:list='size-5' />
+        </SocialPill>
+        <SocialPill
+          target="_blank"
+          className="py-2 px-2 rounded-full "
+          href="https://www.linkedin.com/in/armando-cr/"
+        >
+          <LinkedinIcon class:list='size-5' />
+        </SocialPill>
+      </div>
+    </div>
+  </div>
+</footer>
