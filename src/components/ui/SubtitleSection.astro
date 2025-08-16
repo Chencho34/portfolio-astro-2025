@@ -1,11 +1,13 @@
 ---
 interface Props {
   title: string
+  className?: string
 }
 
-const { title } = Astro.props
+const { title, className } = Astro.props
 ---
 
 <h2 class="text-center text-3xl font-bold bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent mb-12">
   { title }
 </h2>
+

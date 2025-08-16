@@ -1,0 +1,31 @@
+---
+import { LinkedinIcon } from "../icons/contact";
+import GithubIcon from "../icons/tecnologies/GithubIcon.astro";
+import { SubtitleSection, Section, CtaButton } from "../ui";
+import SocialPill from "../ui/SocialPill.astro";
+---
+<Section>
+  <SubtitleSection title="Trabajemos Juntos" />
+  <p
+    class="text-lg text-center prose text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
+  >
+    Siempre me interesan nuevas oportunidades y proyectos emocionantes. No
+    dudes en contactarme.
+  </p>
+  <article class="flex flex-row items-center justify-center gap-4">
+    <SocialPill
+        target="_blank"
+        className="py-2 px-2 rounded-full "
+        href="https://github.com/Chencho34"
+      >
+        <GithubIcon class:list='size-5' />
+      </SocialPill>
+      <SocialPill
+        target="_blank"
+        className="py-2 px-2 rounded-full "
+        href="https://www.linkedin.com/in/armando-cr/"
+      >
+        <LinkedinIcon class:list='size-5' />
+      </SocialPill>
+  </article>
+</Section>

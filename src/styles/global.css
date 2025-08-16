@@ -22,6 +22,17 @@
   --color-info: #3b82f6;
 }
 
+html {
+  scroll-padding: 80px;
+  /* scroll-behavior: ; */
+}
+
+body {
+  font-family: 'Onest Variable', sans-serif;
+}
+
+
+
 .markdown-content {
   color: var(--color-text-primary);
 }

@@ -5,7 +5,11 @@ import ExperienceTimeline from './ExperienceTimeline.astro'
 import Container from './Container.astro'
 import CtaButton from './CtaButton.astro'
 import SkillsColumn from './SkillsColumn.astro'
-import MyValues from './MyValues.astro'
+import CardProject from './CardProject.astro'
+import BaseHead from './BaseHead.astro'
+import Footer from './Footer.astro'
+import Nav from './Nav.astro'
+import TechPill from './TechPill.astro'
 
 export {
   TitleSection,
@@ -15,5 +19,9 @@ export {
   Container,
   CtaButton,
   SkillsColumn,
-  MyValues
+  CardProject,
+  BaseHead,
+  Footer,
+  Nav,
+  TechPill
 }
