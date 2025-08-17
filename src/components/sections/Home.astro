@@ -2,6 +2,7 @@
 import SocialPill from "../../components/ui/SocialPill.astro";
 import { DownloadCV, GithubIcon, LinkedinIcon } from '../../components/icons/contact'
 import { Section } from "../ui";
+import DevArmandoCV from "/DevArmandoCV25.pdf"
 ---
 
 <Section id="home" className="mb-0">
@@ -36,7 +37,7 @@ import { Section } from "../ui";
       <LinkedinIcon class:list={" size-4 flex gap-2 "} />
       <span>LinkedIn</span>
     </SocialPill>
-    <SocialPill download="DevArmandoCV25.pdf" href="/public/DevArmandoCV25.pdf" target="_blank">
+    <SocialPill download="DevArmandoCV25.pdf" href={DevArmandoCV} target="_blank">
       <DownloadCV class:list={" size-4 flex gap-2  "} />
       <span>CV</span>
     </SocialPill>
