@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Container } from "../components/ui";
-import { Contact, About,  Home, Projects } from "../components/sections";
+import { Contact, About,  Home, Projects, Experience } from "../components/sections";
 ---
 
 <Layout
@@ -10,8 +10,9 @@ import { Contact, About,  Home, Projects } from "../components/sections";
 >
 	<Home />
 	<Container>
-		<About />
+		<Experience />
 		<Projects />
+		<About />
 		<Contact />
 	</Container>
 </Layout>

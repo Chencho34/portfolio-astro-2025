@@ -1,9 +1,9 @@
 ---
 import { getCollection, render } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
 import { Container, Section, TitleSection, CtaButton } from "../../components/ui";
 import { techComponents } from "../../constants/icons";
 import { GithubIcon, CodeIcon } from '../../components/icons/contact'
+import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   return projects.map((project) => ({
