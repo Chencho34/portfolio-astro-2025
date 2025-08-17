@@ -1,17 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Container } from "../components/ui";
-import { Contact, About,  Home, Projects } from "../components/sections";
+import { Contact, About,  Home, Projects, Experience } from "../components/sections";
 ---
 
 <Layout
 	title="Desarrollador web fullstack" 
   description="Portfolio de Armando Crescencio, desarrollador web fullstack."
 >
+	<Home />
 	<Container>
-		<Home />
-		<About />
+		<Experience />
 		<Projects />
+		<About />
 		<Contact />
 	</Container>
 </Layout>

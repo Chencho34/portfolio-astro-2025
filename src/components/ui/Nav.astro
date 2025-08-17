@@ -1,14 +1,59 @@
 ---
-
+const navItems = [
+  { name: 'Experiencia', href: '/#experience', label: 'experience' },
+  { name: 'Proyectos', href: '/#projects', label: 'projects' },
+  { name: 'Sobre mí', href: '/#about', label: 'about' },
+  { name: 'Contacto', href: 'mailto:armandocrescencio343@gmail.com', label: 'contact' },
+]
 ---
 
-<nav class="h-[70px] max-w-6xl mx-auto backdrop-blur-xs fixed z-10 top-0 right-0 left-0 rounded-b-2xl">
-  <section class="flex flex-row items-center justify-between h-full">
-    <h4 class="text-xl text-primary">Chencho34</h4>
-    <ul class="flex flex-row gap-5 text-text-primary  ">
-      <li class="cursor-pointer hover:text-sky-400 transition-colors"><a href="/#home">Inicio</a></li>
-      <li class="cursor-pointer hover:text-sky-400 transition-colors"><a href="/#about">Acerca de</a></li>
-      <li class="cursor-pointer hover:text-sky-400 transition-colors"><a href="/#projects">Proyectos</a></li>
+<nav class="h-[70px] max-w-6xl px-6 mx-auto backdrop-blur-xs fixed z-10 top-0 right-0 left-0 rounded-b-2xl">
+  <section class="flex flex-row items-center justify-center sm:justify-between  h-full">
+    <h4 class="text-xl text-primary hidden sm:flex"><a href="/#home" class="hover:text-text-primary transition-colors">Chencho34</a></h4>
+    <ul class="flex flex-row gap-3.5 sm:gap-4 text-text-primary  ">
+      {
+        navItems.map(item => (
+          <li class="cursor-pointer hover:text-sky-400 transition-colors text-sm sm:text-base">
+            <a aria-label={item.label} href={item.href}>{item.name}</a>
+          </li>
+        ))
+      }
     </ul>
   </section>
 </nav>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll('section[id]')
+    const navLinks = document.querySelectorAll('nav ul li a')
+
+    const callback = (entries: []) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove('text-sky-400')
+            if (link.getAttribute('aria-label') === entry.target.id) {
+              link.classList.add('text-sky-400')
+            }
+          })
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3
+    })
+
+    sections.forEach(section => observer.observe(section))
+
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === 'hidden') {
+        observer.disconnect()
+      } else {
+        sections.forEach(section => observer.observe(section))
+      }
+    }
+  })
+</script>

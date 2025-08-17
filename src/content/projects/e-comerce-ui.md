@@ -1,7 +1,7 @@
 ---
 title: "E-Comerce - UI"
 description: "Este proyecto es una aplicación de e-commerce desarrollada con React y TypeScript, diseñada para ofrecer una experiencia de compra moderna, intuitiva y visualmente atractiva. Al ingresar, los usuarios son recibidos por un carrusel (slider) tipo hero que destaca promociones, productos y novedades de la tienda."
-image: "/images/preview-ecomerce-ui.png"
+image: "/images/preview-ecomerce-ui.webp"
 technologies: ["React", "Tailwind", "Redux", "ReactRouter" ]
 githubUrl: "https://github.com/Chencho34/shopping-cart"
 demoUrl: "https://cart-shopping-app.netlify.app/"
