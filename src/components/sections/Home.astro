@@ -1,9 +1,11 @@
 ---
 import SocialPill from "../../components/ui/SocialPill.astro";
 import { DownloadCV, GithubIcon, LinkedinIcon } from '../../components/icons/contact'
+import { Section } from "../ui";
 ---
 
-<article id="home" class="min-h-dvh grid place-content-center px-4">
+<Section id="home" className="mb-0">
+<article class="min-h-dvh grid place-content-center px-4">
   <article class="text-center space-y-4">
     <h1 class="text-4xl md:text-7xl text-center font-bold bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-6 drop-shadow-lg ">
       <span class="text-primary">Jose Armando</span>
@@ -22,9 +24,7 @@ import { DownloadCV, GithubIcon, LinkedinIcon } from '../../components/icons/con
     <p
       class="text-center text-pretty text-normal prose md:text-lg text-text-secondary leading-relaxed"
     >
-      ¡Hola! Soy Armando, un desarrollo web autodidacta. Mi fascinación por
-      la creación de sitios web comenzó como un hobby. Dispuesto a explorar
-      continuamente nuevas tecnologías para mejorar mis habilidades.
+      Desarrollador web con 4 años experiencia en la creación de interfaces eficientes y escalables, especializado en el uso de React y tecnologías web modernas como Node.js, TypeScript y TailwindCSS.
     </p>
   </article>
   <article class="pt-10 flex flex-wrap items-center justify-center gap-4">
@@ -42,3 +42,4 @@ import { DownloadCV, GithubIcon, LinkedinIcon } from '../../components/icons/con
     </SocialPill>
   </article>
 </article>
+</Section>

@@ -25,6 +25,7 @@
 html {
   scroll-padding: 80px;
   /* scroll-behavior: ; */
+  /* scroll-behavior: smooth; */
 }
 
 body {
