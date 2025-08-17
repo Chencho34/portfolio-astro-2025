@@ -22,6 +22,7 @@ const { title, description, image, githubUrl, demoUrl, technologies, slug } = As
         <img
           src={image}
           alt={title}
+          loading="lazy"
           transition:name={`project-${slug}`}
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
