@@ -1,6 +1,6 @@
 ---
 title: "E-Comerce - Backend"
-description: "Este proyecto es el backend de una aplicación de e-commerce, diseñado para gestionar usuarios, productos y operaciones relacionadas con el carrito de compras. Entre las funcionalidades implementadas se encuentran la autenticación de usuarios, la gestión de cuentas y la protección de datos sensibles mediante cifrado de contraseñas y generación de tokens de acceso."
+description: "Backend diseñado para gestionar usuarios, productos y operaciones relacionadas con el carrito de compras. Entre las funcionalidades implementadas se encuentran la autenticación de usuarios, la gestión de cuentas y la protección de datos sensibles mediante cifrado de contraseñas y generación de tokens de acceso."
 image: "/images/preview-ecomerce-backend.webp"
 technologies: ["Node", "Postgres", "Sequelize", "Express", "TypeScript", "Docker", "Jwt"]
 githubUrl: "https://github.com/Chencho34/shopping-cart-backend/tree/user-endpoints"
@@ -51,4 +51,3 @@ Este proyecto es el backend de una aplicación de e-commerce, diseñado para ges
 | src/middlewares/  | Middlewares personalizados                        |
 | src/config/       | Configuración de base de datos y entorno          |
 
----

@@ -1,6 +1,6 @@
 ---
 title: "Web Tesla"
-description: "Este proyecto es un clon de la página principal de Tesla, creado para replicar su interfaz de usuario. Su estilo se basa en Styled Components, una biblioteca que permite escribir estilos directamente en los componentes de React, lo que facilita el desarrollo y el mantenimiento del diseño. Además, se ha implementado React Reveal para animaciones que mejoran la presentación de los componentes, proporcionando una experiencia visual atractiva."
+description: "Página principal de Tesla, creado para replicar su interfaz de usuario. Su estilo se basa en Styled Components, una biblioteca que permite escribir estilos directamente en los componentes de React, lo que facilita el desarrollo y el mantenimiento del diseño. Además, se ha implementado React Reveal para animaciones que mejoran la presentación de los componentes, proporcionando una experiencia visual atractiva."
 image: "/images/tesla-project.webp"
 technologies: ["React", "MaterialUI", "Redux", "StyleComponents"]
 githubUrl: "https://github.com/Chencho34/tesla-clon"
@@ -27,7 +27,7 @@ Este proyecto es un clon de la página principal de Tesla, creado para replicar 
 * [Redux](https://redux.js.org/)
 * [Redux Toolkit](https://redux-toolkit.js.org/)
 
-## Screenshots
+## Capturas de pantalla
 
 ![tesla-clone](https://raw.githubusercontent.com/Chencho34/tesla-clon/main/public/screenshots/tesla-cap-01.png)
 ![tesla-clone](https://raw.githubusercontent.com/Chencho34/tesla-clon/main/public/screenshots/tesla-cap-02.png)

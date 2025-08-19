@@ -1,6 +1,6 @@
 ---
 title: "Landig Page KTM"
-description: "Este proyecto se basa en el concepto de diseño inspirado en la web oficial de KTM, utilizando HTML5 y CSS3 como tecnologías principales. Presenta una interfaz minimalista y moderna. La página consta de una imagen principal donde se muestra al usuario una presentación y una galería de tarjetas minimalistas que muestran las diferentes motocicletas."
+description: "Inspirado en la web oficial de KTM, utilizando HTML5 y CSS3 como tecnologías principales. Presenta una interfaz minimalista y moderna. La página consta de una imagen principal donde se muestra al usuario una presentación y una galería de tarjetas minimalistas que muestran las diferentes motocicletas."
 image: "/images/ktm-project.webp"
 technologies: ["Html", "Css", "JavaScript"]
 githubUrl: "https://github.com/Chencho34/ktm-web-page "

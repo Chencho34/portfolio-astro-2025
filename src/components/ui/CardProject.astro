@@ -30,7 +30,7 @@ const { title, description, image, githubUrl, demoUrl, technologies, slug } = As
     </article>
     <article class="p-4">
       <section>
-        <h3 class="text-lg font-medium text-text-primary mb-2 group-hover:text-sky-300 transition-colors line-clamp-1">{title}</h3>
+        <h3 class="text-lg font-medium text-text-primary mb-2 group-hover:text-primary transition-colors line-clamp-1">{title}</h3>
         <p class="text-text-secondary text-sm mb-4 leading-relaxed line-clamp-3">{description}</p>
       </section>
       <section class="flex flex-wrap items-center gap-2">
@@ -38,7 +38,7 @@ const { title, description, image, githubUrl, demoUrl, technologies, slug } = As
           const Icon = techComponents[tech];
           return Icon ? (
             <TechPill >
-              <Icon class="size-5" />
+              <Icon class="size-4 md:size-5" />
             </TechPill>
           ) : null;
         })}

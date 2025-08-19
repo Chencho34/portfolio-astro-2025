@@ -10,7 +10,7 @@ date: 2023-03-12
 
 # Descripcion General del Proyecto
 
-Este proyecto es un clon de la app de Disney Plus, desarrollado React y Redux. Está diseñado para replicar la interfaz de usuario de Disney Plus y cuenta con funciones de inicio y cierre de sesión mediante la integración con Firebase para el registro de usuarios. La información sobre las películas, incluyendo sus características, descripciones y contenido, se aloja en Firebase, y este proyecto es un consumidor de dicha información para su manipulación.
+Este proyecto es un clon de la app de Disney Plus, desarrollado con React y Redux. Está diseñado para replicar la interfaz de usuario de Disney Plus y cuenta con funciones de inicio y cierre de sesión mediante la integración con Firebase para el registro de usuarios. La información sobre las películas, incluyendo sus características, descripciones y contenido, se aloja en Firebase, y este proyecto es un consumidor de dicha información para su manipulación.
 
 ## Soporte Node.js
 
@@ -20,7 +20,7 @@ Este proyecto solo funciona con la versión 16.x de Node.js. Si no estás seguro
 node -v
 ```
 
-## Characteristics
+## Caracteristicas
 
 * Réplica fiel del diseño de la interfaz de Disney+.
 * Registro y autenticación de usuarios mediante Firebase.
@@ -41,7 +41,7 @@ node -v
 
 * [Redux Toolkit](https://redux-toolkit.js.org/)
 
-## Screenshots
+## Capturas de pantalla
 
 ![cap-home-disney-plus-clone-app](https://raw.githubusercontent.com/Chencho34/disney-plus-clone-app/main/public/images/dp-cap-01.png)
 ![cap-movies-disney-plus-clone-app](https://raw.githubusercontent.com/Chencho34/disney-plus-clone-app/main/public/images/dp-cap-02.png)
