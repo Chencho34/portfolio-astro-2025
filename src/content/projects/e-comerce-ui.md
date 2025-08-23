@@ -53,3 +53,20 @@ Plataforma e-commerce desarrollada con React y TypeScript, diseñada para ofrece
 - **Internacionalización:** El proyecto puede adaptarse fácilmente a otros idiomas.
 
 ## Capturas de pantalla
+
+![Hero-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refs/heads/refactoring-services/public/screenshots/cartapp-hero-01.webp)
+![Footer-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refs/heads/refactoring-services/public/screenshots/cartapp-footer-03.webp)
+![cart-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-cart-04.webp)
+![Favorites-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-favorites-05.webp)
+![settings-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-settings-06.webp)
+
+## Login / SignUp
+
+![login-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-login-10.webp)
+![signup-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-signup-11.webp)
+
+## Admin Panel
+
+![admin-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-createproduct-07.webp)
+![users-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-adminproducts-08.webp)
+![products-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-adminusers-09.webp)
