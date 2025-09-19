@@ -2,9 +2,9 @@ import type { Experience } from "../types/experience";
 
 export const experience: Experience[] = [
   {
-    title: 'FullStack Web - Developer',
-    company: 'Center - Soft',
-    period: '12 / 2023 - 12 / 2024 - CDMX (Remoto)',
-    description: 'Formé parte de un equipo ágil (SCRUM) en el desarrollando de una plataforma de capacitación y certificación en TI. Diseñe interfaces responsivas y accesibles para web y dispositivos móviles utilizando Next.js, TailwindCSS y Framer Motion, aplicando buenas prácticas de rendimiento y la usabilidad en cualquier dispositivo. Implementé funcionalidades Back-End para el módulo de autenticación de usuarios con Java, Spring Boot y MySQL. Participe en revisiones de código (code reviews) para garantizar la calidad y consistencia del producto. El proyecto cumplió con los requisitos del cliente, resultando en una plataforma funcional, escalable y atractiva.'
+    title: 'FullStack Web Developer',
+    company: 'Center - Soft | CDMX (Remoto)',
+    period: '12 / 2023 - 12 / 2024',
+    description: 'Optimicé la experiencia de usuario (UX) mediante interfaces accesibles y de alto rendimiento con Next.js, Tailwind CSS y Framer Motion, mejorando la velocidad de carga en un 40% y logrando un score de 95+ en Lighthouse. Integré y aseguré APIs REST con Java, Spring Boot, JWT y MySQL, implementando un sistema de autenticación que resultó en 0 incidentes de seguridad durante el periodo de desarrollo. Lideré el desarrollo de una plataforma de e-learning bajo metodologías ágiles/SCRUM cumpliendo el 100% de los sprints. Mentoricé a 3 desarrolladores mediante pair programming y revisiones de código, mejorando la calidad del código y reduciendo bugs en producción en un 30%.'
   }
 ]
