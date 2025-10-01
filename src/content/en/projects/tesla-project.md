@@ -1,11 +1,12 @@
 ---
-title: "Web Tesla"
+title: "Web Tesla - inlges"
 description: "Página principal de Tesla, creado para replicar su interfaz de usuario. Su estilo se basa en Styled Components, una biblioteca que permite escribir estilos directamente en los componentes de React, lo que facilita el desarrollo y el mantenimiento del diseño. Además, se ha implementado React Reveal para animaciones que mejoran la presentación de los componentes, proporcionando una experiencia visual atractiva."
 image: "/images/tesla-project.webp"
 technologies: ["React", "MaterialUI", "Redux", "StyleComponents"]
 githubUrl: "https://github.com/Chencho34/tesla-clon"
 featured: true
 date: 2024-01-04
+lang: 'en'
 ---
 
 # Descripción General del Proyecto

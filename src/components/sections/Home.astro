@@ -3,6 +3,10 @@ import SocialPill from "../../components/ui/SocialPill.astro";
 import { DownloadCV, GithubIcon, LinkedinIcon } from '../../components/icons/contact'
 import { Section } from "../ui";
 import DevArmandoCV from "/DevArmandoCV25.pdf"
+import { useTranslations } from "src/i18n/utils";
+import { languages } from "src/i18n/ui";
+const currentLang = Astro.currentLocale
+const t = useTranslations(currentLang as keyof typeof languages)
 ---
 
 <Section id="home" className="mb-0">
@@ -20,7 +24,7 @@ import DevArmandoCV from "/DevArmandoCV25.pdf"
     </article>
     <article class="max-w-2xl mx-auto pt-8">
       <p class="text-center text-pretty text-normal prose md:text-lg text-text-secondary leading-relaxed">
-        Desarrollador web con 4 años experiencia en la creación de interfaces eficientes y escalables, especializado en el uso de React y tecnologías web modernas como Node.js, TypeScript y TailwindCSS.
+        {t('hero.title')}
       </p>
     </article>
     <article class="pt-10 flex flex-wrap items-center justify-center gap-2 md:gap-4">

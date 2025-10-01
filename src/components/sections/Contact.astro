@@ -1,13 +1,16 @@
 ---
 import { SubtitleSection, Section } from "../ui";
+import { useTranslations } from "src/i18n/utils";
+import { languages } from "src/i18n/ui";
+const currentLang = Astro.currentLocale
+const t = useTranslations(currentLang as keyof typeof languages)
 ---
 <Section>
-  <SubtitleSection title="Trabajemos juntos" className="mb-6" />
+  <SubtitleSection title={t('contact.title')} className="mb-6" />
   <p
     class="text-center prose text-pretty text-gray-300 mb-8 max-w-2xl mx-auto"
   >
-    Siempre me interesan nuevas oportunidades y proyectos emocionantes. No
-    dudes en contactarme.
+    {t('contact.description')}
   </p>
   <!-- <article class="flex flex-row items-center justify-center gap-4">
     <SocialPill

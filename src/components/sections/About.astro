@@ -6,11 +6,15 @@ import {
   SkillsColumn
 } from "../../components/ui";
 import { skills } from "../../constants/skills";
+import { useTranslations } from "src/i18n/utils";
+import { languages } from "src/i18n/ui";
+const currentLang = Astro.currentLocale
+const t = useTranslations(currentLang as keyof typeof languages)
 ---
 
 <Section id="about" className="mb-14 md:mb-20">
   <TitleSection
-    title="Sobre mí"
+    title={t('about.title')}
   />
   <div class="w-24 h-px bg-gray-700 mx-auto"></div>
 </Section>
@@ -20,19 +24,16 @@ import { skills } from "../../constants/skills";
       <h2
         class="text-2xl font-light text-text-primary mb-6"
       >
-        Hola, Soy Armando 👋
+        {t('about.hello')}, Soy Armando 👋
       </h2>
       <p
         class="font-normal text-text-secondary leading-relaxed"
       >
-        Pero mis amigos me llaman Chencho. Empecé en la programación desde bachillerato 
-        y desde entonces he estado aprendiendo y creciendo como desarrollador web explorando diferentes tecnologías y herramientas. 
-
+        {t('about.description.header')}
         <p
           class="font-normal text-text-secondary leading-relaxed"
         >
-          Actualmente estoy estudiando la carrera de Ingeniería Informática, 
-          donde he adquirido conocimientos en diversas tecnologias y herramientas que me han permitido desarrollar proyectos interesantes.  
+          {t('about.description.footer')}
         </p>
       </p>
     </section>
@@ -52,7 +53,7 @@ import { skills } from "../../constants/skills";
 </Section>
 {/* Skills */}
 <Section>
-  <SubtitleSection title="Tecnologias & Herramientas" />
+  <SubtitleSection title={t('about.skills.title')} />
   <article class="grid md:grid-cols-3 gap-8">
     <SkillsColumn
       skills={skills.frontend}

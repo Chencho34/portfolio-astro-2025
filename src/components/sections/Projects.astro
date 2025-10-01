@@ -1,15 +1,20 @@
 ---
 import { getCollection } from "astro:content";
 import { Section, TitleSection, CardProject } from "../../components/ui";
-
+import { useTranslations } from "src/i18n/utils";
+import { languages } from "src/i18n/ui";
+const currentLang = Astro.currentLocale
+const t = useTranslations(currentLang as keyof typeof languages)
 const projects = await getCollection('projects')
+// const projectsEn = await getCollection('projects', (entry) => entry.data.lang === 'en')
+// const projectsEs = await getCollection('projects', (entry) => entry.data.lang === 'es')
 ---
 <Section id="projects" className="mb-14 md:mb-20">
   <TitleSection
-    title="Proyectos"
+    title={t('projects.title')}
   />
   <p class="text-lg text-text-secondary max-w-2xl mx-auto mb-8 text-center">
-    Una colección de proyectos que muestran mis habilidades en el desarrollo full-stack, desde el concepto hasta la implementación.
+    {t('projects.description')}
   </p>
   <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto"></div>
 </Section>

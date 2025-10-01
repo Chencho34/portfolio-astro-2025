@@ -1,10 +1,17 @@
 ---
+import { useTranslations, getLangFromUrl } from "src/i18n/utils";
+import { languages } from "src/i18n/ui";
+const currentLang = Astro.currentLocale
+const t = useTranslations(currentLang as keyof typeof languages)
+
+const lang = getLangFromUrl(new URL(Astro.request.url))
 const navItems = [
-  { name: 'Experiencia', href: '/#experience', label: 'experience' },
-  { name: 'Proyectos', href: '/#projects', label: 'projects' },
-  { name: 'Sobre mí', href: '/#about', label: 'about' },
-  { name: 'Contacto', href: 'mailto:armandocrescencio343@gmail.com', label: 'contact' },
+  { name: t('nav.experience'), href: `/${lang}/#experience`, label: 'experience' },
+  { name: t('nav.projects'), href: `/${lang}/#projects`, label: 'projects' },
+  { name: t('nav.about'), href: `/${lang}/#about`, label: 'about' },
+  { name: t('nav.contact'), href: 'mailto:armandocrescencio343@gmail.com', label: 'contact' },
 ]
+
 ---
 
 <nav class="h-[70px] max-w-6xl px-6 mx-auto backdrop-blur-xs fixed z-10 top-0 right-0 left-0 rounded-b-2xl">

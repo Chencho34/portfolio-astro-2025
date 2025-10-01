@@ -7,6 +7,7 @@ githubUrl: "https://github.com/Chencho34/shopping-cart"
 demoUrl: "https://cart-shopping-app.netlify.app/"
 featured: true
 date: 2025-06-10
+lang: 'es'
 ---
 
 # Descripción General del Proyecto

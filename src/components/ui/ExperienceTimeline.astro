@@ -1,5 +1,9 @@
 ---
 import { experience } from "../../constants/experience"
+import { useTranslations } from "src/i18n/utils";
+import { languages } from "src/i18n/ui";
+const currentLang = Astro.currentLocale
+const t = useTranslations(currentLang as keyof typeof languages)
 ---
 <div class="space-y-6">
   {
@@ -13,7 +17,7 @@ import { experience } from "../../constants/experience"
           <span class="text-sm text-gray-400 font-medium">{period}</span>
         </div>
         <p class="text-gray-300 font-medium mb-2">{company}</p>
-        <p class="text-gray-400 leading-relaxed">{description}</p>
+        <p class="text-gray-400 leading-relaxed">{t('experience.description')}</p>
       </div>
       )
     })

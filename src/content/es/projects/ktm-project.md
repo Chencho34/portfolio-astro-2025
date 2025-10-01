@@ -6,6 +6,7 @@ technologies: ["Html", "Css", "JavaScript"]
 githubUrl: "https://github.com/Chencho34/ktm-web-page "
 featured: true
 date: 2022-07-06
+lang: 'es'
 ---
 
 # Descripción General del Proyecto

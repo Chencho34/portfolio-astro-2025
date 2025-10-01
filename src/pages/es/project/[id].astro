@@ -1,0 +1,95 @@
+---
+import { getCollection, render } from "astro:content";
+import { Container, Section, TitleSection, CtaButton } from "@components/ui";
+import { techComponents } from "@constants/icons";
+import { GithubIcon, CodeIcon } from '@components/icons/contact'
+import Layout from "@layouts/Layout.astro";
+import { Contact } from "@components/sections";
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { 
+      id: project.slug,
+      lang: project.data.lang
+    },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { data, slug } = project;
+const { title, description, technologies, date, demoUrl, githubUrl, image } = data;
+const { Content } = await render(project);
+---
+
+<Layout
+  title={title}
+  description={description}
+>
+  <Container className="mt-24">
+    <Section className="mb-12">
+      <TitleSection title={title} />
+      <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto mb-8"></div>
+    </Section>
+
+    <Section className="flex flex-col md:flex-row gap-10 items-center justify-between mb-14">
+      <figure class="overflow-hidden shadow-2xl rounded-2xl max-w-xl">
+        <img
+          transition:name={`project-${slug}`}
+          src={image}
+          alt={title}
+          class="w-full md:h-full object-cover rounded-2xl"
+        />
+      </figure>
+      <div class="flex-5/12 flex flex-col gap-6 items-start justify-center w-full">
+        <div class="flex flex-wrap gap-3 mb-2">
+          {technologies.map(tech => {
+            const Icon = techComponents[tech]
+            return Icon ? (
+              <span class="flex items-center gap-2 px-3 py-1 bg-sky-900/40 rounded-full text-sky-300 text-sm font-medium shadow-sm">
+                <Icon class="size-4" />
+                {tech}
+              </span>
+            ) : (
+              <span class="px-3 py-1 bg-gray-700/40 rounded-full text-gray-200 text-sm">{tech}</span>
+            )
+          })}
+        </div>
+        <div class="flex gap-4">
+          {githubUrl && (
+            <CtaButton 
+              href={githubUrl} 
+              className="px-6" 
+              target="_blank"
+            >
+              <span class="size-5">
+                <GithubIcon />
+              </span>
+              Código
+            </CtaButton>
+          )}
+          {demoUrl && (
+            <CtaButton 
+              variant="secondary" 
+              href={demoUrl} 
+              className="px-6" 
+              target="_blank"
+            >
+              <span class="size-5">
+                <CodeIcon />
+              </span>
+              Demo
+            </CtaButton>
+          )}
+        </div>
+        <div class="text-gray-400 text-xs mt-2">
+          {date && <span>Publicado: {new Date(date).toLocaleDateString()}</span>}
+        </div>
+      </div>
+    </Section>
+    <Section className="prose max-w-4xl mx-auto prose-headings:text-text-primary prose-p:text-text-secondary prose-li:text-text-secondary prose-strong:text-sky-300 prose-a:text-sky-400 prose-a:underline hover:prose-a:text-sky-200 prose:img:rounded-xl prose-img:rounded-lg prose-table:text-text-secondary">
+      <Content />
+    </Section>
+    <Contact />
+  </Container>
+</Layout>

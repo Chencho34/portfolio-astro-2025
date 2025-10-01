@@ -1,11 +1,12 @@
 ---
-title: "Control de Estudiantes CRUD"
+title: "Control de Estudiantes CRUD ingles"
 description: "Aplicación web desarrollada con Blazor (.NET 8) para la gestión de estudiantes. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre un registro de estudiantes, utilizando Entity Framework Core y una base de datos SQL Server."
 image: "/images/preview-students-crud.webp"
 technologies: ["Net", "SQLServer", "Entity Framework", "Blazor"]
 githubUrl: "https://github.com/Chencho34/PruebaCRUD"
 featured: true
 date: 2025-06-20
+lang: 'en'
 ---
 
 # Descripción General del Proyecto
