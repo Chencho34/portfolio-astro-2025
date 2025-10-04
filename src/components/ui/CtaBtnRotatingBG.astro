@@ -1,0 +1,30 @@
+---
+import { twMerge } from "tailwind-merge"
+export interface Props {
+  className?: string
+  // variant?: ButtonVariant
+  href?: string
+  target?: '_blank' | '_self' | '_parent' | '_top'
+  download?: string
+}
+const { href, target, className, download  } = Astro.props
+---
+
+<a 
+  href={href} 
+  target={target}
+  download={download}
+  class={
+    twMerge('relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50'
+  )}
+>
+  <span class='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#cbf2ff_0%,#38bdf8_50%,#cbf2ff_100%)]' />
+  <span 
+    class={
+      twMerge('inline-flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-gray-950  px-4 md:px-8 py-1 text-sm md:text-normal text-gray-50 backdrop-blur-3xl',
+      className
+    )}
+  >
+    <slot />
+  </span>
+</a>

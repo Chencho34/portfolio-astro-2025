@@ -8,7 +8,7 @@ export default defineConfig({
   site: 'https://portfolio-astro-2025-ten.vercel.app/',
   vite: {
     server: {
-      host: '192.168.1.68'
+      host: '192.168.1.70'
     },
     plugins: [tailwindcss()],
   },
