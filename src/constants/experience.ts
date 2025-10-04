@@ -14,6 +14,6 @@ export const experience: Experience[] = [
 
 
     ],
-    tecnologies: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Java', 'Spring Boot', 'MySQL', 'JWT', 'Git', 'SCRUM'],
+    tecnologies: ['Next', 'TailwindCSS', 'Framer Motion', 'Java', 'Spring Boot', 'MySQL', 'Git', 'SCRUM'],
   }
 ]
