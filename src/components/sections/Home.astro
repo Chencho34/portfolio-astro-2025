@@ -1,5 +1,4 @@
 ---
-import SocialPill from "../../components/ui/SocialPill.astro";
 import { DownloadCV, GithubIcon, LinkedinIcon } from '../../components/icons/contact'
 import { Section } from "../ui";
 import DevArmandoCV from "/DevArmandoCV25.pdf"
@@ -12,15 +11,15 @@ import CtaBtnRotatingBG from "../ui/CtaBtnRotatingBG.astro";
       <h1 class="text-4xl md:text-7xl text-center font-bold bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-6 drop-shadow-lg">
         <span class="text-primary">Jose Armando</span>
         <apan class="block bg-gradient-to-r from-gray-50 to-gray-500 text-transparent bg-clip-text">
-          Crescencio Rico
+          Crescencio
         </apan>
       </h1>
-      <h2 class="block bg-gradient-to-r from-gray-50 to-gray-500 text-transparent bg-clip-text font-bold tracking-wide uppercase underline decoration-gray-400 pb-2 text-lg md:text-3xl underline-offset-8">
+      <h2 class="block bg-gradient-to-r from-gray-50 to-gray-500 text-transparent bg-clip-text font-bold tracking-wide underline decoration-gray-400 pb-2 text-lg md:text-3xl underline-offset-8">
         Fullstack - Developer
       </h2>
     </article>
     <article class="max-w-2xl mx-auto pt-8">
-      <p class="text-center text-pretty text-normal prose md:text-lg text-text-secondary leading-relaxed">
+      <p class="text-center text-pretty text-sm prose md:text-lg text-text-secondary leading-relaxed">
         Desarrollador web con 4 años experiencia en la creación de interfaces eficientes y escalables, especializado en el uso de React y tecnologías web modernas como Node.js, TypeScript y TailwindCSS.
       </p>
     </article>
@@ -30,18 +29,18 @@ import CtaBtnRotatingBG from "../ui/CtaBtnRotatingBG.astro";
         target="_blank" 
       >
         <GithubIcon class:list={"size-5 md:size-6"} />
-        <span class="text-xs md:text-sm">
+        <p class="text-xs md:text-sm">
           Github
-        </span>
-      </CtaBtnRotatingBG>|
+        </p>
+      </CtaBtnRotatingBG>
       <CtaBtnRotatingBG
         href="https://www.linkedin.com/in/armando-cr/"
         target="_blank"  
       >
-      <LinkedinIcon class:list={"size-5 md:size-6"} />
-        <span class="text-xs md:text-sm">
+        <LinkedinIcon class:list={"size-5 md:size-6"} />
+        <p class="text-xs md:text-sm">
           Linkedin
-        </span>
+        </p>
       </CtaBtnRotatingBG>
       <CtaBtnRotatingBG
         download="DevArmandoCV25.pdf" 
@@ -49,9 +48,10 @@ import CtaBtnRotatingBG from "../ui/CtaBtnRotatingBG.astro";
         target="_blank"
       >
         <DownloadCV class:list={"size-5 md:size-6"} />
-        <span class="text-xs md:text-sm">
-          Download CV
-        </span>
+        <p class="text-xs md:text-sm flex gap-1">
+          <span class="hidden md:block">Download</span>
+          CV
+        </p>
       </CtaBtnRotatingBG>
     </article>
   </article>
