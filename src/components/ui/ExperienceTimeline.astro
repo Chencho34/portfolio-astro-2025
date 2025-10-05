@@ -6,7 +6,7 @@ import Badge from "./Badge.astro"
 <div class="space-y-6">
   {
     experience.map((job) => {
-      const { company, period, title, tecnologies, exp } = job
+      const { company, description, period, title } = job
       return (
         <div class="border-l-2  pb-2.5 border-gray-700 pl-8 relative">
           <div class="absolute w-4 h-4 bg-gray-600 rounded-full -left-[9px] top-2"></div>
@@ -36,6 +36,9 @@ import Badge from "./Badge.astro"
             }
           </div>
         </div>
+        <p class="text-gray-300 font-medium mb-2">{company}</p>
+        <p class="text-gray-400 leading-relaxed">{description}</p>
+      </div>
       )
     })
   }
