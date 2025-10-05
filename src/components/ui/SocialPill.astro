@@ -1,0 +1,18 @@
+---
+import { twMerge } from "tailwind-merge"
+interface Props {
+  href: string;
+  className?: string;
+  target: "_blank" | "_self" | "_parent" | "_top";
+  download?: string
+}
+const { className, href, target, download } = Astro.props
+---
+<a 
+  href={href}
+  class={twMerge('border rounded-full px-3 py-1.5 md:py-2 md:px-6 flex items-center justify-center gap-2 border-accent/30 bg-gray-900/30 text-text-primary text-sm hover:scale-105 transition-transform', className)} 
+  target={target}
+  download={download}
+>
+  <slot />
+</a>

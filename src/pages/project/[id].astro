@@ -1,8 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
-import { Container, Section, TitleSection, CtaButton, Badge } from "../../components/ui";
+import { Container, Section, TitleSection, CtaButton } from "../../components/ui";
 import { techComponents } from "../../constants/icons";
-import { GithubIcon, ExternalLink } from '../../components/icons/contact'
+import { GithubIcon, CodeIcon } from '../../components/icons/contact'
 import Layout from "../../layouts/Layout.astro";
 import { Contact } from "../../components/sections";
 export async function getStaticPaths() {
@@ -43,13 +43,10 @@ const { Content } = await render(project);
           {technologies.map(tech => {
             const Icon = techComponents[tech]
             return Icon ? (
-              <Badge
-                className="text-sm font-medium shadow-sm"
-                variant="subtle"
-              >
+              <span class="flex items-center gap-2 px-3 py-1 bg-sky-900/40 rounded-full text-sky-300 text-sm font-medium shadow-sm">
                 <Icon class="size-4" />
                 {tech}
-              </Badge>
+              </span>
             ) : (
               <span class="px-3 py-1 bg-gray-700/40 rounded-full text-gray-200 text-sm">{tech}</span>
             )
@@ -58,23 +55,26 @@ const { Content } = await render(project);
         <div class="flex gap-4">
           {githubUrl && (
             <CtaButton 
-              variant="accent"
               href={githubUrl} 
               className="px-6" 
               target="_blank"
             >
-                <GithubIcon class:list='size-5'/>
+              <span class="size-5">
+                <GithubIcon />
+              </span>
               Código
             </CtaButton>
           )}
           {demoUrl && (
             <CtaButton 
-              variant="primary" 
+              variant="secondary" 
               href={demoUrl} 
               className="px-6" 
               target="_blank"
             >
-              <ExternalLink class:list='size-5' />
+              <span class="size-5">
+                <CodeIcon />
+              </span>
               Demo
             </CtaButton>
           )}
