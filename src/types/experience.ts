@@ -3,6 +3,4 @@ export interface Experience {
   company: string
   period: string
   description: string
-  tecnologies: string[]
-  exp: string[]
 }

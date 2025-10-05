@@ -1,39 +1,39 @@
 ---
 import { LinkedinIcon } from "../icons/contact";
 import GithubIcon from "../icons/tecnologies/GithubIcon.astro";
-import CtaBtnRotatingBG from "./CtaBtnRotatingBG.astro";
+import SocialPill from "./SocialPill.astro";
 ---
 
 <footer class="border-t border-gray-800 bg-[#101010]/80 transition-colors">
-  <section class="max-w-6xl mx-auto px-6 py-8">
-    <article class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+  <div class="max-w-6xl mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
       <p class="text-gray-400 text-center md:text-left">
         © 2025 <a class="hover:text-white" href="https://github.com/Chencho34">Checho34.</a> Hecho con <span class="font-semibold text-sky-400">Astro</span>
       </p>
-      <section class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+      <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
         <a
           class="text-gray-300 hover:text-sky-400 transition-colors"
           aria-label="Enviar correo"
         >
           armandocrescencio343@gmail.com
         </a>
-        <article class="flex gap-3">
-          <CtaBtnRotatingBG 
-            className="md:px-4"
+        <section class="flex gap-3.5">
+          <SocialPill
             target="_blank"
-            href="https://github.com/Chencho34"                    
+            className="py-2 px-2 rounded-full "
+            href="https://github.com/Chencho34"
           >
-            <GithubIcon class:list={"size-5 md:size-6"}  />
-          </CtaBtnRotatingBG>
-          <CtaBtnRotatingBG 
-            className="md:px-4"
+            <GithubIcon class:list='size-4' />
+          </SocialPill>
+          <SocialPill
+            target="_blank"
+            className="py-2 px-2 rounded-full "
             href="https://www.linkedin.com/in/armando-cr/"
-            target="_blank"  
           >
-            <LinkedinIcon class:list={"size-5 md:size-6"} />  
-          </CtaBtnRotatingBG>
-        </article>
-      </section>
-    </article>
-  </section>
+            <LinkedinIcon class:list='size-4' />
+          </SocialPill>
+        </section>
+      </div>
+    </div>
+  </div>
 </footer>
