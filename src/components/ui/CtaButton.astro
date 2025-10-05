@@ -1,27 +1,35 @@
 ---
-type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
+import { twMerge } from 'tailwind-merge'
+
+type ButtonVariant = 'primary' | 'secondary' | 'text' | 'subtle' | 'accent'
+type Target = '_blank' | '_self' | '_parent' | '_top'
 
 interface Props {
   className?: string
+  download?: string
   variant?: ButtonVariant
   href: string
-  target?: '_blank' | '_self' | '_parent' | '_top'
+  target?: Target
 }
 
-const variantStyles: Record<ButtonVariant, string> = {
-  primary: ' bg-primary hover:bg-primary-hover text-white',
-  secondary: 'bg-transparent border border-gray-700 text-gray-300 hover:border-gray-600 hover:text-white',
-  tertiary: 'bg-transparent text-[#191919] hover:bg-gray-100'
+const baseStyles: String = "transform hover:scale-105 transition-all duration-300 ease-in-out inline-flex items-center gap-2.5 px-4 md:px-8 h-8 md:h-10 rounded-full font-medium text-sm md:text-normal hover:opacity-75"
+
+const buttonVariants: Record<ButtonVariant, string> = {
+  primary: "border border-[#38bdf8]/40 bg-gray-900/30 hover:bg-gray-800 text-white",
+  secondary: "border border-gray-700 bg-gray-900 text-gray-300 hover:bg-gray-800 hover:border-gray-500",
+  text: "text-[#38bdf8] hover:text-[#7dd3fc]",
+  subtle: "bg-[#38bff81a] border border-[#38bff840] text-[#38bdf8] hover:bg-[#38bff833]",
+  accent: "bg-primary text-white"
 }
 
-const { variant = 'primary', className = '', href, target } = Astro.props
+const { variant = 'primary', className = '', href, target, download } = Astro.props
 ---
 
-
-<a 
+<a
+  download={download}
   target={target}
   href={href}
-  class={`flex items-center justify-center gap-2.5 font-medium text-sm rounded-full transition-all duration-300 ease-in-out text-gray-200 hover:opacity-75 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-1 py-2.5 px-8 ${variantStyles[variant]} ${className}`}
+  class={twMerge(`${baseStyles} ${buttonVariants[variant]} ${className}`)}
 >
-  <slot/>
+  <slot />
 </a>
