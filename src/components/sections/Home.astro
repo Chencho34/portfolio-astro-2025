@@ -1,58 +1,41 @@
 ---
 import SocialPill from "../../components/ui/SocialPill.astro";
 import { DownloadCV, GithubIcon, LinkedinIcon } from '../../components/icons/contact'
-import { CtaButton, KeywordHighlight, Section } from "../ui";
+import { Section } from "../ui";
 import DevArmandoCV from "/DevArmandoCV25.pdf"
 ---
 
 <Section id="home" className="mb-0">
   <article class="min-h-dvh grid place-content-center px-4">
     <article class="text-center space-y-4">
-      <h1 class="text-4xl md:text-7xl text-center font-semibold bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-6 drop-shadow-lg">
+      <h1 class="text-4xl md:text-7xl text-center font-bold bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-6 drop-shadow-lg">
         <span class="text-primary">Jose Armando</span>
         <apan class="block bg-gradient-to-r from-gray-50 to-gray-500 text-transparent bg-clip-text">
           Crescencio Rico
         </apan>
       </h1>
-      <h2 class="block bg-gradient-to-r from-gray-50 to-gray-500 text-transparent bg-clip-text font-semibold tracking-wide underline decoration-gray-400 pb-2 text-lg md:text-3xl underline-offset-8">
+      <h2 class="block bg-gradient-to-r from-gray-50 to-gray-500 text-transparent bg-clip-text font-bold tracking-wide uppercase underline decoration-gray-400 pb-2 text-lg md:text-3xl underline-offset-8">
         Fullstack - Developer
       </h2>
     </article>
     <article class="max-w-2xl mx-auto pt-8">
-      <p class="text-center text-pretty text-sm prose md:text-lg text-text-secondary leading-relaxed">
-        Desarrollador web con 4 años experiencia en la creación de interfaces eficientes y escalables, especializado en el uso de <KeywordHighlight>React</KeywordHighlight> y tecnologías web modernas como <KeywordHighlight>Node.js</KeywordHighlight>, <KeywordHighlight>TypeScript</KeywordHighlight> y <KeywordHighlight>TailwindCSS</KeywordHighlight>.
+      <p class="text-center text-pretty text-normal prose md:text-lg text-text-secondary leading-relaxed">
+        Desarrollador web con 4 años experiencia en la creación de interfaces eficientes y escalables, especializado en el uso de React y tecnologías web modernas como Node.js, TypeScript y TailwindCSS.
       </p>
     </article>
-    <article class="pt-10 flex flex-wrap items-center justify-center gap-2 md:gap-4">        
-      <CtaButton
-        href="https://github.com/Chencho34"          
-        target="_blank" 
-      >
-        <GithubIcon class:list={"size-5 md:size-6"} />
-        <p class="text-xs md:text-sm">
-          Github
-        </p>
-      </CtaButton>
-      <CtaButton
-        href="https://www.linkedin.com/in/armando-cr/"
-        target="_blank"  
-      >
-        <LinkedinIcon class:list={"size-5 md:size-6"} />
-        <p class="text-xs md:text-sm">
-          Linkedin
-        </p>
-      </CtaButton>
-      <CtaButton
-        download="DevArmandoCV25.pdf" 
-        href={DevArmandoCV} 
-        target="_blank"
-      >
-        <DownloadCV class:list={"size-5 md:size-6"} />
-        <p class="text-xs md:text-sm flex gap-1">
-          <span class="hidden md:block">Download</span>
-          CV
-        </p>
-      </CtaButton>
+    <article class="pt-10 flex flex-wrap items-center justify-center gap-2 md:gap-4">
+      <SocialPill href="https://github.com/Chencho34" target="_blank">
+        <GithubIcon class:list={"fill-black size-4 flex gap-2 "} />
+        <span>Github</span>
+      </SocialPill>
+      <SocialPill href="https://www.linkedin.com/in/armando-cr/" target="_blank">
+        <LinkedinIcon class:list={" size-4 flex gap-2 "} />
+        <span>LinkedIn</span>
+      </SocialPill>
+      <SocialPill download="DevArmandoCV25.pdf" href={DevArmandoCV} target="_blank">
+        <DownloadCV class:list={" size-4 flex gap-2  "} />
+        <span>CV</span>
+      </SocialPill>
     </article>
   </article>
 </Section>
