@@ -27,7 +27,7 @@ import BadgeAnimatedGradientBorder from "./BadgeAnimatedGradientBorder.astro"
             {
               tecnologies?.map((tech) => (
                 <BadgeAnimatedGradientBorder 
-                  text={tech}
+                  set:text={tech}
                 />
               ))
             }
