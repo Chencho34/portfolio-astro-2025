@@ -1,8 +1,7 @@
 ---
 import { DownloadCV, GithubIcon, LinkedinIcon } from '../../components/icons/contact'
-import { Section } from "../ui";
+import { CtaButton, Section } from "../ui";
 import DevArmandoCV from "/DevArmandoCV25.pdf"
-import CtaBtnRotatingBG from "../ui/CtaBtnRotatingBG.astro";
 ---
 
 <Section id="home" className="mb-0">
@@ -24,7 +23,7 @@ import CtaBtnRotatingBG from "../ui/CtaBtnRotatingBG.astro";
       </p>
     </article>
     <article class="pt-10 flex flex-wrap items-center justify-center gap-2 md:gap-4">        
-      <CtaBtnRotatingBG
+      <CtaButton
         href="https://github.com/Chencho34"          
         target="_blank" 
       >
@@ -32,8 +31,8 @@ import CtaBtnRotatingBG from "../ui/CtaBtnRotatingBG.astro";
         <p class="text-xs md:text-sm">
           Github
         </p>
-      </CtaBtnRotatingBG>
-      <CtaBtnRotatingBG
+      </CtaButton>
+      <CtaButton
         href="https://www.linkedin.com/in/armando-cr/"
         target="_blank"  
       >
@@ -41,8 +40,8 @@ import CtaBtnRotatingBG from "../ui/CtaBtnRotatingBG.astro";
         <p class="text-xs md:text-sm">
           Linkedin
         </p>
-      </CtaBtnRotatingBG>
-      <CtaBtnRotatingBG
+      </CtaButton>
+      <CtaButton
         download="DevArmandoCV25.pdf" 
         href={DevArmandoCV} 
         target="_blank"
@@ -52,7 +51,7 @@ import CtaBtnRotatingBG from "../ui/CtaBtnRotatingBG.astro";
           <span class="hidden md:block">Download</span>
           CV
         </p>
-      </CtaBtnRotatingBG>
+      </CtaButton>
     </article>
   </article>
 </Section>

@@ -1,7 +1,7 @@
 ---
 import { experience } from "../../constants/experience"
 import ExternalLink from "../icons/contact/ExternalLink.astro"
-import BadgeAnimatedGradientBorder from "./BadgeAnimatedGradientBorder.astro"
+import Badge from "./Badge.astro"
 ---
 <div class="space-y-6">
   {
@@ -26,9 +26,12 @@ import BadgeAnimatedGradientBorder from "./BadgeAnimatedGradientBorder.astro"
           <div class="flex flex-wrap gap-2  mt-4">
             {
               tecnologies?.map((tech) => (
-                <BadgeAnimatedGradientBorder 
-                  set:text={tech}
-                />
+                <Badge
+                  variant="subtle" 
+                >
+                  {tech}
+                </Badge>
+
               ))
             }
           </div>

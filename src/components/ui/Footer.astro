@@ -1,7 +1,7 @@
 ---
 import { LinkedinIcon } from "../icons/contact";
 import GithubIcon from "../icons/tecnologies/GithubIcon.astro";
-import CtaBtnRotatingBG from "./CtaBtnRotatingBG.astro";
+import CtaButton from "./CtaButton.astro";
 ---
 
 <footer class="border-t border-gray-800 bg-[#101010]/80 transition-colors">
@@ -18,20 +18,20 @@ import CtaBtnRotatingBG from "./CtaBtnRotatingBG.astro";
           armandocrescencio343@gmail.com
         </a>
         <article class="flex gap-3">
-          <CtaBtnRotatingBG 
+          <CtaButton
             className="md:px-4"
             target="_blank"
             href="https://github.com/Chencho34"                    
           >
             <GithubIcon class:list={"size-5 md:size-6"}  />
-          </CtaBtnRotatingBG>
-          <CtaBtnRotatingBG 
+          </CtaButton>
+          <CtaButton
             className="md:px-4"
             href="https://www.linkedin.com/in/armando-cr/"
             target="_blank"  
           >
             <LinkedinIcon class:list={"size-5 md:size-6"} />  
-          </CtaBtnRotatingBG>
+          </CtaButton>
         </article>
       </section>
     </article>

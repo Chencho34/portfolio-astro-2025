@@ -9,7 +9,7 @@ import CardProject from './CardProject.astro'
 import BaseHead from './BaseHead.astro'
 import Footer from './Footer.astro'
 import Nav from './Nav.astro'
-import TechPill from './TechPill.astro'
+import Badge from './Badge.astro'
 
 export {
   TitleSection,
@@ -23,5 +23,5 @@ export {
   BaseHead,
   Footer,
   Nav,
-  TechPill
+  Badge
 }
