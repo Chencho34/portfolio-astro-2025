@@ -10,6 +10,7 @@ import BaseHead from './BaseHead.astro'
 import Footer from './Footer.astro'
 import Nav from './Nav.astro'
 import Badge from './Badge.astro'
+import KeywordHighlight from './KeywordHighlight.astro'
 
 export {
   TitleSection,
@@ -23,5 +24,6 @@ export {
   BaseHead,
   Footer,
   Nav,
-  Badge
+  Badge,
+  KeywordHighlight
 }
