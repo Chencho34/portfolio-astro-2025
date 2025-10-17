@@ -10,6 +10,7 @@ const projectsCollection = defineCollection({
     githubUrl: z.string().optional(),
     demoUrl: z.string().optional(),
     date: z.date().optional(),
+    draft: z.boolean().optional(),
   })
 })
 

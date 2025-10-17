@@ -1,53 +1,117 @@
 ---
-title: "E-Comerce - Backend"
-description: "Backend diseñado para gestionar usuarios, productos y operaciones relacionadas con el carrito de compras. Entre las funcionalidades implementadas se encuentran la autenticación de usuarios, la gestión de cuentas y la protección de datos sensibles mediante cifrado de contraseñas y generación de tokens de acceso."
-image: "/images/preview-ecomerce-backend.webp"
+title: "Cart Shopping - API"
+description: "API de comercio electrónico desarrollada en Node.js/TypeScript que proporciona una solución backend completa para una aplicación de carrito de compras. Está diseñada para manejar autenticación de usuarios, gestión de productos y funcionalidad de carrito de compras."
+image: "/images/preview-ecommerce-api.webp"
 technologies: ["Node", "Postgres", "Sequelize", "Express", "TypeScript", "Docker", "Jwt"]
 githubUrl: "https://github.com/Chencho34/shopping-cart-backend/tree/user-endpoints"
 featured: true
 date: 2025-06-10
 ---
 
-# Descripción General del Proyecto
+# 🛍️ Descripción del Proyecto
 
-Este proyecto es el backend de una aplicación de e-commerce, diseñado para gestionar usuarios, productos y operaciones relacionadas con el carrito de compras. Entre las funcionalidades implementadas se encuentran la autenticación de usuarios, la gestión de cuentas y la protección de datos sensibles mediante cifrado de contraseñas y generación de tokens de acceso. El backend está pensado para ser escalable y fácil de mantener, utilizando prácticas modernas de desarrollo y una arquitectura modular.
+Cart Shopping es una API de comercio electrónico desarrollada en Node.js/TypeScript que proporciona una solución backend completa para una aplicación de carrito de compras. Está diseñada para manejar autenticación de usuarios, gestión de productos y funcionalidad de carrito de compras.
 
-## Características Principales
+## 🏗️ Arquitectura & Stack Tecnológico
 
-- **Diseño Minimalista y Modular:** Organización clara en módulos para facilitar la escalabilidad y el mantenimiento.
-- **Gestión de Usuarios:** Registro, inicio de sesión, consulta, actualización y eliminación de usuarios.
-- **Autenticación Segura:** Uso de JWT para autenticación y bcrypt para cifrado de contraseñas.
-- **Validación de Datos:** Validación robusta de datos de entrada usando Joi.
-- **Preparado para Carrito de Compras:** Estructura lista para integrar funcionalidades de carrito, productos y pedidos.
-- **Preparado para Dashboard Administrativo:** Arquitectura pensada para añadir paneles de administración.
-- **Soporte para Docker:** Configuración lista para desplegar en contenedores Docker.
+**⚙️ Tecnologías Principales:**
+*  **Runtime:** Node.js con TypeScript
+*  **Framework:** Express.js v5.1.0
+*  **Base de Datos:** PostgreSQL con Sequelize ORM
+*  **Autenticación:** JWT (JSON Web Tokens) con bcryptjs
+*  **Validación:** Joi para validación de requests
+*  **Desarrollo:** Docker Compose para containerización
 
-## Detalles Técnicos
+**📦 Dependencias Clave:**
 
-| Backend & Core         | Seguridad & Validación      | Base de Datos & ORM         | Desarrollo & Calidad      |
-|------------------------|----------------------------|-----------------------------|---------------------------|
-| Node.js                | bcryptjs                   | PostgreSQL                  | TypeScript                |
-| Express                | jsonwebtoken               | pg                          | ts-node-dev               |
-| cors                   | Joi                        | pg-hstore                   | ts-standard               |
-| dotenv                 |                            | sequelize                   | typescript                |
-| morgan                 |                            |                             | ESLint                    |
+```json
+"bcryptjs": "^3.0.2",        // Password hashing
+"cors": "^2.8.5",            // Cross-origin requests
+"express": "^5.1.0",         // Web framework
+"joi": "^17.13.3",           // Schema validation
+"jsonwebtoken": "^9.0.2",    // JWT authentication
+"sequelize": "^6.37.7",      // ORM for PostgreSQL
+"pg": "^8.16.0"              // PostgreSQL driver
+```
 
-## Información Adicional Útil
+## 📁 Estructura del Proyecto
 
-- **Estructura de Carpetas:** El proyecto está organizado para separar la lógica de negocio, configuración, modelos de datos y rutas de la API.
-- **Fácil Despliegue:** Gracias a Docker y Docker Compose, puedes levantar el entorno completo con un solo comando.
-- **Preparado para Producción:** Uso de variables de entorno y separación de dependencias para diferentes entornos.
-- **Extensible:** Arquitectura que permite añadir fácilmente nuevas entidades y funcionalidades.
-- **Buenas Prácticas:** El código sigue buenas prácticas de desarrollo, facilitando su comprensión y extensión.
+```bash
+src/
+├── config/         # Database configuration
+├── controllers/    # Business logic handlers
+├── dtos/           # Data Transfer Objects
+├── middlewares/    # Custom middleware (auth, validation, error handling)
+├── models/         # Sequelize database models
+├── routes/         # API route definitions
+├── schemas/        # Joi validation schemas
+├── services/       # Business logic services
+└── utils/          # Utility functions
+```
 
-## Estructura de Carpetas
+## 🗄️ Esquema de Base de Datos
 
-| Carpeta/Archivo   | Descripción                                      |
-|-------------------|--------------------------------------------------|
-| src/models/       | Definición de modelos de datos (Sequelize)        |
-| src/routes/       | Definición de rutas de la API                     |
-| src/controllers/  | Lógica de negocio y controladores                 |
-| src/services/     | Servicios reutilizables (ej: autenticación)       |
-| src/middlewares/  | Middlewares personalizados                        |
-| src/config/       | Configuración de base de datos y entorno          |
+**👤 Modelo User:**
+Campos: id, username (único), email (único), password (hasheado), role (user/admin). Características: Control de acceso basado en roles, constraints únicos.
 
+**📦 Modelo Product:**
+Campos: id, name, description, category, price, discount, stock, imageUrl. Categorías: electronics, gaming, audio, video, smartphones, smart home. Características: Precio con decimales, gestión de stock, validación de URL.
+
+**🛍️ Modelo Cart:**
+Campos: id, userId, productId, quantity. Relaciones: Muchos-a-muchos entre Users y Products. Características: Validación de cantidad (mín: 1).
+
+## 🔌 API Endpoints
+
+**🔐 Rutas de Autenticación (/api/auth):**
+
+```ts
+POST /auth/register  # User registration
+POST /auth/login     # User login (returns JWT)
+```
+
+**📁 Archivos de Rutas Adicionales:**
+* **user.routes.ts** - User management
+* **products.routes.ts** - Product CRUD operations  
+* **cart.routes.ts** - Shopping cart functionality
+
+
+## 🐳 Configuración Docker
+
+El proyecto incluye una **configuración Docker completa:**
+* Contenedor PostgreSQL 17 Alpine para base de datos
+* Servicio backend con hot-reload para desarrollo
+* **Redes:** backend aisladas
+* **Volúmenes:** Almacenamiento persistente de base de datos
+* **Puertos:** 3000 para (backend) y 5433 para (PostgreSQL).
+
+## 🔧 Características de Desarrollo
+
+* **⚡ Hot Reload:** ts-node-dev para desarrollo
+* **🧹 Linting:** Configuración TypeScript Standard
+* **🧠 Type Safety:** Implementación completa TypeScript con tipos estrictos
+* **🚨 Manejo de Errores:** Middleware centralizado de manejo de errores
+* **🧾 Validación:** Validación de requests usando esquemas Joi
+* **🪵 Logging:** Morgan para logging de requests HTTP
+
+## 🚀 Getting Started
+
+```bash
+# Development mode
+npm run dev
+
+# Production build
+npm run build
+npm start
+
+# With Docker
+docker-compose up
+```
+
+## 📊 Estado Actual
+
+* ✅ Sistema de autenticación principal implementado
+* ✅ Modelos de base de datos y relaciones definidas
+* ✅ Containerización con Docker lista
+* ✅ Configuración TypeScript completa
+* ✅ Estructura básica de API establecida
+* 🔄 Conexión a base de datos con lógica de reintento implementada
