@@ -1,5 +1,5 @@
 ---
-title: "Landig Page KTM"
+title: "Landing Page KTM"
 description: "Inspirado en la web oficial de KTM, utilizando HTML5 y CSS3 como tecnologías principales. Presenta una interfaz minimalista y moderna. La página consta de una imagen principal donde se muestra al usuario una presentación y una galería de tarjetas minimalistas que muestran las diferentes motocicletas."
 image: "/images/ktm-project.webp"
 technologies: ["Html", "Css", "JavaScript"]
