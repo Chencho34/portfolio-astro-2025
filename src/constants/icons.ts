@@ -1,4 +1,4 @@
-import { Express, Net, SQLServer, Postgres, Astro, Bootstrap, Css, Docker, Git, Github, Jwt, Html, JavaScript, Next, Node, Npm, Postman, React, Sequelize, Tailwind, TypeScript, VsCode, Yarn, Redux, Firebase, ReactRouter, StyleComponents, MaterialUI, Twilio } from "../components/icons/tecnologies";
+import { Express, Net, SQLServer, Postgres, Astro, Bootstrap, Css, Docker, Git, Github, Jwt, Html, JavaScript, Next, Node, Npm, Postman, React, Sequelize, Tailwind, TypeScript, VsCode, Yarn, Redux, Firebase, ReactRouter, StyleComponents, MaterialUI, Twilio, WhatsApp } from "../components/icons/tecnologies";
 
 export const techComponents: Record<string, any> = {
   React,
@@ -23,6 +23,7 @@ export const techComponents: Record<string, any> = {
   TypeScript,
   Net,
   SQLServer,
-  Twilio
+  Twilio,
+  WhatsApp
   // ... añade más
 };

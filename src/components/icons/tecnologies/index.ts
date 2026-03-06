@@ -27,6 +27,7 @@ import MaterialUI from './MaterialUIIcon.astro'
 import Net from './NetIcon.astro'
 import SQLServer from './SQLServerIcon.astro'
 import Twilio from './TwilioIcon.astro'
+import WhatsApp from './WhatsAppIcon.astro'
 
 export {
   Astro,
@@ -57,5 +58,6 @@ export {
   MaterialUI,
   Net,
   SQLServer,
-  Twilio
+  Twilio,
+  WhatsApp
 }

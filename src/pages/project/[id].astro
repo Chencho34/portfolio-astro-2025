@@ -50,7 +50,9 @@ const { Content } = await render(project);
                 variant="subtle"
               >
                 <Icon class="size-4" />
-                {tech}
+                <span class="hidden md:block">
+                  {tech}
+                </span>
               </Badge>
             ) : (
               <span class="px-3 py-1 bg-gray-700/40 rounded-full text-gray-200 text-sm">{tech}</span>
