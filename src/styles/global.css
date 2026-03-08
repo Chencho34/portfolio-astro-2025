@@ -1,36 +1,106 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
 @theme {
-  --color-background: #101010;
-  --color-surface: #1a1a1a;
-  --color-surface-alt: #232323;
-  --color-border: #2d2d2d;
+  /* ── Colores base ── */
+  --color-base:     #0a0a0a;
+  --color-surface:  #111111;
+  --color-surface2: #1a1a1a;
+  --color-line:     #1f1f1f;
+  --color-line2:    #2a2a2a;
 
-  --color-primary: #38bdf8;
-  --color-primary-hover: #0ea5e9;
-  --color-accent: #7dd3fc;
+  /* ── Acento ── */
+  --color-lime:        #aadd55;
+  --color-lime-dim:    rgba(170, 221, 85, 0.10);
+  --color-lime-border: rgba(170, 221, 85, 0.28);
 
-  --color-text-primary: #f3f4f6;
-  --color-text-secondary: #9ca3af;
-  --color-muted: #6b7280;
+  /* ── Texto ── */
+  --color-ink:   #f0f0f0;
+  --color-muted: #888888;
+  --color-faint: #444444;
 
-  --color-overlay: rgba(0, 0, 0, 0.5);
-  --color-error: #ef4444;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-info: #3b82f6;
+  /* ── Tipografía ── */
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* ── Espaciado base ── */
+  --max-width: 900px;
+  --nav-height: 56px;
 }
 
-html {
-  scroll-padding: 80px;
-  /* scroll-behavior: smooth; */
+/* ─── Reset base ─── */
+@layer base {
+  html {
+    /* scroll-behavior: smooth; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-base text-ink font-sans;
+  }
+
+  /* scrollbar minimalista */
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: #0a0a0a; }
+  ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #444444; }
 }
 
-body {
-  font-family: 'Onest Variable', sans-serif;
+/* ─── Utilidades que Tailwind no puede expresar de forma nativa ─── */
+@layer utilities {
+
+  /* lime con alpha — necesario porque Tailwind no genera bg-lime/10 sin safelist */
+  .bg-lime-dim    { background-color: rgba(170, 221, 85, 0.10); }
+  .border-lime-soft { border-color:   rgba(170, 221, 85, 0.28); }
+
+  /* stagger delays para animaciones de entrada */
+  .delay-1 { animation-delay: 0.05s; }
+  .delay-2 { animation-delay: 0.15s; }
+  .delay-3 { animation-delay: 0.25s; }
+  .delay-4 { animation-delay: 0.35s; }
+  .delay-5 { animation-delay: 0.50s; }
+  .delay-6 { animation-delay: 0.65s; }
+
+  /* zoom de imagen en hover — usado en ProjectCard y screenshots */
+  .img-zoom {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .group:hover .img-zoom { transform: scale(1.04); }
+
+  /* outline text — apellido en el hero */
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px #333333;
+  }
+
+  /* glow radial verde detrás del hero */
+  .hero-glow {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 500px;
+    background: radial-gradient(
+      circle at center,
+      rgba(170, 221, 85, 0.07) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
 }
 
+/* ─── Grain — efecto de textura sobre el fondo ─── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+}
 
 
 .markdown-content {
