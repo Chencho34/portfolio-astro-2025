@@ -1,35 +1,25 @@
 ---
-import { twMerge } from 'tailwind-merge'
-
-type ButtonVariant = 'primary' | 'secondary' | 'text' | 'subtle' | 'accent'
-type Target = '_blank' | '_self' | '_parent' | '_top'
-
 interface Props {
-  className?: string
-  download?: string
-  variant?: ButtonVariant
   href: string
-  target?: Target
+  variant?: 'primary' | 'solid' | 'ghost' | 'outline-sm'
+  target?: '_blank' | '_self'
+  download?: boolean
 }
+const { href, variant = 'ghost', target = '_self', download } = Astro.props
 
-const baseStyles: String = "transform hover:scale-105 transition-all duration-300 ease-in-out inline-flex items-center gap-2.5 px-4 md:px-8 h-8 md:h-10 rounded-full font-medium text-sm md:text-normal hover:opacity-75"
-
-const buttonVariants: Record<ButtonVariant, string> = {
-  primary: "border border-[#38bdf8]/40 bg-gray-900/30 hover:bg-gray-800 text-white",
-  secondary: "border border-gray-700 bg-gray-900 text-gray-300 hover:bg-gray-800 hover:border-gray-500",
-  text: "text-[#38bdf8] hover:text-[#7dd3fc]",
-  subtle: "bg-[#38bff81a] border border-[#38bff840] text-[#38bdf8] hover:bg-[#38bff833]",
-  accent: "bg-primary text-white"
+const styles = {
+  primary:    "bg-lime text-base font-semibold px-5 py-2.5 rounded-lg hover:opacity-85",
+  solid:      "bg-ink text-base font-semibold px-5 py-2.5 rounded-lg hover:bg-white",
+  ghost:      "border border-line2 text-muted font-medium px-5 py-2.5 rounded-lg hover:border-muted hover:text-ink",
+  'outline-sm':"font-mono text-xs border border-lime text-lime px-3 py-1.5 rounded-md hover:bg-lime hover:text-base tracking-wider",
 }
-
-const { variant = 'primary', className = '', href, target, download } = Astro.props
 ---
 
 <a
-  download={download}
-  target={target}
   href={href}
-  class={twMerge(`${baseStyles} ${buttonVariants[variant]} ${className}`)}
+  target={target}
+  download={download}
+  class=`inline-flex items-center gap-1.5 text-sm transition-all ${styles[variant]}`
 >
   <slot />
 </a>

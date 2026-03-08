@@ -1,53 +1,62 @@
 ---
-import { techComponents } from '../../constants/icons';
-import { ExternalLink } from '../icons/contact';
-import Badge from './Badge.astro';
+import Badge from './Badge.astro'
+import { techComponents } from '../../constants/icons'
+import { ExternalLink } from '../icons/contact'
 
 interface Props {
-  title: string;
-  description: string;
-  image?: string;
-  githubUrl?: string;
-  demoUrl?: string;
-  technologies: string[];
-  slug: string;
+  title: string
+  description: string
+  image: string
+  href: string
+  technologies: string[]
+  featured?: boolean    // col-span-2 layout
+  type?: 'frontend' | 'backend'
+  slug: string
 }
-
-const { title, description, image, githubUrl, demoUrl, technologies, slug } = Astro.props;
+const { title, description, image, href, technologies, featured = false, type, slug } = Astro.props
 ---
 
-<a href={`/project/${slug}`} class="h-full">
-  <section class="border group bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-sky-500/10 rounded-xl overflow-hidden">
-    <article>
-      <figure class="overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          loading="lazy"
-          transition:name={`project-${slug}`}
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-      </figure>
-    </article>
-    <article class="p-4">
-      <section>
-        <h3 class="flex gap-1 text-lg font-medium text-primary group-hover:underline underline-offset-4 mb-2 group-hover:text-primary transition-colors line-clamp-1">
+<a href={`/project/${slug}`}
+   class=`group block bg-surface rounded-xl overflow-hidden border border-line
+          hover:border-line2 transition-all duration-300
+          ${featured ? 'sm:col-span-2' : ''}`>
+
+  <div class=`${featured ? 'sm:grid sm:grid-cols-[1.2fr_1fr]' : ''}`>
+
+    <!-- image -->
+    <div class="overflow-hidden aspect-video bg-surface2">
+      <img  transition:name={`project-${slug}`} src={image} alt={title}
+           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"/>
+    </div>
+
+    <!-- body -->
+    <div class=`p-5 ${featured ? 'flex flex-col justify-between' : ''}`>
+      {featured && type && (
+        <span class="font-mono text-xs text-lime border border-lime/25 bg-lime/10 px-2.5 py-1 rounded-full mb-3 inline-block">
+          {type === 'backend' ? 'Backend' : 'Proyecto destacado'}
+        </span>
+      )}
+
+      <h3 class="flex justify-between font-semibold text-sm text-ink group-hover:text-lime transition-colors mb-2">
           {title}
           <ExternalLink class:list='size-5' />
         </h3>
-        <p class="text-text-secondary text-sm mb-4 leading-relaxed line-clamp-3">{description}</p>
-      </section>
-      <section class="flex flex-wrap items-center gap-2">
-        {technologies.map(tech => {
-          const Icon = techComponents[tech];
-          return Icon ? (
-            <Badge variant="subtle" className='py-1 px-1.5 gap-1   text-xs ' >
-              <Icon class="size-3 md:size-4" />
-              {/* {tech} */}
-            </Badge>
-          ) : null;
-        })}
-      </section>
-    </article>
-  </section>
+      <p class="text-xs text-muted font-light leading-relaxed mb-4 line-clamp-2">{description}</p>
+      <div class="flex flex-wrap gap-1.5">
+        {
+          technologies.map(tech => {
+            const Icon = techComponents[tech]
+            return Icon ? (
+              <Badge size="sm" label={tech}>
+                {/* <Icon class:list={"size-3"} /> */}
+                {/* <Badge label={tech} size="sm" /> */}
+
+              </Badge>
+              ) : null 
+
+          })
+        }
+      </div>
+    </div>
+  </div>
 </a>

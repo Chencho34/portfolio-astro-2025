@@ -45,3 +45,11 @@ const { title, description } = Astro.props
 <meta name="twitter:image" content={imgURL} />
 
 <meta name="robots" content="index, follow" />
+
+
+ <!-- Fuentes — en el head para evitar FOUT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
