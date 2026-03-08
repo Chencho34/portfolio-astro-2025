@@ -6,7 +6,8 @@ const projects = await getCollection('projects')
 ---
 <Section id="projects" className="mb-14 md:mb-20">
   <TitleSection
-    title="Proyectos"
+  title="Proyectos"
+    number="01"
   />
   <p class="text-lg text-text-secondary max-w-2xl mx-auto mb-8 text-center">
     Una colección de proyectos que muestran mis habilidades en el desarrollo full-stack, desde el concepto hasta la implementación.
@@ -17,9 +18,9 @@ const projects = await getCollection('projects')
   {
     projects.map(project => {
       const { data, slug } = project
-      const { description, technologies, title, githubUrl, date, image, demoUrl } = data
+      const { description, technologies, title, githubUrl, date, featured, image, demoUrl } = data
       return (
-        <section class="grid h-auto max-w-full">
+        <section class={featured ? "md:col-span-2" : "col-span-1"}>
           <CardProject
             title={title}
             description={description}
@@ -28,6 +29,7 @@ const projects = await getCollection('projects')
             demoUrl={demoUrl}
             technologies={technologies}
             slug={slug}
+            featured={featured}
           />
         </section>
       )

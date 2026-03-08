@@ -1,57 +1,85 @@
 ---
-import { DownloadCV, GithubIcon, LinkedinIcon } from '../../components/icons/contact'
-import { CtaButton, KeywordHighlight, Section } from "../ui";
-import DevArmandoCV from "/ArmandoCrescencio_CV26.pdf"
+import {
+  DownloadCV,
+  GithubIcon,
+  LinkedinIcon,
+} from "../../components/icons/contact";
+import { Badge, CtaButton, KeywordHighlight, Section } from "../ui";
+import DevArmandoCV from "/ArmandoCrescencio_CV26.pdf";
 ---
 
 <Section id="home" className="mb-0">
-  <article class="min-h-dvh grid place-content-center px-4">
-    <article class="text-center space-y-4">
-      <h1 class="text-4xl md:text-7xl text-center font-semibold bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-6 drop-shadow-lg">
-        <span class="text-primary">Jose Armando</span>
-        <apan class="block bg-gradient-to-r from-gray-50 to-gray-500 text-transparent bg-clip-text">
-          Crescencio
-        </apan>
-      </h1>
-      <h2 class="block bg-gradient-to-r from-gray-50 to-gray-500 text-transparent bg-clip-text font-semibold tracking-wide underline decoration-gray-400 pb-2 text-lg md:text-3xl underline-offset-8">
-        Full Stack Web Developer
-      </h2>
-    </article>
-    <article class="max-w-2xl mx-auto pt-8">
-      <p class="text-center text-pretty text-sm prose md:text-lg text-text-secondary leading-relaxed">
-        <KeywordHighlight>Ingeniero Informático & desarrollador web</KeywordHighlight> con 3+ años experiencia en la creación de interfaces eficientes y escalables, especializado en el uso de <KeywordHighlight>React</KeywordHighlight> y tecnologías web modernas como <KeywordHighlight>Node.js</KeywordHighlight>, <KeywordHighlight>TypeScript</KeywordHighlight> y <KeywordHighlight>TailwindCSS</KeywordHighlight>.
-      </p>
-    </article>
-    <article class="pt-10 flex flex-wrap items-center justify-center gap-2 md:gap-4">        
-      <CtaButton
-        href="https://github.com/Chencho34"          
-        target="_blank" 
-      >
-        <GithubIcon class:list={"size-5 md:size-6"} />
-        <p class="text-xs md:text-sm">
-          Github
+  <article class="min-h-dvh grid place-content-center ">
+    <main
+      class="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-6"
+    >
+      <div class="hero-glow"></div>
+
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <h1
+          class="delay-2 font-bold leading-[0.95] tracking-tighter mb-6"
+          style="font-size:clamp(3.2rem,10vw,7rem)"
+        >
+          <span class="text-ink block">Armando</span>
+          <span class="block" style="color:#444;-webkit-text-stroke:1px #333"
+            >Crescencio</span
+          >
+        </h1>
+        <div class="delay-3 flex items-center justify-center gap-3 mb-7">
+          <span class="h-px w-12 bg-line2"></span>
+          <span class="font-mono text-sm tracking-widest text-muted uppercase"
+            >Full Stack Web Developer</span
+          >
+          <span class="h-px w-12 bg-line2"></span>
+        </div>
+        <p
+          class="delay-4 text-[1.05rem] text-muted font-light leading-relaxed max-w-xl mx-auto mb-10"
+        >
+          Ingeniero Informático & desarrollador web con <KeywordHighlight
+            >3+ años</KeywordHighlight
+          > de experiencia creando interfaces eficientes y escalables, especializado
+          en <KeywordHighlight>React</KeywordHighlight>, <KeywordHighlight
+            >Node.js</KeywordHighlight
+          >, <KeywordHighlight>TypeScript</KeywordHighlight> y <KeywordHighlight
+            >TailwindCSS</KeywordHighlight
+          >.
         </p>
-      </CtaButton>
-      <CtaButton
-        href="https://www.linkedin.com/in/armando-cr/"
-        target="_blank"  
-      >
-        <LinkedinIcon class:list={"size-5 md:size-6"} />
-        <p class="text-xs md:text-sm">
-          Linkedin
-        </p>
-      </CtaButton>
-      <CtaButton
-        download="ArmandoCrescencio_CV26.pdf" 
-        href={DevArmandoCV} 
-        target="_blank"
-      >
-        <DownloadCV class:list={"size-5 md:size-6"} />
-        <p class="text-xs md:text-sm flex gap-1">
-          <span class="hidden md:block">Download</span>
-          CV
-        </p>
-      </CtaButton>
-    </article>
+
+        <div class="delay-5 flex flex-wrap items-center justify-center gap-3">
+          <CtaButton
+            variant="solid"
+            href="https://github.com/Chencho34"
+            target="_blank"
+          >
+            <GithubIcon class:list="w-4" />
+            Github
+          </CtaButton>
+          <CtaButton
+            variant="ghost"
+            href="https://www.linkedin.com/in/armando-cr/"
+            target="_blank"
+          >
+            <LinkedinIcon class:list="w-4" />
+            LinkedIn
+          </CtaButton>
+          <CtaButton variant="primary" href={DevArmandoCV} download>
+            <DownloadCV class:list="w-4" />
+            Download CV
+          </CtaButton>
+        </div>
+        <div
+          class="delay-5 flex flex-wrap items-center justify-center gap-2 mt-10"
+        >
+          <span class="font-mono text-xs text-faint tracking-widest mr-2"
+            >STACK —</span
+          >
+          <Badge size="md" label="React" />
+          <Badge size="md" label="Next.js" />
+          <Badge size="md" label="Node.js" />
+          <Badge size="md" label="TypeScript" />
+          <Badge size="md" label="TailwindCSS" />
+        </div>
+      </div>
+    </main>
   </article>
 </Section>
