@@ -4,7 +4,7 @@ description: "Inspirado en la web oficial de KTM, utilizando HTML5 y CSS3 como t
 image: "/images/ktm-project.webp"
 technologies: ["Html", "Css", "JavaScript"]
 githubUrl: "https://github.com/Chencho34/ktm-web-page "
-featured: true
+featured: false
 date: 2022-07-06
 ---
 

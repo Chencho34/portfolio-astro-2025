@@ -4,7 +4,7 @@ description: "Página principal de Tesla, creado para replicar su interfaz de us
 image: "/images/tesla-project.webp"
 technologies: ["React", "MaterialUI", "Redux", "StyleComponents"]
 githubUrl: "https://github.com/Chencho34/tesla-clon"
-featured: true
+featured: false
 date: 2024-01-04
 ---
 

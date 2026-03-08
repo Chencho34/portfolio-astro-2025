@@ -4,7 +4,7 @@ description: "Este proyecto es un clon de la app de Disney Plus, desarrollado Re
 image: "/images/preview-disney-plus.webp"
 technologies: ["React", "Redux", "ReactRouter", "StyleComponents", "Firebase"]
 githubUrl: "https://github.com/Chencho34/disney-plus-clone-app"
-featured: true
+featured: false
 date: 2023-03-12
 ---
 

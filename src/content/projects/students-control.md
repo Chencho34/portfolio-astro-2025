@@ -4,7 +4,7 @@ description: "Aplicación web desarrollada con Blazor (.NET 8) para la gestión 
 image: "/images/preview-students-crud.webp"
 technologies: ["Net", "SQLServer", "Entity Framework", "Blazor"]
 githubUrl: "https://github.com/Chencho34/PruebaCRUD"
-featured: true
+featured: false
 date: 2025-06-20
 ---
 

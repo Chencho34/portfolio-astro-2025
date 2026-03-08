@@ -11,6 +11,7 @@ const projectsCollection = defineCollection({
     demoUrl: z.string().optional(),
     date: z.date().optional(),
     draft: z.boolean().optional(),
+    featured: z.boolean().optional(),
   })
 })
 
