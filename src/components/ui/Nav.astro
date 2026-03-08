@@ -1,59 +1,55 @@
 ---
-const navItems = [
-  { name: 'Experiencia', href: '/#experience', label: 'experience' },
-  { name: 'Proyectos', href: '/#projects', label: 'projects' },
-  { name: 'Sobre mí', href: '/#about', label: 'about' },
-  { name: 'Contacto', href: 'mailto:armandocrescencio343@gmail.com', label: 'contact' },
-]
+interface Props {
+  activeSection?: "experience" | "projects" | "about" | "";
+}
+const { activeSection = "" } = Astro.props;
 ---
 
-<nav class="h-[70px] max-w-6xl px-6 mx-auto backdrop-blur-xs fixed z-10 top-0 right-0 left-0 rounded-b-2xl">
-  <section class="flex flex-row items-center justify-center sm:justify-between  h-full">
-    <h4 class="text-xl text-primary hidden sm:flex"><a href="/#home" class="hover:text-text-primary transition-colors">Chencho34</a></h4>
-    <ul class="flex flex-row gap-3.5 sm:gap-4 text-text-primary  ">
-      {
-        navItems.map(item => (
-          <li class="cursor-pointer hover:text-sky-400 transition-colors text-sm sm:text-base">
-            <a aria-label={item.label} href={item.href}>{item.name}</a>
-          </li>
-        ))
-      }
+<header
+  class="fixed top-0 inset-x-0 z-50 border-b border-line"
+  style="background:rgba(10,10,10,0.85);backdrop-filter:blur(16px)"
+>
+  <nav class="max-w-4xl mx-auto px-8 h-14 flex items-center justify-between">
+    <a
+      href="/#home"
+      class="font-mono text-sm font-medium tracking-widest text-muted"
+    >
+      chencho<span class="text-lime">34</span>
+    </a>
+
+    <ul class="hidden sm:flex gap-8 list-none items-center">
+      <li>
+        <a
+          href="/#experience"
+          class=`text-sm transition-colors ${activeSection === 'experience' ? 'text-lime' : 'text-muted hover:text-ink'}`
+        >
+          Experiencia
+        </a>
+      </li>
+      <li>
+        <a
+          href="/#projects"
+          class=`text-sm transition-colors ${activeSection === 'projects' ? 'text-lime' : 'text-muted hover:text-ink'}`
+        >
+          Proyectos
+        </a>
+      </li>
+      <li>
+        <a
+          href="/#about"
+          class=`text-sm transition-colors ${activeSection === 'about' ? 'text-lime' : 'text-muted hover:text-ink'}`
+        >
+          Sobre mí
+        </a>
+      </li>
+      <li>
+        <a
+          href="mailto:armandocrescencio343@gmail.com"
+          class="font-mono text-xs border border-lime text-lime px-3 py-1.5 rounded-md hover:bg-lime hover:text-base transition-all tracking-wider"
+        >
+          Contacto
+        </a>
+      </li>
     </ul>
-  </section>
-</nav>
-
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll('section[id]')
-    const navLinks = document.querySelectorAll('nav ul li a')
-
-    const callback = (entries: []) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            link.classList.remove('text-sky-400')
-            if (link.getAttribute('aria-label') === entry.target.id) {
-              link.classList.add('text-sky-400')
-            }
-          })
-        }
-      })
-    }
-
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.3
-    })
-
-    sections.forEach(section => observer.observe(section))
-
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === 'hidden') {
-        observer.disconnect()
-      } else {
-        sections.forEach(section => observer.observe(section))
-      }
-    }
-  })
-</script>
+  </nav>
+</header>
