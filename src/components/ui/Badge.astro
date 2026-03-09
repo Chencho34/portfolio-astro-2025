@@ -1,9 +1,12 @@
 ---
+import { twMerge } from 'tailwind-merge'
+
 interface Props {
+  className?: string
   label?: string
   size?: 'sm' | 'md'   // sm = cards, md = hero/about
 }
-const { label, size = 'md' } = Astro.props
+const { label, size = 'md', className } = Astro.props
 
 const styles = {
   md: "px-2.5 py-1 text-muted hover:border-lime hover:text-lime",
@@ -11,7 +14,7 @@ const styles = {
 }
 ---
 
-<span class=`font-mono text-xs rounded border border-line2 transition-colors cursor-default ${styles[size]}`>
-  {label}
+<span class={twMerge(`font-mono text-xs rounded border border-line2 transition-colors cursor-default ${styles[size]}`, className)}>
   <slot />
+  {label}
 </span>
