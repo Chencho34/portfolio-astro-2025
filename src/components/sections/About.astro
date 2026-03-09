@@ -1,72 +1,62 @@
 ---
-import {
-  TitleSection,
-  SubtitleSection,
-  Section,
-  SkillsColumn,
-  KeywordHighlight,
-} from "../../components/ui";
-import { skills } from "../../constants/skills";
+import { TitleSection, SubtitleSection, Section, SkillsColumn, KeywordHighlight } from "../../components/ui"
+import { skills } from "../../constants/skills"
 ---
 
-<Section id="about" className="mb-14 md:mb-20">
+<Section id="about" className="mb-12 md:mb-20">
   <TitleSection title="Sobre mí" />
-  <div class="w-24 h-px bg-gray-700 mx-auto"></div>
-</Section>
-<Section>
   <article class="grid md:grid-cols-2 gap-12 items-center justify-center">
-    <section class="prose">
-      <h2 class="text-2xl font-light text-text-primary mb-6">
-        Hola, Soy Armando 👋
-      </h2>
-      <p class="font-normal text-text-secondary leading-relaxed">
+    <section class="space-y-4">
+      <h3 class="text-xl font-semibold tracking-tight">
+        Hola, soy Armando
+        <span class="ml-1">👋</span>
+      </h3>
+      <p class="font-light text-muted leading-relaxed">
         Pero mis amigos me llaman <KeywordHighlight>Chencho</KeywordHighlight>. Empecé en la programación desde
         bachillerato y desde entonces he estado aprendiendo y creciendo como
         <KeywordHighlight>desarrollador web</KeywordHighlight>.
       </p>
-      <p class="font-normal text-text-secondary leading-relaxed">
+      <p class="font-light text-muted leading-relaxed">
         Soy <KeywordHighlight>Ingeniero Informático</KeywordHighlight> con 3+ años de experiencia construyendo aplicaciones web
         escalables. Me apasiona escribir código limpio, optimizar rendimiento y
         estar siempre explorando nuevas tecnologías.
       </p>
-      <p class="font-normal text-text-secondary leading-relaxed">
+      <p class="font-light text-muted leading-relaxed">
         Actualmente me especializo en desarrollo <KeywordHighlight>full-stack</KeywordHighlight> con <KeywordHighlight>React</KeywordHighlight> y
         <KeywordHighlight>Node.js/Express</KeywordHighlight>, mientras exploro <KeywordHighlight>Astro</KeywordHighlight> para crear experiencias web
         ultra-rápidas.
       </p>
     </section>
     <section class="flex justify-center">
-      <figure
-        class="size-72 bg-white/5 backdrop-blur-sm border-white/10 border rounded-2xl flex items-center justify-center"
-      >
+      <div class="flex justify-center avatar-wrap rounded-2xl">
         <img
-          loading="lazy"
           src="/avatar.webp"
+          loading="lazy"
           alt="Jose Armando Crescencio"
-          class="size-64 object-cover rounded-xl"
+          class="relative z-10 size-72 sm:size-64 rounded-2xl object-cover border border-line2"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
         />
-      </figure>
+      </div>
     </section>
   </article>
-</Section>
-{/* Skills */}
-<Section>
-  <SubtitleSection title="Tecnologias & Herramientas" />
-  <article class="grid md:grid-cols-3 gap-8">
-    <SkillsColumn
-      skills={skills.frontend}
-      titleSection="Frontend"
-      className="bg-info/10 text-info border border-info/30"
-    />
-    <SkillsColumn
-      skills={skills.backend}
-      titleSection="Backend"
-      className="bg-success/10 text-success border border-success/30"
-    />
-    <SkillsColumn
-      skills={skills.tools}
-      titleSection="Tools"
-      className="bg-gray-600/10 text-gray-300 border border-gray-300/30"
-    />
+  <article>
+    <SubtitleSection title="Tecnologias & Herramientas"/>
+    <section class="grid md:grid-cols-3 gap-8">
+      <SkillsColumn
+        skills={skills.frontend}
+        titleSection="Frontend"
+        className="bg-info/10 text-info border border-info/30"
+      />
+      <SkillsColumn
+        skills={skills.backend}
+        titleSection="Backend"
+        className="bg-success/10 text-success border border-success/30"
+      />
+      <SkillsColumn
+        skills={skills.tools}
+        titleSection="Tools"
+        className="bg-gray-600/10 text-gray-300 border border-gray-300/30"
+      />
+    </>
   </article>
 </Section>
