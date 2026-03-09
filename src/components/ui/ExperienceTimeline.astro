@@ -4,16 +4,16 @@ import { ExternalLink } from "../icons/contact";
 import Badge from "./Badge.astro";
 ---
 
-<div class="space-y-6">
+<div>
   {
     experience.map((job) => {
       const { company, period, title, tecnologies, exp, location, modality } = job;
       return (
-        <div class="border-l-1  pb-2.5 border-line2 pl-8 relative">
+        <div class="border-l-1  pb-14 border-line2 pl-8 relative">
           <div class="absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-lime ring-4 ring-base"></div>
           <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
-            <h3 class="text-xl font-medium text-text-primary">{title}</h3>
-            <span class="text-sm text-text-secondary font-medium">
+            <h3 class="text-xl font-medium">{title}</h3>
+            <span class="text-xs text-faint tracking-wider font-medium font-mono">
               {period}
             </span>
           </div>
@@ -29,17 +29,17 @@ import Badge from "./Badge.astro";
             {location && <span>&bull; {location}</span>}
             {modality && <span>&bull; {modality}</span>}
           </span>
-          <div class="h-px bg-line mb-5"></div>
+          {/* <div class="h-px bg-line mb-5"></div> */}
           <p class="text-gray-400 leading-relaxed mb-4">
             {exp?.map((item) => (
-              <ul class="mb-1 marker:text-lime text-muted text-pretty text-sm  list-disc pl-4">
+              <ul class="mb-1 marker:text-lime text-muted font-mono text-pretty text-sm  list-disc pl-4">
                 <li>{item}</li>
               </ul>
             ))}
           </p>
           <div class="flex flex-wrap gap-2  mt-4">
             {tecnologies?.map((tech) => (
-              <Badge size="sm" label={tech} />
+              <Badge size="md" label={tech} />
             ))}
           </div>
         </div>
