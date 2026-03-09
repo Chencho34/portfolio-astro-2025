@@ -1,28 +1,32 @@
 ---
-import { SubtitleSection, Section } from "../ui";
+import { Section, StatusPill, CtaButton } from "../ui"
 ---
+
 <Section>
-  <SubtitleSection title="Trabajemos juntos" className="mb-6" />
-  <p
-    class="text-center prose text-pretty text-gray-300 mb-8 max-w-2xl mx-auto"
-  >
-    Siempre me interesan nuevas oportunidades y proyectos emocionantes. No
-    dudes en contactarme.
-  </p>
-  <!-- <article class="flex flex-row items-center justify-center gap-4">
-    <SocialPill
-      target="_blank"
-      className="py-2 px-2 rounded-full "
-      href="https://github.com/Chencho34"
-    >
-      <GithubIcon class:list='size-5' />
-    </SocialPill>
-    <SocialPill
-      target="_blank"
-      className="py-2 px-2 rounded-full "
-      href="https://www.linkedin.com/in/armando-cr/"
-    >
-      <LinkedinIcon class:list='size-5' />
-    </SocialPill>
-  </article> -->
+  <article class="relative border border-line bg-surface rounded-xl p-6">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-[radial-gradient(ellipse_at_top,rgba(170,221,85,0.05),transparent_70%)] pointer-events-none"></div>
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-8">
+      <div>
+        <p class="font-mono text-xs tracking-widest text-lime uppercase mb-3">
+          ¿Tienes un proyecto en mente?
+        </p>
+        <h3 class="font-bold tracking-tight leading-none text-3xl sm:text-4xl">
+          Trabajemos<br/>
+          <span class="text-faint">juntos.</span>
+        </h3>
+      </div>
+      <div class="flex flex-col  sm:items-end gap-3">
+        <StatusPill variant="avaylable" label="Disponible para proyectos" />
+        <CtaButton 
+          href="mailto:armandocrescencio343@gmail.com"
+          variant="primary"  
+        >
+          Enviar mensaje
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </CtaButton>
+      </div>
+    </div>
+  </article>
 </Section>
