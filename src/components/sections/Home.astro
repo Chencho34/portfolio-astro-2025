@@ -1,51 +1,27 @@
 ---
-import {
-  DownloadCV,
-  GithubIcon,
-  LinkedinIcon,
-} from "../../components/icons/contact";
-import { Badge, CtaButton, KeywordHighlight, Section } from "../ui";
-import DevArmandoCV from "/ArmandoCrescencio_CV26.pdf";
+import { DownloadCV, GithubIcon, LinkedinIcon } from "../../components/icons/contact"
+import { CtaButton, KeywordHighlight, Section } from "../ui"
+import DevArmandoCV from "/ArmandoCrescencio_CV26.pdf"
 ---
 
 <Section id="home" className="mb-0">
-  <article class="min-h-dvh grid place-content-center ">
-    <main
-      class="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-6"
-    >
+  <article class="min-h-dvh grid place-content-center">
+    <section class="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-6">
       <div class="hero-glow"></div>
-
-      <div class="relative z-10 max-w-3xl mx-auto">
-        <h1
-          class="delay-2 font-bold leading-[0.95] tracking-tighter mb-6"
-          style="font-size:clamp(3.2rem,10vw,7rem)"
-        >
-          <span class="text-ink block">Armando</span>
-          <span class="block" style="color:#444;-webkit-text-stroke:1px #333"
-            >Crescencio</span
-          >
+      <article class="relative z-10 max-w-3xl mx-auto">
+        <h1 class="font-bold leading-[0.95] tracking-tighter mb-6 text-[clamp(3.2rem,10vw,7rem)]">
+          <span class="text-ink block animate-fade-up">Armando</span>
+          <span class="block animate-fade-up delay-1 text-faint">Crescencio</span>
         </h1>
-        <div class="delay-3 flex items-center justify-center gap-3 mb-7">
+        <section class="animate-fade-up delay-2 flex items-center justify-center gap-3 mb-7">
           <span class="h-px w-12 bg-line2"></span>
-          <span class="font-mono text-sm tracking-widest text-muted uppercase"
-            >Full Stack Web Developer</span
-          >
+          <span class="font-mono text-sm tracking-widest text-muted uppercase">Full Stack Web Developer</span>
           <span class="h-px w-12 bg-line2"></span>
-        </div>
-        <p
-          class="delay-4 text-[1.05rem] text-muted font-light leading-relaxed max-w-xl mx-auto mb-10"
-        >
-          Ingeniero Informático & desarrollador web con <KeywordHighlight
-            >3+ años</KeywordHighlight
-          > de experiencia creando interfaces eficientes y escalables, especializado
-          en <KeywordHighlight>React</KeywordHighlight>, <KeywordHighlight
-            >Node.js</KeywordHighlight
-          >, <KeywordHighlight>TypeScript</KeywordHighlight> y <KeywordHighlight
-            >TailwindCSS</KeywordHighlight
-          >.
+        </section>
+        <p class="animate-fade-up delay-3 text-[1.05rem] text-muted font-light leading-relaxed max-w-xl mx-auto mb-10">
+          Ingeniero Informático & desarrollador web con <KeywordHighlight> 3+ años</KeywordHighlight> de experiencia creando interfaces eficientes y escalables, especializado en <KeywordHighlight>React,</KeywordHighlight> <KeywordHighlight>Node.js,</KeywordHighlight> <KeywordHighlight>TypeScript</KeywordHighlight> y <KeywordHighlight>TailwindCSS.</KeywordHighlight>
         </p>
-
-        <div class="delay-5 flex flex-wrap items-center justify-center gap-3">
+        <section class="animate-fade-up delay-4 flex flex-wrap items-center justify-center gap-3">
           <CtaButton
             variant="solid"
             href="https://github.com/Chencho34"
@@ -62,24 +38,16 @@ import DevArmandoCV from "/ArmandoCrescencio_CV26.pdf";
             <LinkedinIcon class:list="w-4" />
             LinkedIn
           </CtaButton>
-          <CtaButton variant="primary" href={DevArmandoCV} download>
+          <CtaButton 
+            variant="primary" 
+            href={DevArmandoCV}
+            download
+          >
             <DownloadCV class:list="w-4" />
             Download CV
           </CtaButton>
-        </div>
-        <div
-          class="delay-5 flex flex-wrap items-center justify-center gap-2 mt-10"
-        >
-          <span class="font-mono text-xs text-faint tracking-widest mr-2"
-            >STACK —</span
-          >
-          <Badge size="md" label="React" />
-          <Badge size="md" label="Next.js" />
-          <Badge size="md" label="Node.js" />
-          <Badge size="md" label="TypeScript" />
-          <Badge size="md" label="TailwindCSS" />
-        </div>
-      </div>
-    </main>
+        </section>
+      </article>
+    </section>
   </article>
 </Section>
