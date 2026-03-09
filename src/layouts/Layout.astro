@@ -20,11 +20,11 @@ const { title, description } = Astro.props
 		/>
 		<ClientRouter />
 	</head>
-	<body class="bg-fixed bg-no-repeat h-screen bg-base">
+	<body>
 		<Nav />
 		<main>
 			<slot />
 		</main>
-		<!-- <Footer /> -->
+		<Footer />
 	</body>
 </html>
