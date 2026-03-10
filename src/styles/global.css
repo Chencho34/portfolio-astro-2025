@@ -20,8 +20,8 @@
   --color-faint: #444444;
 
   /* ── Tipografía ── */
-  --font-sans: 'Outfit', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
+  --font-sans: 'Outfit Variable', sans-serif;
+  --font-mono: 'IBM Plex Sans Variable', monospace;
 
   /* ── Espaciado base ── */
   --max-width: 900px;

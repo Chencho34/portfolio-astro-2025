@@ -1,5 +1,7 @@
 ---
-import '@fontsource-variable/onest';
+import '@fontsource-variable/outfit'
+import '@fontsource-variable/ibm-plex-sans'
+
 import { ClientRouter } from "astro:transitions";
 import { BaseHead, Footer, Nav } from "../components/ui";
 
@@ -28,3 +30,18 @@ const { title, description } = Astro.props
 		<Footer />
 	</body>
 </html>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll('a[href^="/#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const hash = anchor.getAttribute('href')?.split('/')[1]
+        const target = document.querySelector(hash ?? '')
+        if (target) {
+          e.preventDefault()
+          target.scrollIntoView({ behavior: 'smooth' })
+        }
+      })
+    })
+  })
+</script>
