@@ -1,6 +1,6 @@
 ---
 import { experience } from "../../constants/experience"
-import { ExternalLink } from "../icons/contact"
+import { ExternalLinkIcon } from "../icons/contact"
 import Badge from "./Badge.astro"
 ---
 
@@ -21,7 +21,7 @@ import Badge from "./Badge.astro"
             class="inline-flex items-center gap-1.5 text-sm text-lime hover:opacity-75 transition-opacity font-medium"
           >
             {company}
-            <ExternalLink class:list={"size-3"} />
+            <ExternalLinkIcon class:list={"size-3.5"} />
           </a>
           <span class="text-sm text-muted font-light">
             {location && <span>&bull; {location}</span>}

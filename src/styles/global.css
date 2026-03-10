@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap'); */
-
 @theme {
   /* ── Colores base ── */
   --color-base:     #0a0a0a;
