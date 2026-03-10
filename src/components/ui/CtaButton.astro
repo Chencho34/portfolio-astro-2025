@@ -1,7 +1,7 @@
 ---
 interface Props {
   href: string
-  variant?: 'primary' | 'solid' | 'ghost' | 'outline-sm'
+  variant?: 'primary' | 'solid' | 'ghost' | 'outline-sm' | 'text'
   target?: '_blank' | '_self'
   download?: boolean
 }
@@ -12,7 +12,8 @@ const styles = {
   primary: "bg-lime text-base font-semibold px-5 py-2.5 rounded-lg hover:opacity-85",
   solid: "bg-ink text-base font-semibold px-5 py-2.5 rounded-lg hover:bg-white",
   ghost: "border border-line2 text-muted font-medium px-5 py-2.5 rounded-lg hover:border-muted hover:text-ink",
-  'outline-sm':"font-mono text-xs border border-lime text-lime px-3 py-1.5 rounded-md hover:bg-lime hover:text-base tracking-wider",
+  'outline-sm': "text-xs border border-lime px-3 py-1.5 rounded-md hover:bg-lime hover:text-base tracking-wider",
+  text: "text-faint font-mono text-xs hover:text-lime transition-colors tracking-wider"
 }
 ---
 
