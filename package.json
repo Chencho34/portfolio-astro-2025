@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@fontsource-variable/ibm-plex-sans": "^5.2.8",
-    "@fontsource-variable/onest": "^5.2.9",
     "@fontsource-variable/outfit": "^5.2.8",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.4",
