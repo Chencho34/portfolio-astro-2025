@@ -9,7 +9,7 @@ import Badge from "./Badge.astro"
     experience.map((job) => {
       const { company, period, title, tecnologies, exp, location, modality } = job
       return (
-        <article class="border-l-1 pb-12 border-line2 pl-8 relative">
+        <article class="border-l pb-12 border-line2 pl-8 relative">
           <div class="absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-lime ring-4 ring-base"></div>
           <h3 class="flex flex-col sm:flex-row items-baseline justify-between mb-1 text-xl font-medium">
             {title}
@@ -27,7 +27,7 @@ import Badge from "./Badge.astro"
             {location && <span>&bull; {location}</span>}
             {modality && <span>&bull; {modality}</span>}
           </span>
-          <ul class="mt-4 marker:text-lime text-muted font-mono text-pretty text-sm list-disc pl-4">
+          <ul class="mt-4 marker:text-lime text-muted font-mono tracking-wide text-pretty text-sm list-disc pl-4">
             {
               exp?.map((item) => (
                 <li class="mb-2">{item}</li>
