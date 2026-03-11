@@ -12,6 +12,7 @@ import Nav from './Nav.astro'
 import Badge from './Badge.astro'
 import KeywordHighlight from './KeywordHighlight.astro'
 import StatusPill from './StatusPill.astro'
+import PulseDot from './PulseDot.astro'
 
 export {
   TitleSection,
@@ -27,5 +28,6 @@ export {
   Nav,
   Badge,
   KeywordHighlight,
-  StatusPill
+  StatusPill,
+  PulseDot
 }
