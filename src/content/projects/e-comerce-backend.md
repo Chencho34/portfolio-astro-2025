@@ -6,6 +6,7 @@ technologies: ["Node", "Postgres", "Sequelize", "Express", "TypeScript", "Docker
 githubUrl: "https://github.com/Chencho34/shopping-cart-backend/tree/user-endpoints"
 featured: true
 date: 2025-06-10
+type: "backend"
 ---
 
 # 🛍️ Descripción del Proyecto

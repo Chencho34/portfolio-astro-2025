@@ -12,6 +12,7 @@ const projectsCollection = defineCollection({
     date: z.date().optional(),
     draft: z.boolean().optional(),
     featured: z.boolean().optional(),
+    type: z.enum(['backend', 'frontend', 'fullstack', 'mobile', 'other']).optional(),
   })
 })
 
