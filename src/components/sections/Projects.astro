@@ -1,37 +1,55 @@
 ---
 import { getCollection } from "astro:content";
-import { Section, TitleSection, CardProject } from "../../components/ui";
+import { Section, TitleSection, CardProject, SubtitleSection } from "../../components/ui";
+import FeaturedProject from "../../components/ui/FeaturedProject.astro";
 
-const projects = await getCollection('projects')
+const allProjects = await getCollection('projects')
+
+// ── 2. Sort by date descending ────────────────────────────────
+const sorted = allProjects.sort((a, b) => {
+  const aDate = a.data.date?.getTime() ?? 0;
+  const bDate = b.data.date?.getTime() ?? 0;
+  return bDate - aDate;
+});
+
+// ── 3. Split groups ───────────────────────────────────────────
+const featuredProjects = sorted.filter(p => p.data.featured);
+const otherProjects = sorted.filter(p => !p.data.featured);
 ---
-<Section id="projects" className="mb-14 md:mb-20">
-  <TitleSection
-    className="mb-6"
-    title="Proyectos"
-  />
-  <p class="text-md text-muted mb-8 font-light text-center  max-w-md mx-auto leading-relaxed">
-    Una colección de proyectos que muestran mis habilidades en el desarrollo full-stack, desde el concepto hasta la implementación.
-  </p>
-</Section>
-<Section className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 justify-center">
-  {
-    projects.map(project => {
-      const { data, slug } = project
-      const { description, technologies, title, githubUrl, featured, image, demoUrl } = data
-      return (
-        <section class={featured ? "md:col-span-2" : "col-span-1"}>
-          <CardProject
-            title={title}
-            description={description}
-            image={image}
-            githubUrl={githubUrl}
-            demoUrl={demoUrl}
-            technologies={technologies}
-            slug={slug}
-            featured={featured}
-          />
-        </section>
-      )
-    })
-  }
+
+<Section
+  id="projects"
+  ariaLabelledby="projects-heading"
+>
+  <header class="mb-10 md:mb-14">
+    <TitleSection id="projects-heading" title="Projects"/>
+  </header>
+
+  {featuredProjects.length > 0 && (
+    <div class="space-y-4 mb-8">
+      {featuredProjects.map((project, featuredIndex) => (
+        <FeaturedProject
+          project={project}
+          featuredIndex={featuredIndex}
+        />
+      ))}
+    </div>
+  )}
+
+  {otherProjects.length > 0 && (
+    <SubtitleSection title="Otros Projectos" />
+    <div class="space-y-4 list-none" role="list" aria-label="Other projects">
+      {otherProjects.map(project => (
+        <div>
+          <CardProject project={project} />
+        </div>
+      ))}
+    </div>
+  )}
+
+  {allProjects.length === 0 && (
+    <div class="flex items-center justify-center py-20">
+      <p class="font-mono text-sm text-white/20">No projects yet.</p>
+    </div>
+  )}
 </Section>
