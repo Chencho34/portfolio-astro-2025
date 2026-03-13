@@ -60,8 +60,8 @@ const navItems = [
 
     const observer = new IntersectionObserver(callback, {
       root: null,
-      rootMargin: '0px',
-      threshold: 0.3
+      rootMargin: '-80px 0px -50% 0px',
+      // threshold: 0.5
     })
 
     sections.forEach(section => observer.observe(section))
@@ -75,3 +75,49 @@ const navItems = [
     }
   })
 </script>
+
+<!-- <script>
+document.addEventListener("astro:page-load", () => {
+
+  const sections = document.querySelectorAll("section[id]")
+  const navLinks = document.querySelectorAll("nav ul li a")
+
+  const callback = (entries) => {
+
+    let visibleSection = null
+    let maxRatio = 0
+
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+        maxRatio = entry.intersectionRatio
+        visibleSection = entry.target.id
+      }
+    })
+
+    if (visibleSection) {
+      navLinks.forEach(link => {
+        const isActive = link.getAttribute("aria-label") === visibleSection
+        link.classList.toggle("text-lime", isActive)
+      })
+    }
+
+  }
+
+  const observer = new IntersectionObserver(callback, {
+    root: null,
+    rootMargin: "-80px 0px -40% 0px",
+    threshold: [0.1, 0.25, 0.5, 0.75]
+  })
+
+  sections.forEach(section => observer.observe(section))
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+      observer.disconnect()
+    } else {
+      sections.forEach(section => observer.observe(section))
+    }
+  })
+
+})
+</script> -->

@@ -31,7 +31,7 @@ const { Content } = await render(project);
 <!-- HERO con imagen de fondo -->
   <section class="relative pt-14 overflow-hidden">
     <div class="relative h-[70vh] min-h-[480px] w-full overflow-hidden">
-      <img src={image}  alt={title} class="w-full h-full object-cover" />
+      <img src={image}   transition:name={`project-${slug}`}  alt={title} class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-t from-base via-base/60 to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-base/80 via-transparent to-transparent"></div>
     </div>

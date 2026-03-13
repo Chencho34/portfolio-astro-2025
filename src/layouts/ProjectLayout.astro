@@ -1,6 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import { BaseHead, Container, Footer, Section } from "../components/ui";
+import { BaseHead, Container, Footer } from "../components/ui";
 import "../styles/global.css";
 import { Contact } from "../components/sections";
 
@@ -12,7 +12,7 @@ interface Props {
 const { title, slug, description } = Astro.props;
 ---
 
-<html lang="es">
+<html lang="en">
   <head>
     <BaseHead title={title} description={description} />
     <ClientRouter />
