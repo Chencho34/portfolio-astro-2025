@@ -5,6 +5,7 @@ import CodeIcon from './CodeIcon.astro'
 import DownloadIcon from './DownloadIcon.astro'
 import ExternalLinkIcon from './ExternalLinkIcon.astro'
 import ArrowRightIcon from './ArrowRightIcon.astro'
+import InternalLinkIcon from './InternalLinkIcon.astro'
 
 export {
   LinkedinIcon,
@@ -14,4 +15,5 @@ export {
   DownloadIcon,
   ExternalLinkIcon,
   ArrowRightIcon,
+  InternalLinkIcon
 }
