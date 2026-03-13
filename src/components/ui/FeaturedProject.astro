@@ -4,6 +4,7 @@ import StatusPill from './StatusPill.astro';
 import Badge from './Badge.astro';
 import CtaButton from './CtaButton.astro';
 import GithubIcon from '../icons/tecnologies/GithubIcon.astro';
+import { ExternalLinkIcon, InternalLinkIcon } from '../icons/contact';
 
 interface Props {
   project:        CollectionEntry<'projects'>;
@@ -11,19 +12,26 @@ interface Props {
 }
 
 const { project, featuredIndex } = Astro.props;
+const { slug } = project
 const { title, description, image, technologies, demoUrl, githubUrl, type } = project.data;
 
-// true  → image left  (col 1), content right (col 2)
-// false → image right (col 2), content left  (col 1)
 const imageLeft = featuredIndex % 2 === 0;
 
 const PLACEHOLDER = `https://placehold.co/960x600/1a1a1a/444?text=${encodeURIComponent(title)}`;
 const primaryLink = demoUrl ?? githubUrl;
 ---
+
+
 <article
-  class="group bg-surface grid grid-cols-1 md:grid-cols-2 bg-ba rounded-xl overflow-hidden border border-white/6 hover:border-white/12 transition-colors duration-300"
+  class="group relative bg-surface grid grid-cols-1 md:grid-cols-2 rounded-xl overflow-hidden border border-white/6 hover:border-lime/20 transition-colors duration-300"
   aria-label={`Featured project: ${title}`}
 >
+  {/* Overlay link cubre toda la card */}
+  <a
+    href={`/project/${slug}`}
+    class="card-overlay absolute inset-0 z-[1] rounded-xl"
+    aria-label={`Ver detalles de ${title}`}
+  />
   <figure
     class:list={[
       'relative overflow-hidden bg-black aspect-16/10 md:aspect-auto',
@@ -41,11 +49,12 @@ const primaryLink = demoUrl ?? githubUrl;
       decoding="async"
       width="960"
       height="600"
+     transition:name={`project-${slug}`}
     />
 
     {type && (    
       <span
-        class="absolute top-3 left-3 font-mono text-[10px] tracking-widest uppercase px-2 py-1 rounded bg-black/70 backdrop-blur-sm text-white/60 border border-white/10"
+        class="absolute top-3 hidden left-3 font-mono text-[10px] tracking-widest uppercase px-2 py-1 rounded bg-black/70 backdrop-blur-sm text-white/60 border border-white/10"
         aria-label={`Type: ${type}`}
       >
         {type}
@@ -53,103 +62,193 @@ const primaryLink = demoUrl ?? githubUrl;
     )}
   </figure>
 
-  <div
+  <section
     class:list={[
-      'flex flex-col justify-between p-6 md:p-8',
+      'flex flex-col relative justify-between p-6 md:p-8',
       imageLeft ? 'md:order-2' : 'md:order-1',
     ]}
   >
-    <div>
-      {/* Eyebrow */}
-      <p class="font-mono text-[10px] tracking-[0.2em] uppercase text-white/30 mb-3">
+    <!-- <div class="card-glow"></div> -->
+    <article>
+      <p class="font-mono text-[10px] tracking-[0.2em] uppercase text-lime mb-3">
         Featured · {String(featuredIndex + 1).padStart(2, '0')}
       </p>
-
-      {/* Title + link icon */}
-      <div class="flex items-start justify-between gap-3 mb-3">
-        <h3 class="text-white font-bold text-xl md:text-2xl leading-snug">
+      <div class="flex items-center justify-between gap-3 mb-3">
+        <h3 class="text-ink font-bold text-xl md:text-2xl leading-snug">
           {title}
         </h3>
-
-        {primaryLink && (
-          <a
-            href={primaryLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="shrink-0 text-white/30 hover:text-white transition-colors duration-200 mt-1"
-            aria-label={`Open ${title}`}
-          >
-            <svg width="16" height="16" viewBox="0 0 15 15" fill="none" aria-hidden="true">
-              <path d="M3 12L12 3M12 3H6.5M12 3V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        )}
+        <CtaButton href={`/project/${slug}`} variant='text'>
+          <InternalLinkIcon class:list='stroke-faint group-hover:stroke-muted hover:stroke-lime transition-colors' />
+        </CtaButton>
       </div>
-
-      {/* Description */}
       <p class="text-muted text-sm  leading-relaxed line-clamp-4">
         {description}
       </p>
-    </div>
+    </article>
 
-    {/* Bottom: tags + secondary link */}
-    <div class="mt-6 flex flex-col gap-4">
-      {/* Tags */}
+    <article class="mt-6 flex flex-col gap-4">
       {technologies.length > 0 && (
         <ul class="flex flex-wrap gap-1.5 list-none" role="list" aria-label="Technologies">
           {technologies.map(tech => (
             <li>
-              <span class="inline-block px-2.5 py-[3px] text-[11px] text-white/40 bg-white/[0.04] border border-white/[0.08] rounded-md font-mono">
+              <Badge 
+                className='group-hover:border-lime/12 group-hover:text-lime'
+                size="md"
+                label={tech}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {(demoUrl || githubUrl) && (
+        <div class="flex items-center gap-3 pt-1">
+          {demoUrl && (
+            <CtaButton
+              href={demoUrl}
+              variant="outline-sm"
+              className='text-sm'
+              target='_blank'
+            >
+              <ExternalLinkIcon class:list="size-3.5 stroke-2"/>
+              Demo
+            </CtaButton>
+          )}
+          {githubUrl && (
+            <CtaButton 
+              href={githubUrl}
+              variant="ghost"
+              className='px-3 py-1.5 font-mono rounded-md'
+            >
+              <GithubIcon class:list='size-3.5 ' />
+              Source
+            </CtaButton>
+          )}
+        </div>
+      )}
+    </article>
+  </section>
+
+</article>
+<!-- 
+<article
+  class="group relative grid grid-cols-1 md:grid-cols-2 bg-surface rounded-xl overflow-hidden border border-white/6 hover:border-lime-400/20 transition-all duration-300"
+  aria-label={`Featured project: ${title}`}
+>
+  {/* Overlay link cubre toda la card */}
+  <a
+    href={`/project/${slug}`}
+    class="card-overlay absolute inset-0 z-[1] rounded-xl"
+    aria-label={`Ver detalles de ${title}`}
+  />
+ 
+  {/* Imagen */}
+  <figure
+    class:list={[
+      'relative overflow-hidden bg-black',
+      'aspect-video md:aspect-auto',
+      'order-first',
+      imageLeft ? 'md:order-1' : 'md:order-2',
+    ]}
+  >
+    <img
+      src={image ?? PLACEHOLDER}
+      alt={`Screenshot of ${title}`}
+      class="w-full h-full object-cover object-left transition-transform duration-700 group-hover:scale-[1.04]"
+      loading="lazy"
+      decoding="async"
+      width="960"
+      height="600"
+    />
+ 
+    {/* Gradiente de fade hacia la sección de contenido */}
+    <div
+      class:list={[
+        'absolute inset-y-0 w-24 from-[#0f1012] to-transparent pointer-events-none hidden md:block',
+        imageLeft ? 'right-0 bg-gradient-to-l' : 'left-0 bg-gradient-to-r',
+      ]}
+    />
+ 
+    {type && (
+      <span
+        class="absolute top-3 left-3 font-mono text-[10px] tracking-widest uppercase px-2 py-1 rounded bg-black/70 backdrop-blur-sm text-white/50 border border-white/10"
+        aria-label={`Type: ${type}`}
+      >
+        {type}
+      </span>
+    )}
+  </figure>
+ 
+  {/* Contenido */}
+  <section
+    class:list={[
+      'flex flex-col justify-between p-6 md:p-8 relative',
+      imageLeft ? 'md:order-2' : 'md:order-1',
+    ]}
+  >
+    {/* Glow sutil en hover */}
+    <div class="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(400px_at_50%_0%,rgba(163,230,53,0.04),transparent)]" />
+ 
+    <div>
+        <p class="font-mono text-[10px] tracking-[0.2em] uppercase text-lime mb-3">
+        Featured · {String(featuredIndex + 1).padStart(2, '0')}
+      </p>
+ 
+      <div class="flex items-start justify-between gap-3 mb-3">
+        <h3 class="text-white font-bold text-xl md:text-2xl leading-snug">
+          {title}
+        </h3>
+      </div>
+ 
+      <p class="text-white/40 text-sm leading-relaxed line-clamp-4">
+        {description}
+      </p>
+    </div>
+ 
+    <div class="mt-6 flex flex-col gap-4">
+ 
+      {technologies.length > 0 && (
+        <ul class="flex flex-wrap gap-1.5 list-none" role="list" aria-label="Technologies">
+          {technologies.map((tech) => (
+            <li>
+              <span class="inline-flex items-center px-2.5 py-1 rounded-md font-mono text-[11px] text-white/40 bg-white/4 border border-white/8 group-hover:border-lime-400/12 group-hover:text-white/60 transition-colors duration-300">
                 {tech}
               </span>
             </li>
           ))}
         </ul>
       )}
-
-      {/* Show both links if available */}
+ 
       {(demoUrl || githubUrl) && (
-        <div class="flex items-center gap-3 pt-1">
+        <div class="relative z-10 flex items-center gap-2.5 pt-1">
           {demoUrl && (
-            // <CtaButton
-            //   href={demoUrl}
-            //   variant="outline-sm"
-            // >
-            //   Live demo
-            //   <svg width="11" height="11" viewBox="0 0 15 15" fill="none" aria-hidden="true">
-            //     <path d="M3 12L12 3M12 3H6.5M12 3V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            //   </svg>
-            // </CtaButton>
             <a
               href={demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 text-xs font-mono tracking-wider uppercase text-white/60 hover:text-white border border-white/10 hover:border-white/30 px-3 py-1.5 rounded transition-colors duration-200"
-              aria-label={`Visit ${title} live site`}
+              class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium bg-lime-400 text-black hover:bg-lime-300 transition-colors duration-200"
+              aria-label={`Demo de ${title}`}
             >
-              Live demo
-              <svg width="11" height="11" viewBox="0 0 15 15" fill="none" aria-hidden="true">
-                <path d="M3 12L12 3M12 3H6.5M12 3V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-3.5 stroke-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
               </svg>
+              Demo
             </a>
           )}
+ 
           {githubUrl && (
-            // <CtaButton 
-            //   href={githubUrl}
-            //   variant="text"
-            // >
-            //   Source
-            //   <GithubIcon class:list='size-4' />
-            // </CtaButton>
             <a
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 text-xs font-mono tracking-wider uppercase text-white/40 hover:text-white/70 transition-colors duration-200"
-              aria-label={`View ${title} source code`}
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-white/50 hover:text-white/80 border border-white/10 hover:border-white/20 bg-white/4 hover:bg-white/6 transition-all duration-200"
+              aria-label={`Repositorio de ${title}`}
             >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                <path d="M9 18c-4.51 2-5-2-7-2"/>
               </svg>
               Source
             </a>
@@ -157,6 +256,12 @@ const primaryLink = demoUrl ?? githubUrl;
         </div>
       )}
     </div>
-  </div>
-
+  </section>
 </article>
+ 
+<style>
+  .card-overlay {
+    /* Sin estilos visibles — solo ocupa el espacio para el click */
+  }
+</style>
+  -->

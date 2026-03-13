@@ -1,30 +1,25 @@
 ---
 import { getCollection } from "astro:content";
-import { Section, TitleSection, CardProject, SubtitleSection } from "../../components/ui";
-import FeaturedProject from "../../components/ui/FeaturedProject.astro";
+import { Section, TitleSection, CardProject, SubtitleSection, FeaturedProject} from "../../components/ui";
 
 const allProjects = await getCollection('projects')
 
-// ── 2. Sort by date descending ────────────────────────────────
 const sorted = allProjects.sort((a, b) => {
   const aDate = a.data.date?.getTime() ?? 0;
   const bDate = b.data.date?.getTime() ?? 0;
   return bDate - aDate;
 });
 
-// ── 3. Split groups ───────────────────────────────────────────
 const featuredProjects = sorted.filter(p => p.data.featured);
 const otherProjects = sorted.filter(p => !p.data.featured);
 ---
 
-<Section
-  id="projects"
-  ariaLabelledby="projects-heading"
->
-  <header class="mb-10 md:mb-14">
-    <TitleSection id="projects-heading" title="Projects"/>
-  </header>
-
+<Section id="projects">
+  <TitleSection id="projects-heading" title="Proyectos" className="mb-8"/>
+  <p class="text-sm text-muted max-w-lg mx-auto mb-12 text-center">
+    Una colección de proyectos que muestran mis habilidades en el desarrollo full-stack, desde el concepto hasta la implementación.
+  </p>
+  
   {featuredProjects.length > 0 && (
     <div class="space-y-4 mb-8">
       {featuredProjects.map((project, featuredIndex) => (
@@ -37,7 +32,7 @@ const otherProjects = sorted.filter(p => !p.data.featured);
   )}
 
   {otherProjects.length > 0 && (
-    <SubtitleSection title="Otros Projectos" />
+    <SubtitleSection title="Otros Proyectos" />
     <div class="space-y-4 list-none" role="list" aria-label="Other projects">
       {otherProjects.map(project => (
         <div>
