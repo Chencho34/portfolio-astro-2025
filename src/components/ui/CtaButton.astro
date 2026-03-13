@@ -1,13 +1,16 @@
 ---
+import { twMerge } from 'tailwind-merge'
+
 interface Props {
   href: string
   variant?: 'primary' | 'solid' | 'ghost' | 'outline-sm' | 'text'
-  target?: '_blank' | '_self'
+  target?: '_blank' | '_self' | "_parent"
   download?: boolean
   ariaLabel?: string
+  className?: string
 }
 
-const { href, variant = 'ghost', target = '_self', download, ariaLabel } = Astro.props
+const { href, variant = 'ghost', target = '_self', download, ariaLabel, className } = Astro.props
 
 const styles = {
   primary: "bg-lime text-base font-semibold px-5 py-2.5 rounded-lg hover:opacity-85",
@@ -23,7 +26,7 @@ const styles = {
   target={target}
   download={download}
   aria-label={ariaLabel}
-  class=`inline-flex items-center gap-1.5 text-sm transition-all ${styles[variant]}`
+  class={twMerge(`inline-flex items-center gap-1.5 text-sm transition-all ${styles[variant]} ${className}`)}
 >
   <slot />
 </a>

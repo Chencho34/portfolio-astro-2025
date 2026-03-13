@@ -10,8 +10,8 @@ const { label, size = 'md', className } = Astro.props
 
 const styles = {
   md: "px-2.5 py-1 text-muted hover:border-lime hover:text-lime cursor-default",
-  sm: "px-1 py-0.5 text-faint  bg-surface2 cursor-default",
-  xs: "text-faint font-light px-1 py-0.5 bg-surface2"
+  sm: "px-1 py-0.5 text-faint bg-surface2 cursor-default",
+  xs: "text-muted px-1 py-0.5 bg-surface2 cursor-default",
 }
 ---
 <span class={twMerge(`font-mono text-xs rounded border border-line2 transition-colors text-nowrap ${styles[size]}`, className)}>
