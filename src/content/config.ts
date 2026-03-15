@@ -13,6 +13,7 @@ const projectsCollection = defineCollection({
     draft: z.boolean().optional(),
     featured: z.boolean().optional(),
     type: z.enum(['backend', 'frontend', 'fullstack', 'mobile', 'other']).optional(),
+    images: z.array(z.string().url()).optional()
   })
 })
 
