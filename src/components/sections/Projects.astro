@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import { Section, TitleSection, CardProject, SubtitleSection, FeaturedProject} from "../../components/ui";
-import { collections } from "../../content/config";
 
 const allProjects = await getCollection('projects')
 const cleanProjects = allProjects.filter(p => !p.data.draft)
