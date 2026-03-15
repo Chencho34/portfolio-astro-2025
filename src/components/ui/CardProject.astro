@@ -1,21 +1,28 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import Badge from './Badge.astro';
+import { InternalLinkIcon } from '../icons/contact';
 
 interface Props {
   project: CollectionEntry<'projects'>;
 }
 
 const { project } = Astro.props;
-const { title, description, image, technologies, demoUrl, githubUrl } = project.data;
+const { slug } = project
+const { title, description, image, technologies } = project.data;
 
 const PLACEHOLDER = `https://placehold.co/640x400/1a1a1a/444?text=${encodeURIComponent(title)}`;
-const linkUrl     = demoUrl ?? githubUrl;
 ---
 
-<article class="group flex flex-col sm:flex-row gap-0 bg-surface rounded-xl overflow-hidden border border-white/[0.06] hover:border-white/[0.12] transition-colors duration-300">
+<article class="group relative flex flex-col sm:flex-row gap-0 bg-surface rounded-xl overflow-hidden border border-white/6 hover:border-lime/20  transition-colors duration-300">
+  <a
+    href={`/project/${slug}`}
+    class="card-overlay absolute inset-0 z-1 rounded-xl"
+    aria-label={`Ver detalles de ${title}`}
+  />
   <fugure class="w-full sm:w-[45%] shrink-0 overflow-hidden bg-black">
     <img
+      transition:name={`project-${slug}`}
       src={image ?? PLACEHOLDER}
       alt={`Screenshot of ${title}`}
       class="w-full h-48 sm:h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
@@ -32,32 +39,7 @@ const linkUrl     = demoUrl ?? githubUrl;
         <h3 class="text-ink font-semibold leading-snug">
           {title}
         </h3>
-
-        {linkUrl && (
-          <a
-            href={linkUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="shrink-0 text-white/40 hover:text-white transition-colors duration-200 mt-0.5"
-            aria-label={`Open ${title}`}
-          >
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 15 15"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M3 12L12 3M12 3H6.5M12 3V8.5"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </a>
-        )}
+        <InternalLinkIcon class:list='stroke-faint group-hover:stroke-lime transition-colors size-5'/>
       </div>
       <p class="text-muted text-sm leading-relaxed line-clamp-3">
         {description}
@@ -72,10 +54,11 @@ const linkUrl     = demoUrl ?? githubUrl;
       >
         {technologies.map(tech => (
           <li>
-             <Badge 
-                size="xs"
-                label={tech}
-              />
+            <Badge 
+              className='group-hover:border-lime/12 group-hover:text-lime'
+              size="md"
+              label={tech}
+            />
           </li>
         ))}
       </ul>
