@@ -1,11 +1,10 @@
 ---
-import { getCollection, render } from "astro:content";
-import { Container, Section, TitleSection, CtaButton, Badge } from "../../components/ui";
-import { techComponents } from "../../constants/icons";
-import { GithubIcon, ExternalLink } from '../../components/icons/contact'
-import Layout from "../../layouts/Layout.astro";
-import { Contact } from "../../components/sections";
-import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import { getCollection, getEntry, render } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { ProjectGallery, ProjectHero, ProjectLinks, ProjectMeta, TechPills } from '../../components/project'
+import { Container, Section } from '../../components/ui';
+import { Contact } from '../../components/sections';
+
 export async function getStaticPaths() {
   const projects = await getCollection("projects", ({data}) => {
     return data.draft !== true
@@ -18,429 +17,228 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { data, slug } = project;
-const { title, description, technologies, date, demoUrl, githubUrl, image } = data;
+const { title, description, technologies, date, demoUrl, githubUrl, image, type, images, featured, draft } = data;
 const { Content } = await render(project);
+
+// ─── Prev / Next ─────────────────────────────────────────────────────────────
+const allProjects = await getCollection('projects', ({ data }) => !data.draft)
+const sorted = allProjects.sort(
+  (a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0),
+)
+const currentIndex = sorted.findIndex((p) => p.slug === slug)
+const prevProject = currentIndex < sorted.length - 1 ? sorted[currentIndex + 1] : null
+const nextProject = currentIndex > 0 ? sorted[currentIndex - 1] : null
+
+// ─── Formatted date ───────────────────────────────────────────────────────────
+const formattedDate = date
+  ? new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' }).format(date)
+  : null
 ---
 
-<ProjectLayout
-  title={title}
-  description={description}
-  slug={slug}
->
-
-<!-- HERO con imagen de fondo -->
-  <section class="relative pt-14 overflow-hidden">
-    <div class="relative h-[70vh] min-h-[480px] w-full overflow-hidden">
-      <img src={image}   transition:name={`project-${slug}`}  alt={title} class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-t from-base via-base/60 to-transparent"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-base/80 via-transparent to-transparent"></div>
-    </div>
-
-    <div class="absolute inset-0 flex items-end pt-14">
-      <div class="max-w-5xl mx-auto px-8 pb-12 w-full">
-
-        <div class="flex items-center gap-3 mb-5">
-          <span class="inline-flex items-center gap-1.5 font-mono text-xs text-lime border border-lime/25 bg-lime/10 px-3 py-1 rounded-full">
-            <span class="w-1 h-1 rounded-full bg-lime"></span>
-            <!-- {type === 'backend' ? 'Backend' : type === 'fullstack' ? 'Full Stack' : 'Frontend SPA'} -->
-          </span>
-          <span class="h-px w-8 bg-line2"></span>
-          <!-- <span class="font-mono text-xs text-faint tracking-widest">{status}</span> -->
-        </div>
-
-        <h1 class="font-bold tracking-tight leading-none mb-5"
-            style="font-size:clamp(2.4rem,7vw,5rem)">{title}</h1>
-
-        <p class="text-sm text-muted font-light leading-relaxed max-w-lg mb-7">{description}</p>
-
-        <div class="flex flex-wrap items-center gap-3">
-          {demoUrl && (
-            <a href={demoUrl} target="_blank"
-               class="inline-flex items-center gap-2 bg-lime text-base text-sm font-semibold px-5 py-2.5 rounded-lg hover:opacity-85 transition-opacity">
-              Ver demo ↗
-            </a>
+<BaseLayout slug={slug} title={`${slug} — Projects`} description={description}>
+  <Container>
+    <Section>
+      <nav class="flex items-center gap-2 text-xs text-muted font-mono my-4">
+        <a href="/" class="hover:text-ink transition-colors duration-200">home</a>
+        <span class="text-faint">/</span>
+        <a href="/#projects" class="hover:text-ink transition-colors duration-200">projects</a>
+        <span class="text-faint">/</span>
+        <span class="text-ink">{slug}</span>
+      </nav>
+      <ProjectHero slug={slug} image={image} type={type} date={formattedDate} title={title} />
+      <div
+        class="py-5 grid gap-5"
+        style="max-width: var(--max-width); grid-template-columns: 1fr 220px;"
+      >
+        <div class="min-w-0">
+          <div class="mb-5 animate-fade-up" style="animation-delay: 0.05s;">
+            <h1 class="text-2xl font-medium text-ink leading-snug font-sans mb-2">
+              {title}
+            </h1>
+            {description && (
+              <p class="text-sm text-muted leading-relaxed">{description}</p>
+            )}
+          </div>
+          <TechPills technologies={technologies} />
+          <ProjectLinks githubUrl={githubUrl} demoUrl={demoUrl} variant="row" />
+          {images && images.length > 0 && (
+            <ProjectGallery images={images} title={title} />
           )}
-          {githubUrl && (
-            <a href={githubUrl} target="_blank"
-               class="inline-flex items-center gap-2 border border-line2 text-muted text-sm font-medium px-5 py-2.5 rounded-lg hover:border-muted hover:text-ink transition-colors">
-              Ver código
-            </a>
-          )}
-          <div class="ml-auto hidden sm:flex items-center gap-4">
-            <!-- <span class="font-mono text-xs text-faint">{formattedDate}</span> -->
-            <!-- {duration && <>
-              <span class="w-px h-4 bg-line2"></span>
-              <span class="font-mono text-xs text-faint">{duration}</span>
-            </>} -->
+          <div class="border-t border-line pt-5 mt-1">
+            <p class="text-[10px] tracking-widest uppercase text-muted mb-4 font-mono">overview</p>
+            <div class="prose-project">
+              <Content />
+            </div>
           </div>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-
-
-
-  <div class="border-y border-line bg-surface">
-  <div class="max-w-5xl mx-auto px-8 py-4 flex flex-wrap gap-2 items-center">
-    <span class="font-mono text-xs text-faint tracking-widest mr-2">STACK —</span>
-    <span class="font-mono text-xs px-2.5 py-1 rounded border border-line2 text-muted bg-base hover:border-lime hover:text-lime transition-colors cursor-default">React</span>
-    <span class="font-mono text-xs px-2.5 py-1 rounded border border-line2 text-muted bg-base hover:border-lime hover:text-lime transition-colors cursor-default">TypeScript</span>
-    <span class="font-mono text-xs px-2.5 py-1 rounded border border-line2 text-muted bg-base hover:border-lime hover:text-lime transition-colors cursor-default">Redux Toolkit</span>
-    <span class="font-mono text-xs px-2.5 py-1 rounded border border-line2 text-muted bg-base hover:border-lime hover:text-lime transition-colors cursor-default">Tailwind</span>
-    <span class="font-mono text-xs px-2.5 py-1 rounded border border-line2 text-muted bg-base hover:border-lime hover:text-lime transition-colors cursor-default">React Router v6</span>
-    <span class="font-mono text-xs px-2.5 py-1 rounded border border-line2 text-muted bg-base hover:border-lime hover:text-lime transition-colors cursor-default">Vite</span>
-    <span class="font-mono text-xs px-2.5 py-1 rounded border border-line2 text-muted bg-base hover:border-lime hover:text-lime transition-colors cursor-default">React Hook Form</span>
-  </div>
-</div>
-
-<!-- ══════ CONTENIDO PRINCIPAL ══════ -->
-<div class="max-w-5xl mx-auto px-8 py-20 space-y-24">
-
-  <!-- ── MÉTRICAS ── -->
-  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-    <div class="border border-line bg-surface rounded-xl p-5 text-center group hover:border-line2 transition-colors">
-      <p class="font-bold text-2xl text-lime tracking-tight">↓ 67%</p>
-      <p class="font-mono text-xs text-faint mt-1 tracking-wide">tiempo de carga</p>
-    </div>
-    <div class="border border-line bg-surface rounded-xl p-5 text-center group hover:border-line2 transition-colors">
-      <p class="font-bold text-2xl text-lime tracking-tight">17</p>
-      <p class="font-mono text-xs text-faint mt-1 tracking-wide">componentes</p>
-    </div>
-    <div class="border border-line bg-surface rounded-xl p-5 text-center group hover:border-line2 transition-colors">
-      <p class="font-bold text-2xl text-lime tracking-tight">↓ 30%</p>
-      <p class="font-mono text-xs text-faint mt-1 tracking-wide">errores de form</p>
-    </div>
-    <div class="border border-line bg-surface rounded-xl p-5 text-center group hover:border-line2 transition-colors">
-      <p class="font-bold text-2xl text-lime tracking-tight">100%</p>
-      <p class="font-mono text-xs text-faint mt-1 tracking-wide">responsive</p>
-    </div>
-  </div>
-
-  <!-- ── RESUMEN ── -->
-  <div class="grid grid-cols-1 sm:grid-cols-[1fr_1px_1fr] gap-8 items-start">
-    <div>
-      <div class="flex items-center gap-3 mb-5">
-        <span class="font-mono text-xs text-lime tracking-widest uppercase">El problema</span>
-        <span class="h-px flex-1 bg-line"></span>
-      </div>
-      <p class="text-sm text-muted font-light leading-relaxed">
-        Necesitaba demostrar dominio real del manejo de estado complejo en React sin depender de un backend. El reto: simular una experiencia de compra completa — carrito, favoritos, autenticación y roles — funcionando 100% en el cliente.
-      </p>
-    </div>
-    <div class="hidden sm:block bg-line self-stretch"></div>
-    <div>
-      <div class="flex items-center gap-3 mb-5">
-        <span class="font-mono text-xs text-lime tracking-widest uppercase">La solución</span>
-        <span class="h-px flex-1 bg-line"></span>
-      </div>
-      <p class="text-sm text-muted font-light leading-relaxed">
-        Arquitectura Redux Toolkit con rehidratación automática desde localStorage, sistema de rutas protegidas con Outlet guards, y componentes reutilizables bajo feature-based folder structure. El resultado: la app más completa que he construido.
-      </p>
-    </div>
-  </div>
-
-  <!-- ── DESAFÍOS ── -->
-  <div>
-    <div class="flex items-center gap-4 mb-10">
-      <span class="font-mono text-xs text-lime tracking-widest uppercase">Desafíos técnicos</span>
-      <span class="h-px flex-1 bg-line"></span>
-    </div>
-
-    <div class="space-y-3">
-
-      <div class="challenge-card relative border border-line bg-surface rounded-xl p-6 overflow-hidden hover:border-line2 transition-colors group cursor-default">
-        <div class="deco-num">01</div>
-        <div class="relative z-10 grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-4 items-start">
-          <div>
-            <span class="font-mono text-xs text-lime tracking-widest block mb-1">Estado global</span>
-            <h3 class="font-semibold text-sm text-ink">Sin backend real</h3>
-          </div>
-          <p class="text-sm text-muted font-light leading-relaxed">
-            Mantener carrito, favoritos y sesión sincronizados solo con Redux + localStorage. Implementé rehidratación automática del store para persistir estado entre recargas sin perder datos del usuario.
-          </p>
-        </div>
-      </div>
-
-      <div class="challenge-card relative border border-line bg-surface rounded-xl p-6 overflow-hidden hover:border-line2 transition-colors group cursor-default">
-        <div class="deco-num">02</div>
-        <div class="relative z-10 grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-4 items-start">
-          <div>
-            <span class="font-mono text-xs text-lime tracking-widest block mb-1">Autenticación</span>
-            <h3 class="font-semibold text-sm text-ink">Roles y rutas protegidas</h3>
-          </div>
-          <p class="text-sm text-muted font-light leading-relaxed">
-            Layouts diferenciados para usuarios y administradores con React Router v6. Usé Outlet + guards para manejar autorización de forma limpia y escalable sin repetir lógica en cada ruta.
-          </p>
-        </div>
-      </div>
-
-      <div class="challenge-card relative border border-line bg-surface rounded-xl p-6 overflow-hidden hover:border-line2 transition-colors group cursor-default">
-        <div class="deco-num">03</div>
-        <div class="relative z-10 grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-4 items-start">
-          <div>
-            <span class="font-mono text-xs text-lime tracking-widest block mb-1">Arquitectura</span>
-            <h3 class="font-semibold text-sm text-ink">17 componentes sin deuda</h3>
-          </div>
-          <p class="text-sm text-muted font-light leading-relaxed">
-            Mantener componentes reutilizables en un proyecto que creció rápido fue un ejercicio real de disciplina. Feature-based folder structure para que cada módulo viva junto a su lógica.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ── FUNCIONALIDADES ── -->
-  <div>
-    <div class="flex items-center gap-4 mb-10">
-      <span class="font-mono text-xs text-lime tracking-widest uppercase">Funcionalidades</span>
-      <span class="h-px flex-1 bg-line"></span>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-      <!-- col 1 -->
-      <div class="space-y-2">
-        <div class="flex items-start gap-3 border border-line bg-surface rounded-lg px-4 py-3 hover:border-line2 transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 flex-shrink-0"></span>
-          <p class="text-sm text-muted font-light">Carrito de compras con control de cantidades y persistencia en sesión</p>
-        </div>
-        <div class="flex items-start gap-3 border border-line bg-surface rounded-lg px-4 py-3 hover:border-line2 transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 flex-shrink-0"></span>
-          <p class="text-sm text-muted font-light">Sistema de favoritos sincronizado con estado global</p>
-        </div>
-        <div class="flex items-start gap-3 border border-line bg-surface rounded-lg px-4 py-3 hover:border-line2 transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 flex-shrink-0"></span>
-          <p class="text-sm text-muted font-light">Autenticación simulada con control de sesión y roles (user / admin)</p>
-        </div>
-        <div class="flex items-start gap-3 border border-line bg-surface rounded-lg px-4 py-3 hover:border-line2 transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 flex-shrink-0"></span>
-          <p class="text-sm text-muted font-light">Filtrado y búsqueda de productos en tiempo real</p>
-        </div>
-      </div>
-      <!-- col 2 -->
-      <div class="space-y-2">
-        <div class="flex items-start gap-3 border border-line bg-surface rounded-lg px-4 py-3 hover:border-line2 transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 flex-shrink-0"></span>
-          <p class="text-sm text-muted font-light">Panel de administrador para gestión de inventario</p>
-        </div>
-        <div class="flex items-start gap-3 border border-line bg-surface rounded-lg px-4 py-3 hover:border-line2 transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 flex-shrink-0"></span>
-          <p class="text-sm text-muted font-light">Rutas protegidas por rol con redirect automático</p>
-        </div>
-        <div class="flex items-start gap-3 border border-line bg-surface rounded-lg px-4 py-3 hover:border-line2 transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 flex-shrink-0"></span>
-          <p class="text-sm text-muted font-light">Validación de formularios con React Hook Form y Zod</p>
-        </div>
-        <div class="flex items-start gap-3 border border-line bg-surface rounded-lg px-4 py-3 hover:border-line2 transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 flex-shrink-0"></span>
-          <p class="text-sm text-muted font-light">Rehidratación automática del store desde localStorage</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── CAPTURAS ── -->
-  <div>
-    <div class="flex items-center gap-4 mb-10">
-      <span class="font-mono text-xs text-lime tracking-widest uppercase">Capturas de pantalla</span>
-      <span class="h-px flex-1 bg-line"></span>
-      <span class="font-mono text-xs text-faint">clic para ampliar</span>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-
-      <div onclick="openLightbox(this)" class="group relative rounded-xl overflow-hidden border border-line bg-surface2 cursor-zoom-in hover:border-line2 transition-colors aspect-video flex items-center justify-center">
-        <span class="font-mono text-xs text-faint">screenshot 01</span>
-        <div class="absolute inset-0 bg-base/0 group-hover:bg-base/20 transition-colors flex items-center justify-center">
-          <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-surface border border-line rounded-lg px-3 py-1.5">
-            <span class="font-mono text-xs text-muted">ampliar →</span>
-          </div>
-        </div>
-        <span class="absolute bottom-3 left-3 font-mono text-xs text-faint border border-line bg-surface px-2 py-0.5 rounded">01 — Hero</span>
-      </div>
-
-      <div onclick="openLightbox(this)" class="group relative rounded-xl overflow-hidden border border-line bg-surface2 cursor-zoom-in hover:border-line2 transition-colors aspect-video flex items-center justify-center">
-        <span class="font-mono text-xs text-faint">screenshot 02</span>
-        <div class="absolute inset-0 bg-base/0 group-hover:bg-base/20 transition-colors flex items-center justify-center">
-          <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-surface border border-line rounded-lg px-3 py-1.5">
-            <span class="font-mono text-xs text-muted">ampliar →</span>
-          </div>
-        </div>
-        <span class="absolute bottom-3 left-3 font-mono text-xs text-faint border border-line bg-surface px-2 py-0.5 rounded">02 — Carrito</span>
-      </div>
-
-      <div onclick="openLightbox(this)" class="group relative rounded-xl overflow-hidden border border-line bg-surface2 cursor-zoom-in hover:border-line2 transition-colors aspect-video flex items-center justify-center">
-        <span class="font-mono text-xs text-faint">screenshot 03</span>
-        <div class="absolute inset-0 bg-base/0 group-hover:bg-base/20 transition-colors flex items-center justify-center">
-          <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-surface border border-line rounded-lg px-3 py-1.5">
-            <span class="font-mono text-xs text-muted">ampliar →</span>
-          </div>
-        </div>
-        <span class="absolute bottom-3 left-3 font-mono text-xs text-faint border border-line bg-surface px-2 py-0.5 rounded">03 — Admin</span>
-      </div>
-
-      <div onclick="openLightbox(this)" class="group relative rounded-xl overflow-hidden border border-line bg-surface2 cursor-zoom-in hover:border-line2 transition-colors aspect-video flex items-center justify-center">
-        <span class="font-mono text-xs text-faint">screenshot 04</span>
-        <div class="absolute inset-0 bg-base/0 group-hover:bg-base/20 transition-colors flex items-center justify-center">
-          <div class="opacity-0 group-hover:opacity-100 transition-opacity bg-surface border border-line rounded-lg px-3 py-1.5">
-            <span class="font-mono text-xs text-muted">ampliar →</span>
-          </div>
-        </div>
-        <span class="absolute bottom-3 left-3 font-mono text-xs text-faint border border-line bg-surface px-2 py-0.5 rounded">04 — Login</span>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ── APRENDIZAJES ── -->
-  <div>
-    <div class="flex items-center gap-4 mb-10">
-      <span class="font-mono text-xs text-lime tracking-widest uppercase">Aprendizajes</span>
-      <span class="h-px flex-1 bg-line"></span>
-    </div>
-
-    <div class="space-y-4">
-      <div class="border border-line bg-surface rounded-xl p-6 hover:border-line2 transition-colors">
-        <div class="flex items-start gap-5">
-          <span class="font-mono text-3xl font-bold text-lime/20 flex-shrink-0 leading-none mt-0.5">01</span>
-          <div>
-            <h4 class="font-semibold text-sm text-ink mb-2">La arquitectura primero, el código después</h4>
-            <p class="text-sm text-muted font-light leading-relaxed">
-              Empezar directo a codear sin planear la estructura del estado me costó dos refactorizaciones completas. Ahora diseño el shape del store en papel antes de escribir una sola línea de Redux.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="border border-line bg-surface rounded-xl p-6 hover:border-line2 transition-colors">
-        <div class="flex items-start gap-5">
-          <span class="font-mono text-3xl font-bold text-lime/20 flex-shrink-0 leading-none mt-0.5">02</span>
-          <div>
-            <h4 class="font-semibold text-sm text-ink mb-2">TypeScript no es opcional en proyectos reales</h4>
-            <p class="text-sm text-muted font-light leading-relaxed">
-              Tipar todo — especialmente los slices de Redux y las respuestas de API — eliminó una categoría entera de bugs silenciosos que en JavaScript hubieran tardado horas en encontrar.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="border border-line bg-surface rounded-xl p-6 hover:border-line2 transition-colors">
-        <div class="flex items-start gap-5">
-          <span class="font-mono text-3xl font-bold text-lime/20 flex-shrink-0 leading-none mt-0.5">03</span>
-          <div>
-            <h4 class="font-semibold text-sm text-ink mb-2">Los formularios merecen su propia capa</h4>
-            <p class="text-sm text-muted font-light leading-relaxed">
-              Manejar validaciones a mano fue el primer error. React Hook Form + Zod no solo limpió el código — redujo los errores de usuario en un 30% y mejoró la experiencia notablemente.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── PRÓXIMO PROYECTO ── -->
-  <div class="border-t border-line pt-12">
-    <p class="font-mono text-xs text-faint tracking-widest uppercase mb-6 text-center">Siguiente proyecto</p>
-    <a href="/project/cart-shopping-api"
-       class="group block border border-line bg-surface rounded-xl p-6 hover:border-line2 transition-all duration-300">
-      <div class="flex items-center justify-between gap-4">
-        <div>
-          <span class="font-mono text-xs text-muted tracking-widest block mb-1">Backend · API REST</span>
-          <h3 class="font-semibold text-base text-ink group-hover:text-lime transition-colors">
-            Cart Shopping — API
-          </h3>
-          <p class="text-xs text-muted font-light mt-1">Node.js · TypeScript · Express · PostgreSQL · JWT</p>
-        </div>
-        <div class="flex items-center gap-2 text-faint group-hover:text-lime transition-colors flex-shrink-0">
-          <span class="font-mono text-xs tracking-widest hidden sm:block">ver proyecto</span>
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </div>
-      </div>
-    </a>
-  </div>
-
-</div>
-
-<!-- ══════ LIGHTBOX ══════ -->
-<div id="lightbox" onclick="closeLightbox()">
-  <button onclick="closeLightbox()" class="absolute top-5 right-5 text-muted hover:text-ink transition-colors z-10">
-    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-  </button>
-  <img id="lightbox-img" src="" alt="" />
-</div>
-</ProjectLayout>
-
-
-<!-- <Layout
-  title={title}
-  description={description}
->
-  <Container className="mt-24">
-    <Section className="mb-12">
-      <TitleSection title={title} />
-      <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto mb-8"></div>
-    </Section>
-
-    <Section className="flex flex-col md:flex-row gap-10 items-center justify-between mb-14">
-      <figure class="overflow-hidden shadow-2xl rounded-2xl max-w-xl">
-        <img
-          transition:name={`project-${slug}`}
-          src={image}
-          alt={title}
-          class="w-full md:h-full object-cover rounded-2xl"
+        <ProjectMeta
+          type={type}
+          date={formattedDate}
+          featured={featured}
+          technologies={technologies}
+          githubUrl={githubUrl}
+          demoUrl={demoUrl}
         />
-      </figure>
-      <div class="flex-5/12 flex flex-col gap-6 items-start justify-center w-full">
-        <div class="flex flex-wrap gap-3 mb-2">
-          {technologies.map(tech => {
-            const Icon = techComponents[tech]
-            return Icon ? (
-              <Badge
-                className="text-sm font-medium shadow-sm"
-                variant="subtle"
-              >
-                <Icon class="size-4" />
-                {tech}
-              </Badge>
-            ) : (
-              <span class="px-3 py-1 bg-gray-700/40 rounded-full text-gray-200 text-sm">{tech}</span>
-            )
-          })}
-        </div>
-        <div class="flex gap-4">
-          {githubUrl && (
-            <CtaButton 
-              variant="accent"
-              href={githubUrl} 
-              className="px-6" 
-              target="_blank"
-            >
-                <GithubIcon class:list='size-5'/>
-              Código
-            </CtaButton>
-          )}
-          {demoUrl && (
-            <CtaButton 
-              variant="primary" 
-              href={demoUrl} 
-              className="px-6" 
-              target="_blank"
-            >
-              <ExternalLink class:list='size-5' />
-              Demo
-            </CtaButton>
-          )}
-        </div>
-        <div class="text-gray-400 text-xs mt-2">
-          {date && <span>Publicado: {new Date(date).toLocaleDateString()}</span>}
-        </div>
       </div>
     </Section>
-    <Section className="prose max-w-4xl mx-auto prose-headings:text-text-primary prose-p:text-text-secondary prose-li:text-text-secondary prose-strong:text-[#38bdf8] prose-strong:font-normal prose-a:text-sky-400 prose-a:underline hover:prose-a:text-sky-200 prose:img:rounded-xl prose-img:rounded-lg prose-h1:text-2xl md:prose-h1:text-4xl md: prose-h1:font-normal prose-h2:text-xl md:prose-h2:text-3xl md:prose-h3:text-xl prose-h3:text-base prose-h3:font-normal prose-h2:font-normal prose-code:text-white ">
-      <Content />
+    <Section>
+      <Contact />
     </Section>
-    <Contact />
   </Container>
-</Layout> -->
+
+
+  <footer
+    class="border-t border-line mt-2"
+    style="background: var(--color-surface);"
+  >
+    <div
+      class="mx-auto px-5 h-12 flex items-center justify-between"
+      style="max-width: var(--max-width);"
+    >
+      {prevProject ? (
+        <a
+          href={`/project/${prevProject.slug}`}
+          class="flex items-center gap-2 text-xs text-muted hover:text-ink transition-colors duration-200 font-mono group"
+        >
+          <span class="group-hover:-translate-x-0.5 transition-transform duration-200">←</span>
+          <span class="hidden sm:inline">{prevProject.data.title}</span>
+          <span class="sm:hidden">prev</span>
+        </a>
+      ) : (
+        <span />
+      )}
+
+      <a
+        href="/#projects"
+        class="text-[10px] tracking-widest uppercase text-faint hover:text-muted transition-colors duration-200 font-mono"
+      >
+        all projects
+      </a>
+
+      {nextProject ? (
+        <a
+          href={`/project/${nextProject.slug}`}
+          class="flex items-center gap-2 text-xs text-muted hover:text-ink transition-colors duration-200 font-mono group"
+        >
+          <span class="hidden sm:inline">{nextProject.data.title}</span>
+          <span class="sm:hidden">next</span>
+          <span class="group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+        </a>
+      ) : (
+        <span />
+      )}
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ── Responsive: single column on mobile ── */
+  @media (max-width: 640px) {
+    div[style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* ── Prose styles for Markdown content ── */
+  :global(.prose-project) {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    line-height: 1.75;
+  }
+
+  :global(.prose-project h1),
+  :global(.prose-project h2),
+  :global(.prose-project h3),
+  :global(.prose-project h4) {
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  :global(.prose-project h2) { font-size: 1rem; }
+  :global(.prose-project h3) { font-size: 0.9375rem; }
+
+  :global(.prose-project p) {
+    margin-bottom: 0.875rem;
+  }
+
+  :global(.prose-project a) {
+    color: var(--color-lime);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-lime-border);
+    transition: border-color 0.2s;
+  }
+  :global(.prose-project a:hover) {
+    border-color: var(--color-lime);
+  }
+
+  :global(.prose-project ul),
+  :global(.prose-project ol) {
+    padding-left: 1.25rem;
+    margin-bottom: 0.875rem;
+  }
+  :global(.prose-project li) {
+    margin-bottom: 0.25rem;
+  }
+  :global(.prose-project ul li::marker) {
+    color: var(--color-lime);
+  }
+
+  :global(.prose-project code:not(pre code)) {
+    background: var(--color-surface2);
+    border: 1px solid var(--color-line2);
+    color: var(--color-lime);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    padding: 0.1em 0.45em;
+    border-radius: 4px;
+  }
+
+  :global(.prose-project pre) {
+    background: var(--color-surface) !important;
+    border: 1px solid var(--color-line2);
+    border-radius: 8px;
+    padding: 1rem 1.125rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+
+  :global(.prose-project pre code) {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--color-ink);
+  }
+
+  :global(.prose-project blockquote) {
+    border-left: 2px solid var(--color-lime-border);
+    padding-left: 1rem;
+    color: var(--color-muted);
+    font-style: italic;
+    margin: 1rem 0;
+  }
+
+  :global(.prose-project hr) {
+    border: none;
+    border-top: 1px solid var(--color-line);
+    margin: 1.5rem 0;
+  }
+
+  :global(.prose-project img) {
+    border-radius: 8px;
+    border: 1px solid var(--color-line2);
+    width: 100%;
+    object-fit: cover;
+  }
+
+  :global(.prose-project strong) {
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+</style>

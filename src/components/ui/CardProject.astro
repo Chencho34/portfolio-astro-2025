@@ -22,7 +22,6 @@ const PLACEHOLDER = `https://placehold.co/640x400/1a1a1a/444?text=${encodeURICom
   />
   <fugure class="w-full sm:w-[45%] shrink-0 overflow-hidden bg-black">
     <img
-      transition:name={`project-${slug}`}
       src={image ?? PLACEHOLDER}
       alt={`Screenshot of ${title}`}
       class="w-full h-48 sm:h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
@@ -30,6 +29,7 @@ const PLACEHOLDER = `https://placehold.co/640x400/1a1a1a/444?text=${encodeURICom
       decoding="async"
       width="640"
       height="400"
+      transition:name={`project-${slug}`}
     />
   </fugure>
 

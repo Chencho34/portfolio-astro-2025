@@ -1,0 +1,36 @@
+---
+import "../styles/global.css"
+import '@fontsource-variable/outfit'
+import '@fontsource-variable/ibm-plex-sans'
+
+import { BaseHead } from '../components/ui'
+import { ClientRouter } from 'astro:transitions'
+import ProjectNavBar from '../components/project/ProjectNavBar.astro'
+
+interface Props {
+  title?: string
+  description?: string
+  slug: string
+}
+
+const {
+  title = 'Portfolio',
+  description = 'My personal portfolio',
+  slug
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <ClientRouter />
+  </head>
+
+  <body class="bg-base text-ink antialiased">
+    <ProjectNavBar slug={ slug } />
+    <main style="padding-top: var(--nav-height);">
+      <slot />
+    </main>
+  </body>
+</html>
