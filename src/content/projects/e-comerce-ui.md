@@ -1,151 +1,104 @@
 ---
-title: "E-Commerce - UI"
-description: "Esta es una aplicación moderna y completa de comercio electrónico construida con React, TypeScript y Redux Toolkit. Proporciona una experiencia de compra integral con autenticación de usuarios, gestión de productos y un panel de administración."
+
+title: "E-Commerce Platform UI"
+description: "Full-featured e-commerce frontend with shopping cart, favorites, authentication, and admin dashboard built with React, TypeScript, and Redux Toolkit."
 image: "/images/preview-ecomerce-ui.webp"
-technologies: ["React", "Tailwind", "Redux", "ReactRouter" ]
-githubUrl: "https://github.com/Chencho34/shopping-cart"
-demoUrl: "https://cart-shopping-app.netlify.app/"
+technologies:
+  - React
+  - Vite  
+  - TypeScript
+  - Redux Toolkit
+  - React Router v6
+  - Tailwind CSS
+githubUrl: "https://github.com/..."
+demoUrl: ""
 featured: true
-date: 2025-06-10
+date: 2024-12-21
 type: "frontend"
+images: [
+  "https://raw.githubusercontent.com/Chencho34/shopping-cart/refs/heads/refactoring-services/public/screenshots/cartapp-hero-01.webp",
+  "https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-cart-04.webp",
+  "https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-settings-06.webp",
+  "https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-login-10.webp",
+  "https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-createproduct-07.webp",
+  "https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-adminproducts-08.webp",
+
+]
+
+
 ---
 
-# 🛍️ Descripción General  
+## Descripción breve
 
-Esta es una aplicación moderna y completa de comercio electrónico construida con React, TypeScript y Redux Toolkit.  
-Proporciona una experiencia de compra integral con autenticación de usuarios, gestión de productos y un panel de administración.
+Plataforma de comercio electrónico (UI) construida con **React 18**, **TypeScript** y **Redux Toolkit**.  
+Incluye carrito de compras, sistema de favoritos, autenticación con **JWT**, rutas protegidas por rol y un panel de administración para gestión de productos y usuarios. Consume una **API REST externa** vía variables de entorno.
 
-## 🏗️ Arquitectura y Stack Tecnológico
+---
 
-### 🖥️ Frontend
-- **React 18 con TypeScript** para un desarrollo tipado y seguro.  
-- **Vite** como herramienta de construcción para un entorno de desarrollo rápido y compilaciones optimizadas.  
-- **React Router DOM v6** para el enrutamiento del lado del cliente.
+## Funcionalidades principales
 
-### ⚙️ Gestión de Estado
-- **Redux Toolkit** con dos *slices* principales:  
-  - **cartSlice**: gestiona el carrito de compras, favoritos, cantidades y subtotales.  
-  - **authSlice**: maneja el estado de autenticación del usuario y la gestión de tokens.
+- **Carrito de compras**
+  - Agregar y eliminar productos
+  - Aumentar/disminuir cantidades (máx. 10 por producto)
+  - Cálculo de subtotales en tiempo real
+  - Vaciado completo del carrito
 
-### 🎨 Estilos y UI
-- **Tailwind CSS** para un diseño con clases utilitarias.  
-- **Tailwind Merge** para combinar clases de forma eficiente.  
-- **React Icons** para iconografía.  
-- **React Slick** con **Slick Carousel** para sliders de imágenes.  
-- **React Responsive Masonry** para el diseño de la galería de productos.
+- **Sistema de favoritos**
+  - Marcar y desmarcar productos
+  - Galería con layout tipo **masonry**
 
-## 📁 Estructura del Proyecto
+- **Autenticación JWT**
+  - Registro y login
+  - Persistencia de sesión en `localStorage`
+  - Rehidratación automática del estado
 
-```bash
-src/
-├── app/                 # Redux store configuration
-├── components/          # Reusable UI components (17 components)
-│   ├── button/
-│   ├── card/
-│   ├── nav/
-│   ├── sliderHero/
-│   └── ... (13 more)
-├── constants/          # Static data (products, slider items)
-├── hooks/             # Custom React hooks
-├── layout/            # Layout components
-│   ├── adminLayout/   # Admin dashboard layout
-│   ├── authLayout/    # Authentication pages layout
-│   └── publicLayout/  # Main app layout
-├── pages/             # Page components
-│   ├── admin/         # Admin dashboard pages
-│   ├── cart/          # Shopping cart page
-│   ├── favorites/     # Favorites page
-│   ├── home/          # Homepage
-│   ├── login/         # Login page
-│   ├── signUp/        # Registration page
-│   └── user/          # User profile pages
-├── reducers/          # Redux slices
-├── routes/            # React Router configuration
-├── services/          # API services
-└── types/             # TypeScript type definitions
-```
+- **Rutas protegidas**
+  - Acceso al carrito, perfil y configuración requiere autenticación
+  - Panel de administración separado
 
-## ✨ Funcionalidades Principales
+- **Panel de administración**
+  - Listar, crear y eliminar productos
+  - Listar, buscar y eliminar usuarios
 
-### 🛍️ Experiencia del Usuario
-- **Diseño Responsivo:** interfaz limpia y minimalista adaptable a todos los dispositivos.  
-- **Carrusel Principal (Hero):** slider promocional en la página de inicio.  
-- **Galería de Productos:** diseño tipo *masonry* con imágenes grandes.  
-- **Carrito de Compras:** permite agregar, eliminar y modificar cantidades con cálculo de subtotales.  
-- **Sistema de Favoritos:** marcar y administrar productos favoritos.  
-- **Detalles del Producto:** páginas individuales con información detallada.
+- **Carrusel hero + slider de categorías**
+  - Secciones promocionales en el home
 
-### 🔐 Autenticación y Autorización
-- **Registro e Inicio de Sesión:** sistema de autenticación seguro.  
-- **Rutas Protegidas:** acceso restringido según el estado de autenticación.  
-- **Gestión de Tokens:** persistencia de sesión usando *localStorage*.  
-- **Acceso por Roles:** layouts diferenciados para usuarios y administradores.
+- **Página de detalle de producto**
+  - Ruta dinámica `/product/:id`
 
-### 🧑‍💼 Panel de Administración
-- **Gestión de Productos:** crear, visualizar y administrar productos.  
-- **Gestión de Usuarios:** panel de control para supervisar usuarios.  
-- **Controles Administrativos:** rutas protegidas y diseño exclusivo para administradores.
+- **Diseño responsivo**
+  - Interfaz adaptable construida con **Tailwind CSS**
 
-## 🔧 Configuración del Entorno de Desarrollo
+---
 
-```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run lint     # Run ESLint
-npm run preview  # Preview production build
-```
+## Arquitectura
 
-### Configuración General
-- **TypeScript:** modo estricto habilitado con objetivo ES2020.  
-- **ESLint:** configurado para React/TypeScript con reglas estrictas.  
-- **Variables de Entorno:** manejo mediante `.env` y `.env.local`.
+Estado global manejado con dos *slices* de **Redux Toolkit**:
 
-## 📦 Detalles de la Gestión de Estado
+- `cartSlice` — productos en carrito, favoritos, conteos y subtotales  
+- `authSlice` — `isAuthenticated`, `user`, `token`
 
-### 🛒 Estado del Carrito
-- Lista de productos con control de cantidades.  
-- Gestión de productos favoritos.  
-- Cálculo del total y subtotales.  
-- Operaciones del carrito (agregar, eliminar, modificar).
+**API Layer** (`src/services/api/`) abstrae todos los llamados `fetch` a la **REST API externa** configurada vía `VITE_CART_APP_URL_API`.
 
-### 🔑 Estado de Autenticación
-- Seguimiento del estado de autenticación.  
-- Almacenamiento de la información del usuario.  
-- Gestión de tokens JWT.  
-- Rehidratación automática del estado desde `localStorage`.
+Operaciones implementadas:
 
-## 🎨 Componentes de UI
+- `getProducts`
+- `getProductById`
+- `createProduct`
+- `deleteProductById`
+- `getUsers`
+- `getUserByName`
+- `deleteUserByName`
+- `registerUser`
+- `loginUser`
 
-El proyecto incluye una **biblioteca completa de componentes reutilizables**, entre ellos:  
-- Botones e Inputs.  
-- Tarjetas de producto.  
-- Componentes de navegación.  
-- Sliders para secciones principales y de categorías.  
-- Galerías para productos y favoritos.  
-- Wrappers y Containers para la estructura.  
-- Rutas protegidas para control de acceso.
+---
 
-## 📱 Páginas y Enrutamiento
+## Lo que resuelve / por qué es relevante
 
-- **Rutas Públicas:** Inicio, Detalle de Producto, Favoritos.  
-- **Rutas Protegidas:** Carrito, Perfil de Usuario, Configuración del Usuario (requieren autenticación).  
-- **Rutas de Autenticación:** Inicio de Sesión, Registro.  
-- **Rutas de Administración:** Panel Principal, Gestión de Productos y Usuarios.
+Demuestra dominio de **arquitectura frontend moderna con TypeScript estricto**:
 
-## 💻 Capturas de pantalla
-
-![Hero-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refs/heads/refactoring-services/public/screenshots/cartapp-hero-01.webp)
-![cart-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-cart-04.webp)
-![Favorites-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-favorites-05.webp)
-![settings-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-settings-06.webp)
-
-## 🔐 Login / SignUp
-
-![login-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-login-10.webp)
-![signup-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-signup-11.webp)
-
-## 👤 Admin Panel
-
-![admin-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-createproduct-07.webp)
-![users-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-adminproducts-08.webp)
-![products-section](https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-adminusers-09.webp)
+- Separación clara de responsabilidades (`services → hooks → components → pages`)
+- Gestión de estado predictiva con **Redux Toolkit**
+- Control de acceso por **roles**
+- Implementación desacoplada de backend, consumiendo una **API REST externa** sin depender de un framework full-stack

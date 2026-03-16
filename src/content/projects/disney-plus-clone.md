@@ -5,6 +5,7 @@ image: "/images/preview-disney-plus.webp"
 technologies: ["React", "Redux", "ReactRouter", "StyleComponents", "Firebase"]
 githubUrl: "https://github.com/Chencho34/disney-plus-clone-app"
 featured: false
+type: "fullstack"
 date: 2023-03-12
 ---
 
