@@ -1,0 +1,31 @@
+---
+import { ArrowLeftIcon } from "../icons/contact";
+import { CtaButton } from "../ui";
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg">
+  <nav
+    class="max-w-4xl mx-auto px-6 h-14 flex flex-row-reverse items-center justify-end sm:justify-between"
+  >
+    <a
+      href="/#home"
+      class="hidden sm:inline-flex font-mono text-sm font-medium tracking-widest text-ink"
+    >
+      Chencho<span class="text-lime">34</span>
+    </a>
+    <ul class="flex gap-2 items-center">
+      <CtaButton ariaLabel="contact" variant="text" href="/#projects" className="flex">
+        <ArrowLeftIcon class:list='size-1'/>
+        Proyectos
+      </CtaButton>
+      <span class="font-mono text-faint">/</span>
+      <span class="font-mono text-xs text-muted tracking-wider">{slug}</span>
+    </ul>
+  </nav>
+</header>
