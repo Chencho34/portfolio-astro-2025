@@ -1,7 +1,7 @@
 ---
 
 title: "E-Commerce Platform UI"
-description: "Full-featured e-commerce frontend with shopping cart, favorites, authentication, and admin dashboard built with React, TypeScript, and Redux Toolkit."
+description: "Interfaz de comercio electrónico completa con carrito de compras, favoritos, autenticación y panel de administración, desarrollada con React, TypeScript y Redux Toolkit."
 image: "/images/preview-ecomerce-ui.webp"
 technologies:
   - React
@@ -10,8 +10,8 @@ technologies:
   - Redux Toolkit
   - React Router v6
   - Tailwind CSS
-githubUrl: "https://github.com/..."
-demoUrl: ""
+githubUrl: "https://github.com/chencho34"
+demoUrl: "https://cart-shopping-app.netlify.app/"
 featured: true
 date: 2024-12-21
 type: "frontend"

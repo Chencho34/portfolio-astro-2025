@@ -5,6 +5,7 @@ image: "/images/preview-students-crud.webp"
 technologies: ["Net", "SQLServer", "Entity Framework", "Blazor"]
 githubUrl: "https://github.com/Chencho34/PruebaCRUD"
 featured: false
+type: frontend
 date: 2025-06-20
 ---
 

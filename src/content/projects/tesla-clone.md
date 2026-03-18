@@ -5,6 +5,7 @@ image: "/images/tesla-project.webp"
 technologies: ["React", "MaterialUI", "Redux", "StyleComponents"]
 githubUrl: "https://github.com/Chencho34/tesla-clon"
 featured: false
+type: frontend
 date: 2024-01-04
 ---
 
