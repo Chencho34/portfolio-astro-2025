@@ -21,35 +21,32 @@ const PLACEHOLDER = `https://placehold.co/960x600/1a1a1a/444?text=${encodeURICom
 
 
 <article
-  class="group relative bg-surface grid grid-cols-1 md:grid-cols-2 rounded-xl overflow-hidden border border-white/6 hover:border-lime/20 transition-colors duration-300"
+  class="group relative grid grid-cols-1 md:grid-cols-2 rounded-xl overflow-hidden border border-white/6 hover:border-lime/20 transition-colors duration-300"
   aria-label={`Featured project: ${title}`}
 >
-  {/* Overlay link cubre toda la card */}
-  <a
-    href={`/project/${slug}`}
-    class="card-overlay absolute inset-0 z-1 rounded-xl"
-    aria-label={`Ver detalles de ${title}`}
-  />
-  <figure
+{/* Overlay link cubre toda la card */}
+<a
+  href={`/project/${slug}`}
+  class="absolute inset-0 z-1 rounded-xl"
+  aria-label={`Ver detalles de ${title}`}
+/>
+<figure
     class:list={[
-      'relative overflow-hidden bg-black aspect-16/10 md:aspect-auto',
+      'relative overflow-hidden aspect-video md:aspect-auto',
       // Mobile: always rendered first in DOM → visually on top
       'order-first',
       // Desktop: flip position based on index
       imageLeft ? 'md:order-1' : 'md:order-2',
-    ]}
+      ]}
+      transition:name={`project-${slug}`}
   >
     <img
       src={image ?? PLACEHOLDER}
       alt={`Screenshot of ${title}`}
-      class="w-full h-full object-cover object-top-left transition-transform duration-700 group-hover:scale-[1.04]"
-      loading="lazy"
+      class="size-full object-cover object-top-left transition-transform duration-700 group-hover:scale-[1.04]"
+      loading="eager"
       decoding="async"
-      width="960"
-      height="600"
-      transition:name={`project-${slug}`}
     />
-
     {type && (    
       <span
         class="absolute top-3 left-3 font-mono text-[10px] tracking-widest uppercase px-2 py-1 rounded bg-black/70 backdrop-blur-sm text-white/60 border border-white/10"
@@ -62,23 +59,23 @@ const PLACEHOLDER = `https://placehold.co/960x600/1a1a1a/444?text=${encodeURICom
 
   <section
     class:list={[
-      'flex flex-col relative justify-between p-6 md:p-8',
+      'flex flex-col relative justify-between p-6 md:p-8 bg-surface',
       imageLeft ? 'md:order-2' : 'md:order-1',
     ]}
   >
     <!-- <div class="card-glow"></div> -->
     <article>
-      <p class="font-mono text-[10px] tracking-[0.2em] uppercase text-lime mb-3">
-        Featured · {String(featuredIndex + 1).padStart(2, '0')}
-      </p>
-      <div class="flex items-center justify-between gap-3 mb-3">
-        <h3 class="text-ink font-bold text-xl md:text-2xl leading-snug">
+      <div class="flex items-start justify-between ">
+        <p class="font-mono text-[10px] tracking-[0.2em] uppercase text-lime mb-3">
+          Featured · {String(featuredIndex + 1).padStart(2, '0')}
+        </p>
+        <InternalLinkIcon class:list='stroke-faint group-hover:stroke-lime transition-colors size-5' />
+      </div>
+      <!-- <div class="flex items-center justify-between mb-3"> -->
+        <h3 class="text-ink font-bold mb-3 text-xl md:text-2xl leading-snug">
           {title}
         </h3>
-        <CtaButton href={`/project/${slug}`} variant='text'>
-          <InternalLinkIcon class:list='stroke-faint group-hover:stroke-lime transition-colors size-5' />
-        </CtaButton>
-      </div>
+      <!-- </div> -->
       <p class="text-muted text-sm  leading-relaxed line-clamp-4">
         {description}
       </p>

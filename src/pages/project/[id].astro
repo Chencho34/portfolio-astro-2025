@@ -46,12 +46,9 @@ const formattedDate = date
         <span class="text-ink">{slug}</span>
       </nav>
       <ProjectHero slug={slug} image={image} type={type} date={formattedDate} title={title} />
-      <div
-        class="py-5 grid gap-5"
-        style="max-width: var(--max-width); grid-template-columns: 1fr 220px;"
-      >
-        <div class="min-w-0">
-          <div class="mb-5 animate-fade-up" style="animation-delay: 0.05s;">
+      <div class="py-5 grid sm:grid-cols-[1fr_220px] gap-5">
+        <div>
+          <div class="mb-5 animate-fade-up delay-1">
             <h1 class="text-2xl font-medium text-ink leading-snug font-sans mb-2">
               {title}
             </h1>
@@ -129,17 +126,9 @@ const formattedDate = date
       )}
     </div>
   </footer>
-
 </BaseLayout>
 
 <style>
-  /* ── Responsive: single column on mobile ── */
-  @media (max-width: 640px) {
-    div[style*="grid-template-columns"] {
-      grid-template-columns: 1fr !important;
-    }
-  }
-
   /* ── Prose styles for Markdown content ── */
   :global(.prose-project) {
     color: var(--color-muted);

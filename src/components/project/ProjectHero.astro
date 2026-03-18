@@ -21,21 +21,17 @@ const typeColors: Record<string, string> = {
 const accentColor = type ? (typeColors[type] ?? typeColors.other) : typeColors.other
 ---
 
-<div
-  class="relative w-full overflow-hidden rounded-xl border border-line2 animate-fade-up"
-  style="background: var(--color-surface2);"
->
+<figure transition:name={`project-${slug}`} class="relative overflow-hidden rounded-xl border border-line2 bg-surface2">
   {image ? (
     <img
-      transition:name={`project-${slug}`}
       src={image}
       alt={`${title} preview`}
-      class="aspect-video object-cover"
+      class="object-cover"
       loading="eager"
     />
   ) : (
     <!-- Placeholder pattern when no image -->
-    <div class="w-full h-full flex items-center justify-center" style="background: var(--color-surface2);">
+    <div class="aspect-video flex items-center justify-center bg-surface2">
       <div class="flex flex-col items-center gap-3 opacity-20">
         <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="1" y="1" width="46" height="34" rx="5" stroke="currentColor" stroke-width="1.5"/>
@@ -50,20 +46,20 @@ const accentColor = type ? (typeColors[type] ?? typeColors.other) : typeColors.o
   <!-- Gradient overlay for readability -->
   {image && (
     <div
-      class="absolute inset-0 pointer-events-none"
+      class="animate-fade-up delay-2 absolute inset-0 pointer-events-none"
       style="background: linear-gradient(to top, rgba(10,10,10,0.6) 0%, transparent 50%);"
     />
   )}
 
   <!-- Date badge — top left -->
-  {date && (
+  <!-- {date && (
     <div
       class="absolute top-3 left-3 px-2.5 py-1 rounded text-[10px] font-mono"
       style="background: rgba(10,10,10,0.75); border: 1px solid var(--color-line2); color: var(--color-muted); backdrop-filter: blur(8px);"
     >
       {date}
     </div>
-  )}
+  )} -->
 
   <!-- Type badge — top right -->
   {type && (
@@ -74,4 +70,4 @@ const accentColor = type ? (typeColors[type] ?? typeColors.other) : typeColors.o
       {type}
     </div>
   )}
-</div>
+</figure>

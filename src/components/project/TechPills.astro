@@ -4,22 +4,14 @@ interface Props {
 }
 
 const { technologies } = Astro.props
-
-// First two techs get the lime accent, the rest stay neutral
-const ACCENT_COUNT = technologies.length
 ---
 
 <div class="mb-5 animate-fade-up" style="animation-delay: 0.1s;">
-  <p class="text-[10px] tracking-widest uppercase text-muted mb-3 font-mono">technologies</p>
+  <p class="text-[10px] tracking-widest uppercase text-muted mb-3 font-mono">Tecnologias</p>
   <div class="flex flex-wrap gap-1.5">
-    {technologies.map((tech, i) => (
+    {technologies.map((tech) => (
       <span
-        class="px-2.5 py-1 rounded text-[11px] font-mono transition-colors duration-200 cursor-default"
-        style={
-          i < ACCENT_COUNT
-            ? 'background: var(--color-lime-dim); border: 1px solid var(--color-lime-border); color: var(--color-lime);'
-            : 'background: var(--color-surface2); border: 1px solid var(--color-line2); color: var(--color-muted);'
-        }
+        class="px-2.5 py-1 rounded text-[11px] font-mono transition-colors duration-200 cursor-default text-lime border-lime bg-lime-dim border"        
       >
         {tech}
       </span>
