@@ -3,9 +3,8 @@ import "../styles/global.css"
 import '@fontsource-variable/outfit'
 import '@fontsource-variable/ibm-plex-sans'
 
-import { BaseHead } from '../components/ui'
+import { BaseHead, Nav } from '../components/ui'
 import { ClientRouter } from 'astro:transitions'
-import ProjectNavBar from '../components/project/ProjectNavBar.astro'
 
 interface Props {
   title?: string
@@ -16,7 +15,7 @@ interface Props {
 const {
   title = 'Portfolio',
   description = 'My personal portfolio',
-  slug
+  slug //TODO: Dinamic image preview metadata 
 } = Astro.props
 ---
 
@@ -28,7 +27,7 @@ const {
   </head>
 
   <body class="bg-base text-ink antialiased">
-    <ProjectNavBar slug={ slug } />
+    <Nav />
     <main style="padding-top: var(--nav-height);">
       <slot />
     </main>

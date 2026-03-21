@@ -17,11 +17,10 @@ const hasLinks = githubUrl || demoUrl
 {hasLinks && (
   <div
     class:list={[
-      'mb-1.5 animate-fade-up',
+      'mb-5 animate-fade-up delay-2',
       variant === 'row'    && 'flex flex-wrap gap-2',
       variant === 'column' && 'flex flex-col gap-2',
     ]}
-    style="animation-delay: 0.15s;"
   >
     {demoUrl && (
       <a
