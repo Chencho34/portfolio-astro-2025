@@ -1,9 +1,8 @@
 ---
-import { getCollection, getEntry, render } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { ProjectGallery, ProjectHero, ProjectLinks, ProjectMeta, TechPills } from '../../components/project'
-import { Container, Section } from '../../components/ui';
-import { Contact } from '../../components/sections';
+import { Container, CtaButton, Section } from '../../components/ui';
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects", ({data}) => {
@@ -38,18 +37,24 @@ const formattedDate = date
 <BaseLayout slug={slug} title={`${slug} — Projects`} description={description}>
   <Container>
     <Section>
-      <nav class="flex items-center gap-2 text-xs text-muted font-mono my-4">
-        <a href="/" class="hover:text-ink transition-colors duration-200">home</a>
-        <span class="text-faint">/</span>
-        <a href="/#projects" class="hover:text-ink transition-colors duration-200">projects</a>
-        <span class="text-faint">/</span>
-        <span class="text-ink">{slug}</span>
+      <nav class="max-w-4xl mx-auto h-14 flex items-center sm:justify-between justify-start">
+        <ul class="flex gap-2 items-center">
+          <CtaButton variant="text" ariaLabel="inicio" href="/">
+            inicio
+          </CtaButton>
+          <span class="text-faint font-mono">/</span>
+          <CtaButton variant="text" ariaLabel="projectos personales" href="/#projects">
+            projectos
+          </CtaButton>
+          <span class="text-faint font-mono">/</span>
+          <span class="text-lime font-mono text-xs tracking-wider">{slug}</span>
+        </ul>
       </nav>
       <ProjectHero slug={slug} image={image} type={type} date={formattedDate} title={title} />
-      <div class="py-5 grid sm:grid-cols-[1fr_220px] gap-5">
-        <div>
+      <article class="py-5 grid sm:grid-cols-[minmax(0,1fr)_220px] gap-5 w-full">
+        <div class="min-w-0">
           <div class="mb-5 animate-fade-up delay-1">
-            <h1 class="text-2xl font-medium text-ink leading-snug font-sans mb-2">
+            <h1 class="text-2xl font-medium text-ink leading-snug mb-2">
               {title}
             </h1>
             {description && (
@@ -62,7 +67,7 @@ const formattedDate = date
             <ProjectGallery images={images} title={title} />
           )}
           <div class="border-t border-line pt-5 mt-1">
-            <p class="text-[10px] tracking-widest uppercase text-muted mb-4 font-mono">overview</p>
+            <p class="text-[10px] tracking-widest uppercase text-muted mb-4 font-mono">Descripción general</p>
             <div class="prose-project">
               <Content />
             </div>
@@ -76,18 +81,12 @@ const formattedDate = date
           githubUrl={githubUrl}
           demoUrl={demoUrl}
         />
-      </div>
-    </Section>
-    <Section>
-      <Contact />
+      </article>
     </Section>
   </Container>
 
 
-  <footer
-    class="border-t border-line mt-2"
-    style="background: var(--color-surface);"
-  >
+  <footer class="border-t border-line mt-2" style="background: var(--color-surface);">
     <div
       class="mx-auto px-5 h-12 flex items-center justify-between"
       style="max-width: var(--max-width);"
@@ -167,10 +166,11 @@ const formattedDate = date
   :global(.prose-project ul),
   :global(.prose-project ol) {
     padding-left: 1.25rem;
-    margin-bottom: 0.875rem;
+    margin-bottom: 0.6rem;
+    list-style: disc;
   }
   :global(.prose-project li) {
-    margin-bottom: 0.25rem;
+    /* margin-bottom: 0.25rem; */
   }
   :global(.prose-project ul li::marker) {
     color: var(--color-lime);
