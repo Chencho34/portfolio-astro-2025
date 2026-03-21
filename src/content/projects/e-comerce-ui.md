@@ -28,7 +28,7 @@ images: [
 
 ---
 
-## Descripción breve
+## Acerca de este proyecto
 
 Plataforma de comercio electrónico (UI) construida con **React 18**, **TypeScript** y **Redux Toolkit**.  
 Incluye carrito de compras, sistema de favoritos, autenticación con **JWT**, rutas protegidas por rol y un panel de administración para gestión de productos y usuarios. Consume una **API REST externa** vía variables de entorno.
