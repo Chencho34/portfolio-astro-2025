@@ -8,14 +8,14 @@ const { images, title } = Astro.props
 ---
 
 <div class="mb-5 animate-fade-up" style="animation-delay: 0.2s;">
-  <p class="text-[10px] tracking-widest uppercase text-muted mb-3 font-mono">gallery</p>
+  <p class="text-[10px] tracking-widest uppercase text-muted mb-3 font-mono">galeria</p>
 
   <!-- Thumbnail grid -->
-  <div class="grid gap-1.5" style="grid-template-columns: repeat(3, 1fr);">
+  <div class="grid gap-1.5" style="grid-template-columns: repeat(2, 1fr);">
     {images.map((src, i) => (
       <button
-        class="gallery-thumb relative overflow-hidden rounded-lg border border-line2 transition-all duration-200 hover:border-lime-border focus:outline-none focus:ring-1 group"
-        style="height: 80px; background: var(--color-surface2);"
+        class="gallery-thumb cursor-pointer relative overflow-hidden rounded-lg border border-line2 transition-all duration-200 hover:border-lime-border focus:outline-none focus:ring-1 group"
+        style="height: 120px; background: var(--color-surface2);"
         data-index={i}
         aria-label={`Open image ${i + 1}`}
       >
@@ -50,7 +50,7 @@ const { images, title } = Astro.props
     <!-- Close button -->
     <button
       id="lb-close"
-      class="absolute top-5 right-5 w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200"
+      class="absolute cursor-pointer top-5 right-5 w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200"
       style="background: var(--color-surface2); border: 1px solid var(--color-line2); color: var(--color-muted);"
       aria-label="Close"
     >
@@ -72,7 +72,7 @@ const { images, title } = Astro.props
     <div class="flex items-center gap-4">
       <button
         id="lb-prev"
-        class="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200"
+        class="w-9 h-9 cursor-pointer rounded-lg flex items-center justify-center transition-colors duration-200"
         style="background: var(--color-surface2); border: 1px solid var(--color-line2); color: var(--color-muted);"
         aria-label="Previous"
       >
@@ -85,7 +85,7 @@ const { images, title } = Astro.props
 
       <button
         id="lb-next"
-        class="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200"
+        class="w-9 h-9 cursor-pointer rounded-lg flex items-center justify-center transition-colors duration-200"
         style="background: var(--color-surface2); border: 1px solid var(--color-line2); color: var(--color-muted);"
         aria-label="Next"
       >
