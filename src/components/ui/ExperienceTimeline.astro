@@ -7,7 +7,7 @@ import Badge from "./Badge.astro"
 <section>
   {
     experience.map((job) => {
-      const { company, period, title, tecnologies, exp, location, modality } = job
+      const { company, period, title, technologies, exp, location, modality, link } = job
       return (
         <article class="border-l pb-12 border-line2 pl-8 relative">
           <div class="absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-lime ring-4 ring-base"></div>
@@ -16,12 +16,12 @@ import Badge from "./Badge.astro"
             <span class="mt- text-xs text-faint tracking-wider font-medium font-mono">{period}</span>
           </h3>
           <a
-            href="https://kyoshi.com.mx/"
+            href={link}
             target="_blank"
+            rel="noopener noreferrer"
             class="inline-flex items-center gap-1.5 text-sm text-lime hover:opacity-75 transition-opacity font-medium"
           >
-            {company}
-            <ExternalLinkIcon class:list={"size-3.5"} />
+            {company} <ExternalLinkIcon class:list={"size-3.5"} />
           </a>
           <span class="text-sm text-muted font-light">
             {location && <span>&bull; {location}</span>}
@@ -36,7 +36,7 @@ import Badge from "./Badge.astro"
           </ul>
           <section class="flex flex-wrap gap-2 mt-4">
             {
-              tecnologies?.map((tech) => (
+              technologies?.map((tech) => (
                 <Badge size="md" label={tech} />
               ))
             }
