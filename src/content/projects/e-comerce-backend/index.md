@@ -1,7 +1,7 @@
 ---
 title: "Cart Shopping - API"
 description: "API de comercio electrónico desarrollada en Node.js/TypeScript que proporciona una solución backend completa para una aplicación de carrito de compras. Está diseñada para manejar autenticación de usuarios, gestión de productos y funcionalidad de carrito de compras."
-image: "/images/preview-ecommerce-api.webp"
+image: "./cover.webp"
 technologies: ["Node", "Postgres", "Sequelize", "Express", "TypeScript", "Docker", "Jwt"]
 githubUrl: "https://github.com/Chencho34/shopping-cart-backend/tree/user-endpoints"
 featured: true
