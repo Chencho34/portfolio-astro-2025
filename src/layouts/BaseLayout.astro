@@ -5,27 +5,28 @@ import '@fontsource-variable/ibm-plex-sans'
 
 import { BaseHead, Nav } from '../components/ui'
 import { ClientRouter } from 'astro:transitions'
+import type { ImageMetadata } from "astro"
 
 interface Props {
   title?: string
   description?: string
-  slug: string
+  image: ImageMetadata
 }
 
 const {
   title = 'Portfolio',
   description = 'My personal portfolio',
-  slug //TODO: Dinamic image preview metadata 
+  image
 } = Astro.props
+
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} image={image} />
     <ClientRouter />
   </head>
-
   <body class="bg-base text-ink antialiased">
     <Nav />
     <main style="padding-top: var(--nav-height);">
