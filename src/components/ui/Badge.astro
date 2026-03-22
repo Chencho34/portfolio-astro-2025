@@ -1,26 +1,20 @@
 ---
-import { twMerge } from "tailwind-merge"
-
-const baseStyles: String = "inline-flex items-center gap-2.5 p-[1px] px-3 rounded-full font-medium text-xs font-medium"
-type ButtonVariant = 'primary' | 'secondary' | 'text' | 'subtle'
+import { twMerge } from 'tailwind-merge'
 
 interface Props {
-  variant?: ButtonVariant
   className?: string
+  label?: string
+  size?: 'sm' | 'md' | 'xs'
 }
+const { label, size = 'md', className } = Astro.props
 
-const buttonVariants: Record<ButtonVariant, string> = {
-  primary: "border border-[#38bdf8]  outline-[#38bff888] bg-gray-900 text-white",
-  secondary: "border border-gray-700 bg-gray-900 text-gray-300",
-  text: "text-[#38bdf8]",
-  subtle: "bg-[#38bff81a] border border-[#38bff840] text-[#38bdf8]"
+const styles = {
+  md: "px-2.5 py-1 text-muted hover:border-lime hover:text-lime cursor-default",
+  sm: "px-1 py-0.5 text-faint bg-surface2 cursor-default",
+  xs: "text-muted px-1 py-0.5 bg-surface2 cursor-default",
 }
-
-const { variant = 'primary', className = '' } = Astro.props
 ---
-
-<span
-  class={twMerge(`${baseStyles} ${buttonVariants[variant]} ${className}`)}
->
+<span class={twMerge(`font-mono text-xs rounded border border-line2 transition-colors text-nowrap ${styles[size]}`, className)}>
   <slot />
+  {label}
 </span>

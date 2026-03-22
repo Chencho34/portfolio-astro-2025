@@ -11,6 +11,9 @@ import Footer from './Footer.astro'
 import Nav from './Nav.astro'
 import Badge from './Badge.astro'
 import KeywordHighlight from './KeywordHighlight.astro'
+import StatusPill from './StatusPill.astro'
+import PulseDot from './PulseDot.astro'
+import FeaturedProject from './FeaturedProject.astro'
 
 export {
   TitleSection,
@@ -25,5 +28,8 @@ export {
   Footer,
   Nav,
   Badge,
-  KeywordHighlight
+  KeywordHighlight,
+  StatusPill,
+  PulseDot,
+  FeaturedProject
 }

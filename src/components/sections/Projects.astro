@@ -1,36 +1,51 @@
 ---
 import { getCollection } from "astro:content";
-import { Section, TitleSection, CardProject } from "../../components/ui";
+import { Section, TitleSection, CardProject, SubtitleSection, FeaturedProject} from "../../components/ui";
 
-const projects = await getCollection('projects')
+const allProjects = await getCollection('projects')
+const cleanProjects = allProjects.filter(p => !p.data.draft)
+
+const sorted = cleanProjects.sort((a, b) => {
+  const aDate = a.data.date?.getTime() ?? 0;
+  const bDate = b.data.date?.getTime() ?? 0;
+  return bDate - aDate;
+});
+
+const featuredProjects = sorted.filter(p => p.data.featured);
+const otherProjects = sorted.filter(p => !p.data.featured);
 ---
-<Section id="projects" className="mb-14 md:mb-20">
-  <TitleSection
-    title="Proyectos"
-  />
-  <p class="text-lg text-text-secondary max-w-2xl mx-auto mb-8 text-center">
+
+<Section id="projects">
+  <TitleSection id="projects-heading" title="Proyectos" className="mb-8"/>
+  <p class="text-sm text-muted max-w-lg mx-auto mb-12 text-center">
     Una colección de proyectos que muestran mis habilidades en el desarrollo full-stack, desde el concepto hasta la implementación.
   </p>
-  <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto"></div>
-</Section>
-<Section className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 justify-center">
-  {
-    projects.map(project => {
-      const { data, slug } = project
-      const { description, technologies, title, githubUrl, date, image, demoUrl } = data
-      return (
-        <section class="grid h-auto max-w-full">
-          <CardProject
-            title={title}
-            description={description}
-            image={image}
-            githubUrl={githubUrl}
-            demoUrl={demoUrl}
-            technologies={technologies}
-            slug={slug}
-          />
-        </section>
-      )
-    })
-  }
+  
+  {featuredProjects.length > 0 && (
+    <div class="space-y-4 mb-8">
+      {featuredProjects.map((project, featuredIndex) => (
+        <FeaturedProject
+          project={project}
+          featuredIndex={featuredIndex}
+        />
+      ))}
+    </div>
+  )}
+
+  {otherProjects.length > 0 && (
+    <SubtitleSection title="Otros Proyectos" />
+    <div class="space-y-4 list-none" role="list" aria-label="Other projects">
+      {otherProjects.map(project => (
+        <div>
+          <CardProject project={project} />
+        </div>
+      ))}
+    </div>
+  )}
+
+  {allProjects.length === 0 && (
+    <div class="flex items-center justify-center py-20">
+      <p class="font-mono text-sm text-white/20">No projects yet.</p>
+    </div>
+  )}
 </Section>

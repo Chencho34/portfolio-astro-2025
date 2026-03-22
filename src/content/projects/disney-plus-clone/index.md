@@ -1,10 +1,11 @@
 ---
 title: "Disney Plus - Clone"
 description: "Este proyecto es un clon de la app de Disney Plus, desarrollado React y Redux. Está diseñado para replicar la interfaz de usuario de Disney Plus y cuenta con funciones de inicio y cierre de sesión mediante la integración con Firebase para el registro de usuarios."
-image: "/images/preview-disney-plus.webp"
+image: "./cover.webp"
 technologies: ["React", "Redux", "ReactRouter", "StyleComponents", "Firebase"]
 githubUrl: "https://github.com/Chencho34/disney-plus-clone-app"
-featured: true
+featured: false
+type: "fullstack"
 date: 2023-03-12
 ---
 
