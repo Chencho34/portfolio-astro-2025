@@ -2,7 +2,7 @@
 
 title: "E-Commerce Platform UI"
 description: "Interfaz de comercio electrónico completa con carrito de compras, favoritos, autenticación y panel de administración, desarrollada con React, TypeScript y Redux Toolkit."
-image: "/images/preview-ecomerce-ui.webp"
+image: "./cover.webp"
 technologies:
   - React
   - Vite  
