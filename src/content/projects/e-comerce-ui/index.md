@@ -10,7 +10,7 @@ technologies:
   - Redux Toolkit
   - React Router v6
   - Tailwind CSS
-githubUrl: "https://github.com/chencho34"
+githubUrl: "https://github.com/Chencho34/shopping-cart/tree/refactoring-services"
 demoUrl: "https://cart-shopping-app.netlify.app/"
 featured: true
 date: 2024-12-21
