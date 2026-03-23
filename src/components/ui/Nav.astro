@@ -54,13 +54,6 @@ const navItems = [
               link.classList.add('text-lime')
             }
           })
-
-          sections.forEach(section => {
-            section.classList.remove('animate-fade-up hidden')
-            if(section.getAttribute('id') === entry.target.id) {
-              section.classList.add('animate-fade-up ')
-            }
-        })
         }
       })
     }
