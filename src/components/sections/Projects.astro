@@ -34,13 +34,13 @@ const otherProjects = sorted.filter(p => !p.data.featured);
 
   {otherProjects.length > 0 && (
     <SubtitleSection title="Otros Proyectos" />
-    <div class="space-y-4 list-none" role="list" aria-label="Other projects">
+    <ul class="space-y-4 list-none" role="list" aria-label="Other projects">
       {otherProjects.map(project => (
-        <div>
+        <li>
           <CardProject project={project} />
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   )}
 
   {allProjects.length === 0 && (
