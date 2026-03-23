@@ -1,5 +1,7 @@
 ---
 import type { ImageMetadata } from "astro"
+import outfitFont  from '@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2?url'
+import ibmPlexFont from '@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2?url'
 
 interface Props {
   title: string
@@ -16,6 +18,10 @@ const ogImage = image
   : new URL('/previewpage.jpg', Astro.site).href
 ---
 
+<!-- Preload fuentes -->
+<link rel="preload" href={outfitFont}  as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={ibmPlexFont} as="font" type="font/woff2" crossorigin />
+
 <!-- Global Metadata -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
@@ -31,6 +37,7 @@ const ogImage = image
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <meta name="author" content="Armando Crescencio" />
+<meta name="keywords" content="armando crescencio, chencho34, full stack developer mexico, react developer, node.js developer, typescript developer, nextjs developer, astro framework, tailwindcss, desarrollador web fullstack, ingeniero informatico, veracruz mexico, desarrollador remoto, freelance developer mexico, api restful, postgresql developer" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
