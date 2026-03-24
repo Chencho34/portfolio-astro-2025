@@ -22,34 +22,34 @@ const imageLeft = featuredIndex % 2 === 0;
   class="group relative grid grid-cols-1 md:grid-cols-2 rounded-xl overflow-hidden border border-white/6 hover:border-lime/20 transition-colors duration-300"
   aria-label={`Featured project: ${title}`}
 >
-{/* Overlay link cubre toda la card */}
-<a
-  href={`/project/${slug}`}
-  class="absolute inset-0 z-1 rounded-xl"
-  aria-label={`Ver detalles de ${title}`}
-/>
-<figure
+  {/* Overlay link cubre toda la card */}
+  <a
+    href={`/project/${slug}`}
+    class="absolute inset-0 z-1 rounded-xl"
+    aria-label={`Ver detalles de ${title}`}
+  />
+  <figure
     class:list={[
-      'relative overflow-hidden aspect-video md:aspect-auto',
+      'relative overflow-hidden w-full',
       // Mobile: always rendered first in DOM → visually on top
       'order-first',
       // Desktop: flip position based on index
       imageLeft ? 'md:order-1' : 'md:order-2',
       ]}
-      transition:name={`project-${slug}`}
   >
     <Image
       src={image}
-      format='webp'
+      alt={`Screenshot of ${title}`}
       width={960}
       height={540}
       widths={[320, 640, 960]}
       sizes="(max-width: 480px) 320px, (max-width: 1024px) 640px, 960px"
       quality={80}
-      alt={`Screenshot of ${title}`}
-      class="size-full object-cover object-top-left transition-transform duration-700 group-hover:scale-[1.04]"
-      loading="eager"
+      loading="lazy"
       decoding="async"
+      format='webp'
+      class="sm:h-full object-cover object-top-left transition-transform duration-500 group-hover:scale-[1.04]"
+      transition:name={`project-${slug}`}
     />
     {type && (    
       <span
@@ -102,7 +102,7 @@ const imageLeft = featuredIndex % 2 === 0;
             <CtaButton 
               href={githubUrl}
               variant="outline-sm"
-              className='text-sm hover:text-ink'
+              className='hover:text-ink'
               target='_blank'
               ariaLabel={`Ver repositorio de GitHub de ${title}`}
             >
@@ -113,8 +113,7 @@ const imageLeft = featuredIndex % 2 === 0;
           {demoUrl && (
             <CtaButton
               href={demoUrl}
-              variant="ghost"
-              className='px-3 py-1.5 font-mono rounded-md'
+              variant="outline-sm-white"
               target='_blank'
               ariaLabel={`Ver demo de ${title}`}
             >
