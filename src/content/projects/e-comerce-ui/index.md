@@ -1,5 +1,4 @@
 ---
-
 title: "E-Commerce Platform UI"
 description: "Interfaz de comercio electrónico completa con carrito de compras, favoritos, autenticación y panel de administración, desarrollada con React, TypeScript y Redux Toolkit."
 image: "./cover.webp"
@@ -22,16 +21,21 @@ images: [
   "https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-login-10.webp",
   "https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-createproduct-07.webp",
   "https://raw.githubusercontent.com/Chencho34/shopping-cart/refactoring-services/public/screenshots/cartapp-adminproducts-08.webp",
-
 ]
-
-
 ---
 
 ## Acerca de este proyecto
 
 Plataforma de comercio electrónico (UI) construida con **React 18**, **TypeScript** y **Redux Toolkit**.  
 Incluye carrito de compras, sistema de favoritos, autenticación con **JWT**, rutas protegidas por rol y un panel de administración para gestión de productos y usuarios. Consume una **API REST externa** vía variables de entorno.
+
+Este proyecto consiste en una plataforma de comercio electrónico enfocada en el frontend, desarrollada con **React 18**, **TypeScript** y **Redux Toolkit**. La aplicación sigue una arquitectura moderna y consume una **API REST** externa para la gestión de datos.
+
+Incluye funcionalidades como **autenticación** con **JWT**, persistencia de sesión, **rutas protegidas** por rol y un panel de administración para la **gestión de productos y usuarios**. También incorpora un **sistema de carrito** de compras con actualización en tiempo real y un **sistema de favoritos**.
+
+La gestión del estado global se realiza con **Redux Toolkit** mediante slices bien definidos, y se implementa una capa de servicios para abstraer las peticiones a la API, manteniendo una estructura limpia y organizada.
+
+El diseño es **responsivo** y está construido con **Tailwind CSS**, ofreciendo una experiencia de usuario moderna y adaptable.
 
 ---
 
