@@ -1,11 +1,13 @@
 ---
-import { getCollection, render } from "astro:content";
-import { Container, Section, TitleSection, CtaButton } from "../../components/ui";
-import { techComponents } from "../../constants/icons";
-import { GithubIcon, CodeIcon } from '../../components/icons/contact'
-import Layout from "../../layouts/Layout.astro";
+import { getCollection, render } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { ProjectGallery, ProjectHero, ProjectLinks, ProjectMeta, TechPills } from '../../components/project'
+import { Container, CtaButton, Section } from '../../components/ui';
+
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
+  const projects = await getCollection("projects", ({data}) => {
+    return data.draft !== true
+  });
   return projects.map((project) => ({
     params: { id: project.slug },
     props: { project },
@@ -14,78 +16,218 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { data, slug } = project;
-const { title, description, technologies, date, demoUrl, githubUrl, image } = data;
+const { title, description, technologies, date, demoUrl, githubUrl, image, type, images, featured, draft } = data;
 const { Content } = await render(project);
+
+// ─── Prev / Next ─────────────────────────────────────────────────────────────
+const allProjects = await getCollection('projects', ({ data }) => !data.draft)
+const sorted = allProjects.sort(
+  (a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0),
+)
+const currentIndex = sorted.findIndex((p) => p.slug === slug)
+const prevProject = currentIndex < sorted.length - 1 ? sorted[currentIndex + 1] : null
+const nextProject = currentIndex > 0 ? sorted[currentIndex - 1] : null
+
+// ─── Formatted date ───────────────────────────────────────────────────────────
+const formattedDate = date
+  ? new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' }).format(date)
+  : null
 ---
 
-<Layout
-  title={title}
-  description="Portfolio de Armando Crescencio, desarrollador web fullstack."
->
-  <Container className="mt-24">
-    <Section className="mb-12">
-      <TitleSection title={title} />
-      <div class="w-24 h-px bg-gray-300 dark:bg-gray-700 mx-auto mb-8"></div>
-    </Section>
-
-    <Section className="flex flex-col md:flex-row gap-10 items-center justify-between mb-14">
-      <figure class="overflow-hidden shadow-2xl rounded-2xl max-w-xl">
-        <img
-          transition:name={`project-${slug}`}
-          src={image}
-          alt={title}
-          class="w-full md:h-full object-cover rounded-2xl"
+<BaseLayout image={image} title={`Proyecto - ${slug}`} description={description}>
+  <Container>
+    <Section>
+      <nav class="max-w-4xl mx-auto h-14 flex items-center sm:justify-between justify-start">
+        <ul class="flex gap-2 items-center">
+          <CtaButton variant="text" ariaLabel="inicio" href="/">
+            inicio
+          </CtaButton>
+          <span class="text-faint font-mono">/</span>
+          <CtaButton variant="text" ariaLabel="projectos personales" href="/#projects">
+            projectos
+          </CtaButton>
+          <span class="text-faint font-mono">/</span>
+          <span class="text-lime font-mono text-xs tracking-wider">{slug}</span>
+        </ul>
+      </nav>
+      <ProjectHero slug={slug} image={image} type={type} date={formattedDate} title={title} />
+      <article class="py-5 grid sm:grid-cols-[minmax(0,1fr)_220px] gap-5 w-full">
+        <div class="min-w-0">
+          <div class="mb-5 animate-fade-up delay-1">
+            <h1 class="text-2xl font-medium text-ink leading-snug mb-2">
+              {title}
+            </h1>
+            {description && (
+              <p class="text-sm text-muted leading-relaxed">{description}</p>
+            )}
+          </div>
+          <TechPills technologies={technologies} />
+          <ProjectLinks githubUrl={githubUrl} demoUrl={demoUrl} variant="row" />
+          {images && images.length > 0 && (
+            <ProjectGallery images={images} title={title} />
+          )}
+          <div class="border-t border-line pt-5 mt-1">
+            <p class="text-[10px] tracking-widest uppercase text-muted mb-4 font-mono">Descripción general</p>
+            <div class="prose-project">
+              <Content />
+            </div>
+          </div>
+        </div>
+        <ProjectMeta
+          type={type}
+          date={formattedDate}
+          featured={featured}
+          technologies={technologies}
+          githubUrl={githubUrl}
+          demoUrl={demoUrl}
         />
-      </figure>
-      <div class="flex-5/12 flex flex-col gap-6 items-start justify-center w-full">
-        <div class="flex flex-wrap gap-3 mb-2">
-          {technologies.map(tech => {
-            const Icon = techComponents[tech]
-            return Icon ? (
-              <span class="flex items-center gap-2 px-3 py-1 bg-sky-900/40 rounded-full text-sky-300 text-sm font-medium shadow-sm">
-                <Icon class="size-6" />
-                {tech}
-              </span>
-            ) : (
-              <span class="px-3 py-1 bg-gray-700/40 rounded-full text-gray-200 text-sm">{tech}</span>
-            )
-          })}
-        </div>
-        <div class="flex gap-4">
-          {githubUrl && (
-            <CtaButton 
-              href={githubUrl} 
-              className="px-6" 
-              target="_blank"
-            >
-              <span class="size-5">
-                <GithubIcon />
-              </span>
-              Código
-            </CtaButton>
-          )}
-          {demoUrl && (
-            <CtaButton 
-              variant="secondary" 
-              href={demoUrl} 
-              className="px-6" 
-              target="_blank"
-            >
-              <span class="size-5">
-                <CodeIcon />
-              </span>
-              Demo
-            </CtaButton>
-          )}
-        </div>
-        <div class="text-gray-400 text-xs mt-2">
-          {date && <span>Publicado: {new Date(date).toLocaleDateString()}</span>}
-        </div>
-      </div>
-    </Section>
-
-    <Section className="prose max-w-4xl mx-auto prose-headings:text-text-primary prose-p:text-text-secondary prose-li:text-text-secondary prose-strong:text-sky-300 prose-a:text-sky-400 prose-a:underline hover:prose-a:text-sky-200 prose:img:rounded-xl prose-img:rounded-lg prose-table:text-text-secondary">
-      <Content />
+      </article>
     </Section>
   </Container>
-</Layout>
+
+
+  <footer class="border-t border-line mt-2" style="background: var(--color-surface);">
+    <div
+      class="mx-auto px-5 h-12 flex items-center justify-between"
+      style="max-width: var(--max-width);"
+    >
+      {prevProject ? (
+        <a
+          href={`/project/${prevProject.slug}`}
+          class="flex items-center gap-2 text-xs text-muted hover:text-ink transition-colors duration-200 font-mono group"
+        >
+          <span class="group-hover:-translate-x-0.5 transition-transform duration-200">←</span>
+          <span class="hidden sm:inline">{prevProject.data.title}</span>
+          <span class="sm:hidden">prev</span>
+        </a>
+      ) : (
+        <span />
+      )}
+
+      <a
+        href="/#projects"
+        class="text-[10px] tracking-widest uppercase text-faint hover:text-muted transition-colors duration-200 font-mono"
+      >
+        all projects
+      </a>
+
+      {nextProject ? (
+        <a
+          href={`/project/${nextProject.slug}`}
+          class="flex items-center gap-2 text-xs text-muted hover:text-ink transition-colors duration-200 font-mono group"
+        >
+          <span class="hidden sm:inline">{nextProject.data.title}</span>
+          <span class="sm:hidden">next</span>
+          <span class="group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+        </a>
+      ) : (
+        <span />
+      )}
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  /* ── Prose styles for Markdown content ── */
+  :global(.prose-project) {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    line-height: 1.75;
+  }
+
+  :global(.prose-project h1),
+  :global(.prose-project h2),
+  :global(.prose-project h3),
+  :global(.prose-project h4) {
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  :global(.prose-project h2) { font-size: 1rem; }
+  :global(.prose-project h3) { font-size: 0.9375rem; }
+
+  :global(.prose-project p) {
+    margin-bottom: 0.875rem;
+  }
+
+  :global(.prose-project a) {
+    color: var(--color-lime);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-lime-border);
+    transition: border-color 0.2s;
+  }
+  :global(.prose-project a:hover) {
+    border-color: var(--color-lime);
+  }
+
+  :global(.prose-project ul),
+  :global(.prose-project ol) {
+    padding-left: 1.25rem;
+    margin-bottom: 0.6rem;
+    list-style: disc;
+  }
+  :global(.prose-project li) {
+    /* margin-bottom: 0.25rem; */
+  }
+  :global(.prose-project ul li::marker) {
+    color: var(--color-lime);
+  }
+
+  :global(.prose-project code:not(pre code)) {
+    background: var(--color-surface2);
+    border: 1px solid var(--color-line2);
+    color: var(--color-lime);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    padding: 0.1em 0.45em;
+    border-radius: 4px;
+  }
+
+  :global(.prose-project pre) {
+    background: var(--color-surface) !important;
+    border: 1px solid var(--color-line2);
+    border-radius: 8px;
+    padding: 1rem 1.125rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+
+  :global(.prose-project pre code) {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--color-ink);
+  }
+
+  :global(.prose-project blockquote) {
+    border-left: 2px solid var(--color-lime-border);
+    padding-left: 1rem;
+    color: var(--color-muted);
+    font-style: italic;
+    margin: 1rem 0;
+  }
+
+  :global(.prose-project hr) {
+    border: none;
+    border-top: 1px solid var(--color-line);
+    margin: 1.5rem 0;
+  }
+
+  :global(.prose-project img) {
+    border-radius: 8px;
+    border: 1px solid var(--color-line2);
+    width: 100%;
+    object-fit: cover;
+  }
+
+  :global(.prose-project strong) {
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+</style>

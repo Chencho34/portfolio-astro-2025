@@ -1,27 +1,41 @@
 ---
-type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
+import { twMerge } from 'tailwind-merge'
 
 interface Props {
-  className?: string
-  variant?: ButtonVariant
   href: string
-  target?: '_blank' | '_self' | '_parent' | '_top'
+  variant?: 'primary' | 'solid' | 'ghost' | 'outline-sm' | 'text' | 'outline-sm-white'
+  target?: '_blank' | '_self' | "_parent"
+  download?: boolean
+  ariaLabel?: string
+  className?: string
+  rel?: string
 }
 
-const variantStyles: Record<ButtonVariant, string> = {
-  primary: ' bg-primary hover:bg-primary-hover text-white',
-  secondary: 'bg-transparent border border-gray-700 text-gray-300 hover:border-gray-600 hover:text-white',
-  tertiary: 'bg-transparent text-[#191919] hover:bg-gray-100'
+const { href, variant = 'ghost', target = '_self', download, ariaLabel, className, rel } = Astro.props
+
+const styles = {
+  primary: "bg-lime text-base font-semibold px-5 py-2.5 rounded-lg hover:opacity-85",
+  solid: "bg-ink text-base font-semibold px-5 py-2.5 rounded-lg hover:bg-white",
+  ghost: "border text-base border-line2 text-muted font-semibold px-5 py-2.5 rounded-lg hover:border-muted hover:text-ink",
+  'outline-sm': "font-mono text-xs border border-lime px-3 py-1.5 rounded-md hover:bg-lime hover:text-base tracking-wider",
+  'outline-sm-white': "font-mono text-xs border border px-3 py-1.5 rounded-md text-muted border-line2 tracking-wider hover:border-muted hover:text-ink",
+  text: "font-mono text-xs hover:text-lime transition-colors tracking-wider"
 }
 
-const { variant = 'primary', className = '', href, target } = Astro.props
+const computedRel = target === "_blank" ? rel ?? "noopener noreferrer" : rel;
 ---
 
-
-<a 
-  target={target}
+<a
+  class={
+    twMerge(`inline-flex items-center gap-1.5 text-sm transition-all 
+    ${styles[variant]} 
+    ${className}`)
+  }
   href={href}
-  class={`flex items-center justify-center gap-2.5 font-medium text-sm rounded-full transition-all duration-300 ease-in-out text-gray-200 hover:opacity-75 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-1 py-2.5 px-8 ${variantStyles[variant]} ${className}`}
+  target={target}
+  rel={computedRel}
+  download={download || undefined}
+  aria-label={ariaLabel}
 >
-  <slot/>
+  <slot />
 </a>

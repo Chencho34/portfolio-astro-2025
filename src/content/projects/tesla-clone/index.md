@@ -1,16 +1,21 @@
 ---
 title: "Web Tesla"
-description: "Este proyecto es un clon de la página principal de Tesla, creado para replicar su interfaz de usuario. Su estilo se basa en Styled Components, una biblioteca que permite escribir estilos directamente en los componentes de React, lo que facilita el desarrollo y el mantenimiento del diseño. Además, se ha implementado React Reveal para animaciones que mejoran la presentación de los componentes, proporcionando una experiencia visual atractiva."
-image: "/images/tesla-project.webp"
+description: "Clon de la página principal de Tesla desarrollado con React, Styled Components y Redux, que incorpora animaciones con React Reveal y replica una interfaz moderna con una experiencia visual atractiva y moderna."
+image: "./cover.webp"
 technologies: ["React", "MaterialUI", "Redux", "StyleComponents"]
 githubUrl: "https://github.com/Chencho34/tesla-clon"
-featured: true
+featured: false
+type: frontend
 date: 2024-01-04
 ---
 
-# Descripción General del Proyecto
+## Acerca de este proyecto
 
-Este proyecto es un clon de la página principal de Tesla, creado para replicar su interfaz de usuario. Su estilo se basa en Styled Components, una biblioteca que permite escribir estilos directamente en los componentes de React, lo que facilita el desarrollo y el mantenimiento del diseño. Además, se ha implementado React Reveal para animaciones que mejoran la presentación de los componentes, proporcionando una experiencia visual atractiva.
+Este proyecto consiste en un clon de la página principal de Tesla, desarrollado con **React**, enfocado en replicar su interfaz moderna y minimalista. La aplicación utiliza **Styled Components** para la gestión de estilos dentro de los componentes, lo que facilita el mantenimiento y escalabilidad del código.
+
+Además, se implementan animaciones mediante **React Reveal** para mejorar la experiencia visual y aportar dinamismo a la interfaz. La gestión del estado global se realiza con **Redux**, permitiendo un manejo estructurado de los datos y la lógica de la aplicación.
+
+---
 
 ## Caracteristicas
 
@@ -30,11 +35,27 @@ Este proyecto es un clon de la página principal de Tesla, creado para replicar 
 ## Screenshots
 
 ![tesla-clone](https://raw.githubusercontent.com/Chencho34/tesla-clon/main/public/screenshots/tesla-cap-01.png)
+
+---
+
 ![tesla-clone](https://raw.githubusercontent.com/Chencho34/tesla-clon/main/public/screenshots/tesla-cap-02.png)
+
+---
+
 ![tesla-clone](https://raw.githubusercontent.com/Chencho34/tesla-clon/main/public/screenshots/tesla-cap-03.png)
+
+---
+
 ![tesla-clone](https://raw.githubusercontent.com/Chencho34/tesla-clon/main/public/screenshots/tesla-cap-04.png)
+
+---
+
 ![tesla-clone](https://raw.githubusercontent.com/Chencho34/tesla-clon/main/public/screenshots/tesla-cap-05.png)
+
+---
+
 ![tesla-clone](https://raw.githubusercontent.com/Chencho34/tesla-clon/main/public/screenshots/tesla-cap-06.png)
+
+---
+
 ![tesla-clone](https://raw.githubusercontent.com/Chencho34/tesla-clon/main/public/screenshots/tesla-cap-07.png)
-
-

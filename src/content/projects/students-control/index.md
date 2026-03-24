@@ -1,16 +1,23 @@
 ---
-title: "Control de Estudiantes CRUD"
-description: "Aplicación web desarrollada con Blazor (.NET 8) para la gestión de estudiantes. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre un registro de estudiantes, utilizando Entity Framework Core y una base de datos SQL Server."
-image: "/images/preview-students-crud.webp"
-technologies: ["Net", "SQLServer", "Entity Framework", "Blazor"]
+title: "Sistema CRUD de Estudiantes"
+description: "Aplicación web de gestión de estudiantes desarrollada con Blazor y .NET 8, que implementa operaciones CRUD con Entity Framework Core y SQL Server, ofreciendo una interfaz moderna y funcional para la administración de datos."
+image: "./cover.webp"
+technologies: [".Net", "SQLServer", "Entity Framework", "Blazor"]
 githubUrl: "https://github.com/Chencho34/PruebaCRUD"
-featured: true
+featured: false
+type: frontend
 date: 2025-06-20
 ---
 
-# Descripción General del Proyecto
+## Acerca de este proyecto
 
-Aplicación web desarrollada con Blazor (.NET 8) para la gestión de estudiantes. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre un registro de estudiantes, utilizando Entity Framework Core y una base de datos SQL Server.
+Este proyecto consiste en una aplicación web desarrollada con **Blazor (.NET 8)** para la gestión de estudiantes, enfocada en implementar operaciones **CRUD** de manera eficiente. La solución utiliza **Entity Framework Core** junto con **SQL Server** para el manejo y persistencia de datos.
+
+La aplicación permite crear, visualizar, editar y eliminar registros de estudiantes, así como consultar información detallada de cada uno. Incluye **validaciones** en formularios y una interfaz moderna basada en **componentes** de **Syncfusion Blazor**, lo que mejora la experiencia del usuario.
+
+Además, la estructura del proyecto está organizada en componentes y páginas bien definidas, facilitando el mantenimiento, la escalabilidad y la separación de responsabilidades dentro de la aplicación.
+
+---
 
 ## Características
 
@@ -40,11 +47,16 @@ Aplicación web desarrollada con Blazor (.NET 8) para la gestión de estudiantes
 
 ## Capturas de pantalla
 
-### Listado, paginacion y funcionalidad CRUD
 ![Inicio](https://raw.githubusercontent.com/Chencho34/PruebaCRUD/main/images/inicio.png)
-### Formulario para crear y editar
+
+---
+
 ![Editar](https://raw.githubusercontent.com/Chencho34/PruebaCRUD/main/images/editar.png)
-### Pagina eliminar
+
+---
+
 ![Eliminar](https://raw.githubusercontent.com/Chencho34/PruebaCRUD/main/images/eliminar.png)
-### Pagina detalles
+
+---
+
 ![Detaller](https://raw.githubusercontent.com/Chencho34/PruebaCRUD/main/images/detalles.png)

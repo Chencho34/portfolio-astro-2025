@@ -26,6 +26,7 @@ import StyleComponents from './StyleComponents.astro'
 import MaterialUI from './MaterialUIIcon.astro'
 import Net from './NetIcon.astro'
 import SQLServer from './SQLServerIcon.astro'
+import Twilio from './TwilioIcon.astro'
 
 export {
   Astro,
@@ -55,5 +56,6 @@ export {
   StyleComponents,
   MaterialUI,
   Net,
-  SQLServer
+  SQLServer,
+  Twilio
 }
