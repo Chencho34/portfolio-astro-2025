@@ -1,6 +1,6 @@
 ---
 title: "Cart Shopping - API"
-description: "API de comercio electrónico desarrollada en Node.js/TypeScript que proporciona una solución backend completa para una aplicación de carrito de compras. Está diseñada para manejar autenticación de usuarios, gestión de productos y funcionalidad de carrito de compras."
+description: "API de comercio electrónico desarrollada con Node.js y TypeScript, que implementa autenticación JWT, gestión de productos y carrito de compras, utilizando PostgreSQL, Sequelize y una arquitectura modular escalable."
 image: "./cover.webp"
 technologies: ["Node", "Postgres", "Sequelize", "Express", "TypeScript", "Docker", "Jwt"]
 githubUrl: "https://github.com/Chencho34/shopping-cart-backend/tree/user-endpoints"
@@ -9,13 +9,21 @@ date: 2025-06-10
 type: "backend"
 ---
 
-# 🛍️ Descripción del Proyecto
+## Acerca de este proyecto
 
-Cart Shopping es una API de comercio electrónico desarrollada en Node.js/TypeScript que proporciona una solución backend completa para una aplicación de carrito de compras. Está diseñada para manejar autenticación de usuarios, gestión de productos y funcionalidad de carrito de compras.
+Cart Shopping es una API de comercio electrónico desarrollada con **Node.js** y **TypeScript**, diseñada para proporcionar una solución backend completa para una aplicación de carrito de compras. La arquitectura está basada en **Express** y organizada de forma **modular**, facilitando la escalabilidad y el mantenimiento del sistema.
 
-## 🏗️ Arquitectura & Stack Tecnológico
+La API incluye **autenticación** de usuarios mediante **JWT**, permitiendo registro e inicio de sesión seguros, así como control de acceso basado en roles. Además, gestiona la creación, actualización y consulta de productos, junto con la funcionalidad de carrito de compras.
 
-**⚙️ Tecnologías Principales:**
+Para la persistencia de datos se utiliza **PostgreSQL** junto con **Sequelize** como ORM, permitiendo definir modelos y relaciones de manera estructurada. El proyecto también integra **validación de datos** con **Joi**, manejo centralizado de errores y una estructura clara basada en capas (controladores, servicios y rutas).
+
+Adicionalmente, el entorno de desarrollo está configurado con **Docker**, lo que facilita la ejecución y despliegue del proyecto de forma consistente.
+
+---
+
+## Arquitectura & Stack Tecnológico
+
+**Tecnologías Principales:**
 *  **Runtime:** Node.js con TypeScript
 *  **Framework:** Express.js v5.1.0
 *  **Base de Datos:** PostgreSQL con Sequelize ORM
@@ -23,7 +31,7 @@ Cart Shopping es una API de comercio electrónico desarrollada en Node.js/TypeSc
 *  **Validación:** Joi para validación de requests
 *  **Desarrollo:** Docker Compose para containerización
 
-**📦 Dependencias Clave:**
+**Dependencias Clave:**
 
 ```json
 "bcryptjs": "^3.0.2",        // Password hashing
@@ -35,7 +43,7 @@ Cart Shopping es una API de comercio electrónico desarrollada en Node.js/TypeSc
 "pg": "^8.16.0"              // PostgreSQL driver
 ```
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```bash
 src/
@@ -50,33 +58,32 @@ src/
 └── utils/          # Utility functions
 ```
 
-## 🗄️ Esquema de Base de Datos
+## Esquema de Base de Datos
 
-**👤 Modelo User:**
+**Modelo User:**
 Campos: id, username (único), email (único), password (hasheado), role (user/admin). Características: Control de acceso basado en roles, constraints únicos.
 
-**📦 Modelo Product:**
+**Modelo Product:**
 Campos: id, name, description, category, price, discount, stock, imageUrl. Categorías: electronics, gaming, audio, video, smartphones, smart home. Características: Precio con decimales, gestión de stock, validación de URL.
 
-**🛍️ Modelo Cart:**
+**Modelo Cart:**
 Campos: id, userId, productId, quantity. Relaciones: Muchos-a-muchos entre Users y Products. Características: Validación de cantidad (mín: 1).
 
-## 🔌 API Endpoints
+## API Endpoints
 
-**🔐 Rutas de Autenticación (/api/auth):**
+**Rutas de Autenticación (/api/auth):**
 
 ```ts
 POST /auth/register  # User registration
 POST /auth/login     # User login (returns JWT)
 ```
 
-**📁 Archivos de Rutas Adicionales:**
-* **user.routes.ts** - User management
-* **products.routes.ts** - Product CRUD operations  
-* **cart.routes.ts** - Shopping cart functionality
+**Archivos de Rutas Adicionales:**
+* `user.routes.ts` - User management
+* `products.routes.ts` - Product CRUD operations  
+* `cart.routes.ts` - Shopping cart functionality
 
-
-## 🐳 Configuración Docker
+## Configuración Docker
 
 El proyecto incluye una **configuración Docker completa:**
 * Contenedor PostgreSQL 17 Alpine para base de datos
@@ -85,16 +92,16 @@ El proyecto incluye una **configuración Docker completa:**
 * **Volúmenes:** Almacenamiento persistente de base de datos
 * **Puertos:** 3000 para (backend) y 5433 para (PostgreSQL).
 
-## 🔧 Características de Desarrollo
+## Características de Desarrollo
 
-* **⚡ Hot Reload:** ts-node-dev para desarrollo
-* **🧹 Linting:** Configuración TypeScript Standard
-* **🧠 Type Safety:** Implementación completa TypeScript con tipos estrictos
-* **🚨 Manejo de Errores:** Middleware centralizado de manejo de errores
-* **🧾 Validación:** Validación de requests usando esquemas Joi
-* **🪵 Logging:** Morgan para logging de requests HTTP
+* **Hot Reload:** ts-node-dev para desarrollo
+* **Linting:** Configuración TypeScript Standard
+* **Type Safety:** Implementación completa TypeScript con tipos estrictos
+* **Manejo de Errores:** Middleware centralizado de manejo de errores
+* **Validación:** Validación de requests usando esquemas Joi
+* **Logging:** Morgan para logging de requests HTTP
 
-## 🚀 Getting Started
+## Getting Started
 
 ```bash
 # Development mode
@@ -108,11 +115,11 @@ npm start
 docker-compose up
 ```
 
-## 📊 Estado Actual
+## Estado Actual
 
 * ✅ Sistema de autenticación principal implementado
 * ✅ Modelos de base de datos y relaciones definidas
 * ✅ Containerización con Docker lista
 * ✅ Configuración TypeScript completa
 * ✅ Estructura básica de API establecida
-* 🔄 Conexión a base de datos con lógica de reintento implementada
+* 🔄  Conexión a base de datos con lógica de reintento implementada

@@ -1,17 +1,21 @@
 ---
 title: "Landing Page KTM"
-description: "Inspirado en la web oficial de KTM, utilizando HTML5 y CSS3 como tecnologías principales. Presenta una interfaz minimalista y moderna. La página consta de una imagen principal donde se muestra al usuario una presentación y una galería de tarjetas minimalistas que muestran las diferentes motocicletas."
+description: "Landing page inspirada en KTM, desarrollada con HTML5 y CSS3, enfocada en un diseño moderno y minimalista, con una sección principal destacada y una galería de tarjetas que presentan distintos modelos de motocicletas."
 image: "./cover.webp"
-technologies: ["Html", "Css", "JavaScript"]
+technologies: ["HTML5", "CSS3", "JavaScript"]
 githubUrl: "https://github.com/Chencho34/ktm-web-page "
 featured: false
 date: 2022-07-06
 type: frontend
 ---
 
-# Descripción General del Proyecto
+## Acerca de este proyecto
 
-Este proyecto se basa en el concepto de diseño inspirado en la web oficial de KTM, utilizando HTML5 y CSS3 como tecnologías principales. Presenta una interfaz minimalista y moderna. La página consta de una imagen principal donde se muestra al usuario una presentación y una galería de tarjetas minimalistas que muestran las diferentes motocicletas. Además, incluye un pie de página con información relevante y datos de contacto.
+Este proyecto consiste en una landing page inspirada en la web oficial de KTM, desarrollada con **HTML5** y **CSS3** como tecnologías principales. Se enfoca en ofrecer una interfaz moderna, limpia y minimalista, cuidando la composición visual y la experiencia del usuario.
+
+La página incluye una sección principal (hero) con una imagen destacada que introduce el contenido, seguida de una galería de tarjetas minimalistas que muestran distintos modelos de motocicletas, organizadas de forma clara y atractiva. Además, se incorpora un pie de página con información relevante y datos de contacto, manteniendo una estructura sencilla pero funcional.
+
+---
 
 ## Proyecto Creado Con HTML5 (Semantic) & CSS3 (BEM)
 
@@ -28,6 +32,15 @@ En este proyecto, utilizo tecnologías HTML5 aplicando una semántica sólida pa
 ## Screenshots
 
 ![Texto alternativo](https://raw.githubusercontent.com/Chencho34/ktm-web-page/main/images/ktm-cap-01.png)
+
+---
+
 ![Texto alternativo](https://raw.githubusercontent.com/Chencho34/ktm-web-page/main/images/ktm-cap-02.png)
+
+---
+
 ![Texto alternativo](https://raw.githubusercontent.com/Chencho34/ktm-web-page/main/images/ktm-cap-03.png)
+
+---
+
 ![Texto alternativo](https://raw.githubusercontent.com/Chencho34/ktm-web-page/main/images/ktm-cap-04.png)

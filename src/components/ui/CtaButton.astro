@@ -3,7 +3,7 @@ import { twMerge } from 'tailwind-merge'
 
 interface Props {
   href: string
-  variant?: 'primary' | 'solid' | 'ghost' | 'outline-sm' | 'text'
+  variant?: 'primary' | 'solid' | 'ghost' | 'outline-sm' | 'text' | 'outline-sm-white'
   target?: '_blank' | '_self' | "_parent"
   download?: boolean
   ariaLabel?: string
@@ -16,8 +16,9 @@ const { href, variant = 'ghost', target = '_self', download, ariaLabel, classNam
 const styles = {
   primary: "bg-lime text-base font-semibold px-5 py-2.5 rounded-lg hover:opacity-85",
   solid: "bg-ink text-base font-semibold px-5 py-2.5 rounded-lg hover:bg-white",
-  ghost: "border border-line2 text-muted font-medium px-5 py-2.5 rounded-lg hover:border-muted hover:text-ink",
+  ghost: "border text-base border-line2 text-muted font-semibold px-5 py-2.5 rounded-lg hover:border-muted hover:text-ink",
   'outline-sm': "font-mono text-xs border border-lime px-3 py-1.5 rounded-md hover:bg-lime hover:text-base tracking-wider",
+  'outline-sm-white': "font-mono text-xs border border px-3 py-1.5 rounded-md text-muted border-line2 tracking-wider hover:border-muted hover:text-ink",
   text: "font-mono text-xs hover:text-lime transition-colors tracking-wider"
 }
 

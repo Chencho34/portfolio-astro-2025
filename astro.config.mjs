@@ -3,10 +3,22 @@ import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://portfolio-astro-2025-ten.vercel.app/',
+  site: 'https://chencho-dev.vercel.app/',
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: undefined
+        }
+      }
+    }
   },
+
+  integrations: [sitemap()],
 });

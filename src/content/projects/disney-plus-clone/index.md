@@ -1,6 +1,6 @@
 ---
-title: "Disney Plus - Clone"
-description: "Este proyecto es un clon de la app de Disney Plus, desarrollado React y Redux. Está diseñado para replicar la interfaz de usuario de Disney Plus y cuenta con funciones de inicio y cierre de sesión mediante la integración con Firebase para el registro de usuarios."
+title: "Clone de Disney+"
+description: "Clon funcional de Disney+ desarrollado con React y Redux, que integra autenticación de usuarios con Firebase y consume datos dinámicos, replicando la interfaz y experiencia de usuario de la plataforma original."
 image: "./cover.webp"
 technologies: ["React", "Redux", "ReactRouter", "StyleComponents", "Firebase"]
 githubUrl: "https://github.com/Chencho34/disney-plus-clone-app"
@@ -9,9 +9,15 @@ type: "fullstack"
 date: 2023-03-12
 ---
 
-# Descripcion General del Proyecto
+## Acerca de este proyecto
 
-Este proyecto es un clon de la app de Disney Plus, desarrollado con React y Redux. Está diseñado para replicar la interfaz de usuario de Disney Plus y cuenta con funciones de inicio y cierre de sesión mediante la integración con Firebase para el registro de usuarios. La información sobre las películas, incluyendo sus características, descripciones y contenido, se aloja en Firebase, y este proyecto es un consumidor de dicha información para su manipulación.
+Este proyecto consiste en un clon de la aplicación de Disney+, desarrollado con **React** y **Redux**, enfocado en replicar tanto la interfaz como la experiencia de usuario de la plataforma original. Se implementa un sistema de autenticación de usuarios utilizando **Firebase**, permitiendo el registro, inicio y cierre de sesión de manera segura.
+
+Además, la aplicación consume datos dinámicos almacenados en Firebase, incluyendo información de películas como descripciones, características y contenido, lo que permite simular el comportamiento real de una plataforma de streaming. La **gestión del estado global** se maneja con Redux, facilitando la organización y el control de la información dentro de la aplicación.
+
+El proyecto también incorpora **enrutamiento** para la navegación entre distintas vistas, ofreciendo una experiencia fluida e intuitiva para el usuario.
+
+---
 
 ## Soporte Node.js
 
@@ -31,20 +37,24 @@ node -v
 ## Librerias utilizadas
 
 * [Styled Components](https://styled-components.com/)
-
 * [React Slick](https://react-slick.neostack.com/)
-
 * [React Router Dom](https://reactrouter.com/en/main)
-
 * [Firebase](https://www.npmjs.com/package/firebase)
-
 * [Redux](https://redux.js.org/)
-
 * [Redux Toolkit](https://redux-toolkit.js.org/)
 
-## Capturas de pantalla
+## Screenshots
 
 ![cap-home-disney-plus-clone-app](https://raw.githubusercontent.com/Chencho34/disney-plus-clone-app/main/public/images/dp-cap-01.png)
+
+----
+
 ![cap-movies-disney-plus-clone-app](https://raw.githubusercontent.com/Chencho34/disney-plus-clone-app/main/public/images/dp-cap-02.png)
+
+----
+
 ![cap-movie-plus-clone-app](https://raw.githubusercontent.com/Chencho34/disney-plus-clone-app/main/public/images/dp-cap-03.png)
+
+----
+
 ![cap-login-plus-clone-app](https://raw.githubusercontent.com/Chencho34/disney-plus-clone-app/main/public/images/dp-cap-04.png)

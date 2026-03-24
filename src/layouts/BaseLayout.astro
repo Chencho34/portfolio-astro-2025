@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css"
-import '@fontsource-variable/outfit'
-import '@fontsource-variable/ibm-plex-sans'
+import '@fontsource-variable/outfit/index.css'
+import '@fontsource-variable/ibm-plex-sans/index.css'
 
 import { BaseHead, Nav } from '../components/ui'
 import { ClientRouter } from 'astro:transitions'
@@ -22,7 +22,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <BaseHead title={title} description={description} image={image} />
     <ClientRouter />

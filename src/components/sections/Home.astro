@@ -11,7 +11,7 @@ import DevArmandoCV from "/ArmandoCrescencio_CV26.pdf"
       <article class="relative z-10 max-w-3xl mx-auto">
         <h1 class="animate-fade-up delay-2 font-bold leading-[0.95] tracking-tighter mb-6 text-[clamp(3.2rem,10vw,7rem)]">
           <span class="text-ink block animate-fade-up">Armando</span>
-          <span class="block" style="color:transparent;-webkit-text-stroke:1px #aadd55" >Crescencio</span>
+          <span class="block text-outline">Crescencio</span>
         </h1>
         <section class="animate-fade-up delay-3 flex items-center justify-center gap-3 mb-7">
           <span class="h-px w-12 bg-line2"></span>
@@ -26,24 +26,27 @@ import DevArmandoCV from "/ArmandoCrescencio_CV26.pdf"
             variant="solid"
             href="https://github.com/Chencho34"
             target="_blank"
+            ariaLabel="Ver perfil de GitHub de Chencho34"
           >
-            <GithubIcon class:list="w-4" />
+            <GithubIcon class:list="w-4" aria-hidden="true"/>
             <span class="md:inline hidden">Github</span>
           </CtaButton>
           <CtaButton
             variant="ghost"
             href="https://www.linkedin.com/in/armando-cr/"
             target="_blank"
+            ariaLabel="Ver perfil de LinkedIn de Armando"
           >
-            <LinkedinIcon class:list="w-4" />
+            <LinkedinIcon class:list="w-4" aria-hidden="true"/>
             <span class="md:inline hidden">LinkedIn</span>
           </CtaButton>
           <CtaButton 
             variant="primary" 
             href={DevArmandoCV}
             download
+            ariaLabel="Descargar CV de Armando"
           >
-            <DownloadIcon class:list="w-4" />
+            <DownloadIcon class:list="w-4" aria-hidden="true"/>
             <span>Descargar CV</span>
           </CtaButton>
         </section>

@@ -21,16 +21,15 @@ const { title, description, image, technologies } = project.data;
   />
   <fugure class="w-full sm:w-[45%] shrink-0 overflow-hidden bg-black">
     <Image
-      src={image}
-      alt={`Screenshot of`}
-      width={900}
-      height={500}
-      format='webp'
-      class="w-full h-48 sm:h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+      src={image}      
+      alt={`Screenshot of ${title}`}
+      width="640"
+      height="360"
+      quality={75}
       loading="lazy"
       decoding="async"
-      width="640"
-      height="400"
+      format='webp'
+      class="sm:h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
       transition:name={`project-${slug}`}
     />
   </fugure>

@@ -30,6 +30,7 @@ const accentColor = type ? (typeColors[type] ?? typeColors.other) : typeColors.o
       alt={`${title} preview`}
       class="object-cover"
       loading="eager"
+      fetchpriority="high"
     />
   ) : (
     <!-- Placeholder pattern when no image -->
