@@ -8,6 +8,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://chencho-dev.vercel.app',
+  compressHTML: true,
   vite: {
     plugins: [tailwindcss()],
     build: {
@@ -19,6 +20,7 @@ export default defineConfig({
       }
     }
   },
-
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    filter: (page) => !page.includes('/components')
+  })],
 });
