@@ -1,5 +1,4 @@
 import { z, defineCollection } from 'astro:content'
-import { ImageMetadata } from 'astro'
 
 const projectsCollection = defineCollection({
   type: 'content',
