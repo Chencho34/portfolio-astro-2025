@@ -1,46 +1,25 @@
-# Astro Starter Kit: Basics
 
-```sh
-npm create astro@latest -- --template basics
-```
+# 🌐 Chencho Dev - Portafolio Personal
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Bienvenido a mi portafolio personal 🚀  
+Un espacio donde muestro mis proyectos, habilidades y mi enfoque en el desarrollo web moderno, está hecho con [Astro](https://astro.build/) y [tailwindCSS](https://tailwindcss.com/) 
 
-## 🚀 Project Structure
+🔗 Demo en vivo: https://chencho-dev.vercel.app/
 
-Inside of your Astro project, you'll see the following folders and files:
+---
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## 🧑‍💻 Sobre mí
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Soy un desarrollador apasionado por la tecnología, enfocado en crear soluciones web modernas, eficientes y atractivas.  
+Me interesa el desarrollo frontend y backend, así como el aprendizaje continuo de nuevas herramientas.
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## 📷 Capturas
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+![Hero](public/previewpage.jpg)
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📬 Contacto
+* Portafolio: https://chencho-dev.vercel.app/
+* GitHub: https://github.com/tu-usuario
+* Email: tu-email@example.com
