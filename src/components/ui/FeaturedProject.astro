@@ -38,19 +38,21 @@ const imageLeft = featuredIndex % 2 === 0;
       ]}
   >
     { image && 
-      <Image
-        src={image}
-        alt={`Screenshot of ${title}`}
-        width={960}
-        height={540}
-        widths={[320, 640, 960]}
-        sizes="(max-width: 480px) 320px, (max-width: 1024px) 640px, 960px"
-        quality={80}
-        loading="lazy"
-        format='webp'
-        class="sm:h-full object-cover object-top-left transition-transform duration-500 group-hover:scale-[1.04]"
-        transition:name={`project-${slug}`}
-      />
+      <a href={`/project/${slug}`} tabindex="-1" aria-hidden="true">
+        <Image
+          src={image}
+          alt={`Screenshot of ${title}`}
+          width={960}
+          height={540}
+          widths={[320, 640, 960]}
+          sizes="(max-width: 480px) 320px, (max-width: 1024px) 640px, 960px"
+          quality={80}
+          loading="lazy"
+          format='webp'
+          class="sm:h-full object-cover object-top-left transition-transform duration-500 group-hover:scale-[1.04]"
+          transition:name={`project-${slug}`}
+        />
+      </a>
     }
     {type && (    
       <span
