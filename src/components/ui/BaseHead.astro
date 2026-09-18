@@ -7,12 +7,18 @@ interface Props {
   title: string
   description?: string
   image?: ImageMetadata
+  ogType?: string
+  robots?: string
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[]
 }
 
 const { 
   title,
   description = 'Ingeniero Informático y Full Stack Developer. Especializado en React, Node.js y TypeScript. Ve mis proyectos y contáctame.', 
-  image 
+  image,
+  ogType = 'website',
+  robots = 'index, follow',
+  jsonLd
 } = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href
@@ -28,7 +34,7 @@ const ogImage = image
 
 <!-- Global Metadata -->
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32"   href="/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="48x48"   href="/favicon-48.png" />
@@ -49,7 +55,8 @@ const ogImage = image
 <meta name="keywords" content="armando crescencio, chencho34, full stack developer mexico, react developer, node.js developer, typescript developer, nextjs developer, astro framework, tailwindcss, desarrollador web fullstack, ingeniero informatico, veracruz mexico, desarrollador remoto, freelance developer mexico, api restful, postgresql developer" />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={ogType} />
+<meta property="og:locale" content="es_MX" />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
@@ -58,41 +65,13 @@ const ogImage = image
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL} />
+<meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 
-<meta name="robots" content="index, follow" />
+<meta name="robots" content={robots} />
 
-<!-- JSON-LD Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://chencho-dev.vercel.app/#person",
-  "name": "Armando Crescencio",
-  "alternateName": "Chencho34",
-  "url": "https://chencho-dev.vercel.app/",
-  "image": "https://chencho-dev.vercel.app/avatar.webp",
-  "jobTitle": "Full Stack Developer",
-  "description": "Ingeniero Informático y Full Stack Developer. Especializado en React, Node.js y TypeScript. Basado en México, disponible remotamente. Ve mis proyectos y contáctame.",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "armandocrescencio343@gmail.com",
-    "contactType": "personal"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Veracruz",
-    "addressRegion": "Veracruz",
-    "addressCountry": "MX"
-  },
-  "sameAs": [
-    "https://github.com/Chencho34",
-    "https://www.linkedin.com/in/armando-cr/"
-  ],
-  "knowsAbout": [
-    "React", "Node.js", "TypeScript", "Next.js",
-    "Astro", "TailwindCSS", "PostgreSQL", "Docker"
-  ]
-})} />
+{jsonLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+)}
