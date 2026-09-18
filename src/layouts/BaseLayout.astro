@@ -11,12 +11,16 @@ interface Props {
   title?: string
   description?: string
   image: ImageMetadata
+  ogType?: string
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[]
 }
 
 const {
   title = 'Portfolio',
   description = 'My personal portfolio',
-  image
+  image,
+  ogType,
+  jsonLd
 } = Astro.props
 
 ---
@@ -24,7 +28,7 @@ const {
 <!doctype html>
 <html lang="es">
   <head>
-    <BaseHead title={title} description={description} image={image} />
+    <BaseHead title={title} description={description} image={image} ogType={ogType} jsonLd={jsonLd} />
     <ClientRouter />
   </head>
   <body class="bg-base text-ink antialiased">

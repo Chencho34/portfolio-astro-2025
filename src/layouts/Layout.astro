@@ -9,17 +9,68 @@ import { BaseHead, Footer, Nav } from "../components/ui";
 interface Props {
 	title: string
 	description: string
+	robots?: string
+	jsonLd?: Record<string, unknown> | Record<string, unknown>[] | null
 }
 
-const { title, description } = Astro.props
+const defaultJsonLd = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebSite",
+			"@id": "https://chencho-dev.vercel.app/#website",
+			"url": "https://chencho-dev.vercel.app/",
+			"name": "Armando Crescencio Portfolio",
+			"description": "Ingeniero Informático y Full Stack Developer. Especializado en React, Node.js y TypeScript. Basado en México, disponible remotamente.",
+			"inLanguage": "es-MX",
+			"publisher": {
+				"@id": "https://chencho-dev.vercel.app/#person"
+			}
+		},
+		{
+			"@type": "Person",
+			"@id": "https://chencho-dev.vercel.app/#person",
+			"name": "Armando Crescencio",
+			"alternateName": "Chencho34",
+			"url": "https://chencho-dev.vercel.app/",
+			"image": "https://chencho-dev.vercel.app/avatar.webp",
+			"jobTitle": "Full Stack Developer",
+			"description": "Ingeniero Informático y Full Stack Developer. Especializado en React, Node.js y TypeScript. Basado en México, disponible remotamente. Ve mis proyectos y contáctame.",
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"email": "armandocrescencio343@gmail.com",
+				"contactType": "personal"
+			},
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Veracruz",
+				"addressRegion": "Veracruz",
+				"addressCountry": "MX"
+			},
+			"sameAs": [
+				"https://github.com/Chencho34",
+				"https://www.linkedin.com/in/armando-cr/"
+			],
+			"knowsAbout": [
+				"React", "Node.js", "TypeScript", "Next.js",
+				"Astro", "TailwindCSS", "PostgreSQL", "Docker"
+			]
+		}
+	]
+}
+
+const { title, description, robots, jsonLd = defaultJsonLd } = Astro.props
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
-		<BaseHead 
+		<BaseHead 	
 			title={title} 
-			description={description} 
+			description={description}
+			robots={robots}
+			ogType="website"
+			jsonLd={jsonLd ?? undefined}
 		/>
 		<ClientRouter />
 	</head>

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /components
 
 Sitemap: https://chencho-dev.vercel.app/sitemap-index.xml

@@ -32,9 +32,24 @@ const nextProject = currentIndex > 0 ? sorted[currentIndex - 1] : null
 const formattedDate = date
   ? new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' }).format(date)
   : null
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": title,
+  "description": description,
+  "url": new URL(Astro.url.pathname, Astro.site).href,
+  "image": {
+    "@type": "ImageObject",
+    "url": new URL(image.src, Astro.site).href
+  },
+  "author": {
+    "@id": "https://chencho-dev.vercel.app/#person"
+  }
+}
 ---
 
-<BaseLayout image={image} title={`${title} | Armando Crescencio`} description={description}>
+<BaseLayout image={image} title={`${title} | Armando Crescencio`} description={description} ogType="article" jsonLd={jsonLd}>
   <Container>
     <Section>
       <nav class="max-w-4xl mx-auto h-14 flex items-center sm:justify-between justify-start">
